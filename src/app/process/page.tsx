@@ -124,7 +124,7 @@ function Build() {
         author={{ name: 'Debra Fiscal', role: 'CEO of Unseal' }}
         className="mt-12"
       >
-        Studio were so regular with their progress updates we almost began to
+        SeriesLab were so regular with their progress updates we almost began to
         think they were automated!
       </Blockquote>
     </Section>

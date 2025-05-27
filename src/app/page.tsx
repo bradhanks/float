@@ -162,7 +162,7 @@ function Services() {
               used for the past six years.
             </ListItem>
             <ListItem title="Custom content management">
-              At Studio we understand the importance of having a robust and
+              At SeriesLab we understand the importance of having a robust and
               customised CMS. That’s why we run all of our client projects out
               of a single, enormous Joomla instance.
             </ListItem>
@@ -179,7 +179,7 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  let caseStudies = (await loadCaseStudies()).slice(0, 3)
+  const caseStudies = (await loadCaseStudies()).slice(0, 3)
 
   return (
     <RootLayout>
@@ -204,7 +204,7 @@ export default async function Home() {
         className="mt-24 sm:mt-32 lg:mt-40"
         client={{ name: 'Phobia', logo: logoPhobiaDark }}
       >
-        The team at Studio went above and beyond with our onboarding, even
+        The team at SeriesLab went above and beyond with our onboarding, even
         finding a way to access the user’s microphone without triggering one of
         those annoying permission dialogs.
       </Testimonial>

@@ -15,7 +15,7 @@ function TextInput({
   label,
   ...props
 }: React.ComponentPropsWithoutRef<'input'> & { label: string }) {
-  let id = useId()
+  const id = useId()
 
   return (
     <div className="group relative z-0 transition-all focus-within:z-10">

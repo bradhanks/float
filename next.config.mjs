@@ -17,12 +17,12 @@ const nextConfig = {
 }
 
 function remarkMDXLayout(source, metaName) {
-  let parser = Parser.extend(jsx())
-  let parseOptions = { ecmaVersion: 'latest', sourceType: 'module' }
+  const parser = Parser.extend(jsx())
+  const parseOptions = { ecmaVersion: 'latest', sourceType: 'module' }
 
   return (tree) => {
-    let imp = `import _Layout from '${source}'`
-    let exp = `export default function Layout(props) {
+    const imp = `import _Layout from '${source}'`
+    const exp = `export default function Layout(props) {
       return <_Layout {...props} ${metaName}={${metaName}} />
     }`
 
@@ -42,11 +42,11 @@ function remarkMDXLayout(source, metaName) {
 }
 
 export default async function config() {
-  let highlighter = await shiki.getHighlighter({
+  const highlighter = await shiki.getHighlighter({
     theme: 'css-variables',
   })
 
-  let withMDX = nextMDX({
+  const withMDX = nextMDX({
     extension: /\.mdx$/,
     options: {
       recmaPlugins: [recmaImportImages],

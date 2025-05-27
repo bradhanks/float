@@ -58,7 +58,7 @@ function Header({
   toggleRef: React.RefObject<HTMLButtonElement>
   invert?: boolean
 }) {
-  let { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
+  const { logoHovered, setLogoHovered } = useContext(RootLayoutContext)!
 
   return (
     <Container>
@@ -155,13 +155,13 @@ function Navigation() {
 }
 
 function RootLayoutInner({ children }: { children: React.ReactNode }) {
-  let panelId = useId()
-  let [expanded, setExpanded] = useState(false)
-  let [isTransitioning, setIsTransitioning] = useState(false)
-  let openRef = useRef<React.ElementRef<'button'>>(null)
-  let closeRef = useRef<React.ElementRef<'button'>>(null)
-  let navRef = useRef<React.ElementRef<'div'>>(null)
-  let shouldReduceMotion = useReducedMotion()
+  const panelId = useId()
+  const [expanded, setExpanded] = useState(false)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const openRef = useRef<React.ElementRef<'button'>>(null)
+  const closeRef = useRef<React.ElementRef<'button'>>(null)
+  const navRef = useRef<React.ElementRef<'div'>>(null)
+  const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
     function onClick(event: MouseEvent) {
@@ -191,7 +191,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
         <div
           className="absolute top-2 right-0 left-0 z-40 pt-14"
           aria-hidden={expanded ? 'true' : undefined}
-          // @ts-ignore (https://github.com/facebook/react/issues/17157)
+          //@ts-expect-error (https://github.com/facebook/react/issues/17157)
           inert={expanded ? '' : undefined}
         >
           <Header
@@ -215,7 +215,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           style={{ height: expanded ? 'auto' : '0.5rem' }}
           className="relative z-50 overflow-hidden bg-neutral-950 pt-2"
           aria-hidden={expanded ? undefined : 'true'}
-          // @ts-ignore (https://github.com/facebook/react/issues/17157)
+          //@ts-expect-error (https://github.com/facebook/react/issues/17157)
           inert={expanded ? undefined : ''}
         >
           <motion.div layout className="bg-neutral-800">
@@ -286,8 +286,8 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
 }
 
 export function RootLayout({ children }: { children: React.ReactNode }) {
-  let pathname = usePathname()
-  let [logoHovered, setLogoHovered] = useState(false)
+  const pathname = usePathname()
+  const [logoHovered, setLogoHovered] = useState(false)
 
   return (
     <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>

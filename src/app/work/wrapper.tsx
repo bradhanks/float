@@ -15,8 +15,8 @@ export default async function CaseStudyLayout({
   caseStudy: MDXEntry<CaseStudy>
   children: React.ReactNode
 }) {
-  let allCaseStudies = await loadCaseStudies()
-  let moreCaseStudies = allCaseStudies
+  const allCaseStudies = await loadCaseStudies()
+  const moreCaseStudies = allCaseStudies
     .filter(({ metadata }) => metadata !== caseStudy)
     .slice(0, 2)
 
