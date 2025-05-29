@@ -6,3 +6,9 @@
   font-stretch: 75% 125%;
   src: url('../fonts/Mona-Sans.var.woff2') format('woff2');
 }
+
+@supports not (backdrop-filter: blur(12px)) {
+  .blur-xl {
+    filter: blur(24px);
+  }
+}
