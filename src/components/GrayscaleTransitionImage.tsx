@@ -2,14 +2,8 @@
 
 import { useRef } from 'react'
 import Image, { type ImageProps } from 'next/image'
-import {
-  motion,
-  useMotionTemplate,
-  useScroll,
-  useTransform,
-} from 'framer-motion'
-
-const MotionImage = motion(Image)
+import { useMotionTemplate, useScroll, useTransform } from 'framer-motion'
+import { MotionImage } from '@/components/MotionWrapper'
 
 export function GrayscaleTransitionImage(
   props: Pick<
@@ -28,7 +22,7 @@ export function GrayscaleTransitionImage(
     <div ref={ref} className="group relative">
       <MotionImage alt="" style={{ filter }} {...props} />
       <div
-        className="pointer-events-none absolute top-0 left-0 w-full opacity-0 transition duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute left-0 top-0 w-full opacity-0 transition duration-300 group-hover:opacity-100"
         aria-hidden="true"
       >
         <Image alt="" {...props} />

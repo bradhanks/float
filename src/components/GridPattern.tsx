@@ -98,8 +98,12 @@ export function GridPattern({
             key={`${block}`}
             x={block[0]}
             y={block[1]}
-            fill={index % 2 === 0 ? 'rgba(16, 185, 129, 0.1)' : 'rgba(16, 185, 129, 0.05)'}
-            className="hover:fill-emerald-400/20 transition-colors duration-300"
+            fill={
+              index % 2 === 0
+                ? 'rgba(16, 185, 129, 0.1)'
+                : 'rgba(16, 185, 129, 0.05)'
+            }
+            className="transition-colors duration-300 hover:fill-emerald-400/20"
           />
         ))}
         {hoveredBlocks.map((block) => (

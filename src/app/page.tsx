@@ -16,11 +16,11 @@ import { ListClients, clients } from '@/lib/clients'
 
 function Clients() {
   return (
-    <div className="mt-24 rounded-4xl bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
+    <div className="rounded-4xl mt-24 bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
       <Container>
         <FadeIn className="flex items-center gap-x-8">
-          <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
-            We’ve worked with hundreds of amazing people
+          <h2 className="font-display text-center text-sm font-semibold tracking-wider text-white sm:text-left">
+            We&apos;ve worked with hundreds of amazing people
           </h2>
           <div className="h-px flex-auto bg-neutral-800" />
         </FadeIn>
@@ -49,8 +49,8 @@ function CaseStudies({
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          We believe technology is the answer to the world’s greatest
-          challenges. It’s also the cause, so we find ourselves in bit of a
+          We believe technology is the answer to the world&apos;s greatest
+          challenges. It&apos;s also the cause, so we find ourselves in bit of a
           catch 22 situation.
         </p>
       </SectionIntro>
@@ -82,7 +82,7 @@ function CaseStudies({
                   </span>
                   <span>Case study</span>
                 </p>
-                <p className="mt-6 font-display text-2xl font-semibold text-neutral-950">
+                <p className="font-display mt-6 text-2xl font-semibold text-neutral-950">
                   {caseStudy.title}
                 </p>
                 <p className="mt-4 text-base text-neutral-600">
@@ -113,7 +113,7 @@ function Services() {
       <Container className="mt-16">
         <div className="lg:flex lg:items-center lg:justify-end">
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
-            <FadeIn className="w-135 flex-none lg:w-180">
+            <FadeIn className="w-135 lg:w-180 flex-none">
               <StylizedImage
                 src={imageLaptop}
                 sizes="(min-width: 1024px) 41rem, 31rem"
@@ -121,7 +121,7 @@ function Services() {
               />
             </FadeIn>
           </div>
-          <List className="mt-16 lg:mt-0 lg:w-1/2 lg:min-w-132 lg:pl-4">
+          <List className="lg:min-w-132 mt-16 lg:mt-0 lg:w-1/2 lg:pl-4">
             <ListItem title="Web development">
               We specialise in crafting beautiful, high quality marketing pages.
               The rest of the website will be a shell that uses lorem ipsum
@@ -133,12 +133,12 @@ function Services() {
             </ListItem>
             <ListItem title="E-commerce">
               We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we’ve
+              mainly means adding your logo to the Shopify store template we&apos;ve
               used for the past six years.
             </ListItem>
             <ListItem title="Custom content management">
               At SeriesLab we understand the importance of having a robust and
-              customised CMS. That’s why we run all of our client projects out
+              customised CMS. That&apos;s why we run all of our client projects out
               of a single, enormous Joomla instance.
             </ListItem>
           </List>
@@ -160,7 +160,7 @@ export default async function Home() {
     <RootLayout>
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
-          <h1 className="font-display text-5xl font-medium tracking-tight text-balance text-neutral-950 sm:text-7xl">
+          <h1 className="font-display text-balance text-5xl font-medium tracking-tight text-neutral-950 sm:text-7xl">
             B2B SaaS startup valuation consulting
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
@@ -183,7 +183,7 @@ export default async function Home() {
         client={{ name: clients.lucid.name, logo: clients.lucid.logoLight }}
       >
         The team at SeriesLab went above and beyond with our onboarding, even
-        finding a way to access the user’s microphone without triggering one of
+        finding a way to access the user&apos;s microphone without triggering one of
         those annoying permission dialogs.
       </Testimonial>
 

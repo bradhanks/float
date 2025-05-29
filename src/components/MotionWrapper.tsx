@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import { motion, type motionValue } from 'framer-motion'
 
@@ -12,3 +12,4 @@ export const MotionH2 = motion.h2
 export const MotionP = motion.p
 export const MotionPath = motion.path
 export const MotionSvg = motion.svg
+export const MotionImage = motion.create('motion.img')

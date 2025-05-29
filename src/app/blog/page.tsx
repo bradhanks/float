@@ -41,9 +41,9 @@ export default async function Blog() {
                       <h2 className="font-display text-2xl font-semibold text-neutral-950">
                         <Link href={article.href}>{article.title}</Link>
                       </h2>
-                      <dl className="lg:absolute lg:top-0 lg:left-0 lg:w-1/3 lg:px-4">
+                      <dl className="lg:absolute lg:left-0 lg:top-0 lg:w-1/3 lg:px-4">
                         <dt className="sr-only">Published</dt>
-                        <dd className="absolute top-0 left-0 text-sm text-neutral-950 lg:static">
+                        <dd className="absolute left-0 top-0 text-sm text-neutral-950 lg:static">
                           <time dateTime={article.date}>
                             {formatDate(article.date)}
                           </time>
