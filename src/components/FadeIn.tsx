@@ -1,5 +1,5 @@
 'use client'
-import { MotionDiv, MotionSpan } from '@/components/MotionWrapper'
+import { MotionDiv } from '@/components/MotionWrapper'
 
 import { createContext, useContext } from 'react'
 import { useReducedMotion } from 'framer-motion'
