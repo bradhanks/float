@@ -96,7 +96,11 @@ function Clients() {
       <FadeIn>
         <h2 className="font-display text-2xl font-semibold text-neutral-950">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
           You're in good company
+=======
+          You&apos;re in good company
+>>>>>>> Stashed changes
 =======
           You&apos;re in good company
 >>>>>>> Stashed changes
