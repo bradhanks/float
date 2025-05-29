@@ -1,20 +1,21 @@
 'use client'
+import { MotionDiv, MotionSpan } from '@/components/MotionWrapper'
 
 import { createContext, useContext } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { useReducedMotion } from 'framer-motion'
 
 const FadeInStaggerContext = createContext(false)
 
 const viewport = { once: true, margin: '0px 0px -200px' }
 
 export function FadeIn(
-  props: React.ComponentPropsWithoutRef<typeof motion.div>,
+  props: React.ComponentPropsWithoutRef<typeof MotionDiv>,
 ) {
   const shouldReduceMotion = useReducedMotion()
   const isInStaggerGroup = useContext(FadeInStaggerContext)
 
   return (
-    <motion.div
+    <MotionDiv
       variants={{
         hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 24 },
         visible: { opacity: 1, y: 0 },
@@ -23,10 +24,10 @@ export function FadeIn(
       {...(isInStaggerGroup
         ? {}
         : {
-            initial: 'hidden',
-            whileInView: 'visible',
-            viewport,
-          })}
+          initial: 'hidden',
+          whileInView: 'visible',
+          viewport,
+        })}
       {...props}
     />
   )
@@ -35,10 +36,10 @@ export function FadeIn(
 export function FadeInStagger({
   faster = false,
   ...props
-}: React.ComponentPropsWithoutRef<typeof motion.div> & { faster?: boolean }) {
+}: React.ComponentPropsWithoutRef<typeof MotionDiv> & { faster?: boolean }) {
   return (
     <FadeInStaggerContext.Provider value={true}>
-      <motion.div
+      <MotionDiv
         initial="hidden"
         whileInView="visible"
         viewport={viewport}

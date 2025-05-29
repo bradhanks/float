@@ -11,7 +11,9 @@ import {
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
-import { motion, MotionConfig, useReducedMotion } from 'framer-motion'
+import { MotionDiv } from '@/components/MotionWrapper'
+
+import { MotionConfig, useReducedMotion } from 'framer-motion'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
@@ -232,7 +234,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           />
         </div>
 
-        <motion.div
+        <MotionDiv
           layout
           id={panelId}
           style={{ height: expanded ? 'auto' : '0.5rem' }}
@@ -240,7 +242,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           aria-hidden={expanded ? undefined : 'true'}
           inert={expanded ? undefined : true}
         >
-          <motion.div layout className="bg-neutral-800">
+          <MotionDiv layout className="bg-neutral-800">
             <div ref={navRef} className="bg-neutral-950 pt-14 pb-16">
               <Header
                 invert
@@ -280,16 +282,16 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                 </div>
               </Container>
             </div>
-          </motion.div>
-        </motion.div>
+          </MotionDiv>
+        </MotionDiv>
       </header>
 
-      <motion.div
+      <MotionDiv
         layout
         style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
         className="relative flex flex-auto overflow-hidden bg-white pt-14"
       >
-        <motion.div
+        <MotionDiv
           layout
           className="relative isolate flex w-full flex-col pt-9"
         >
@@ -305,8 +307,8 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           <main className="w-full flex-auto">{children}</main>
 
           <Footer />
-        </motion.div>
-      </motion.div>
+        </MotionDiv>
+      </MotionDiv>
     </MotionConfig>
   )
 }
