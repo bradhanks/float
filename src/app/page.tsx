@@ -133,13 +133,13 @@ function Services() {
             </ListItem>
             <ListItem title="E-commerce">
               We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template we&apos;ve
-              used for the past six years.
+              mainly means adding your logo to the Shopify store template
+              we&apos;ve used for the past six years.
             </ListItem>
             <ListItem title="Custom content management">
               At SeriesLab we understand the importance of having a robust and
-              customised CMS. That&apos;s why we run all of our client projects out
-              of a single, enormous Joomla instance.
+              customised CMS. That&apos;s why we run all of our client projects
+              out of a single, enormous Joomla instance.
             </ListItem>
           </List>
         </div>
@@ -183,8 +183,8 @@ export default async function Home() {
         client={{ name: clients.lucid.name, logo: clients.lucid.logoLight }}
       >
         The team at SeriesLab went above and beyond with our onboarding, even
-        finding a way to access the user&apos;s microphone without triggering one of
-        those annoying permission dialogs.
+        finding a way to access the user&apos;s microphone without triggering
+        one of those annoying permission dialogs.
       </Testimonial>
 
       <Services />
