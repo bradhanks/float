@@ -132,13 +132,24 @@ function NavigationItem({
   href: string
   children: React.ReactNode
 }) {
+  const pathname = usePathname()
+  const isActive = pathname === href
+
   return (
     <Link
       href={href}
-      className="group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16"
+      className={clsx(
+        "group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16",
+        isActive && "bg-emerald-900/20"
+      )}
     >
-      {children}
       <span className="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
+      <span className={clsx(
+        "relative after:absolute after:left-0 after:bottom-2 after:h-1 after:w-full after:origin-left after:scale-x-0 after:bg-emerald-400 after:transition-transform after:duration-300 group-hover:after:scale-x-100",
+        isActive && "after:scale-x-100"
+      )}>
+        {children}
+      </span>
     </Link>
   )
 }
@@ -286,7 +297,10 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
             className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-neutral-50 stroke-neutral-950/5"
             yOffset={-96}
             interactive
+            // Add subtle emerald accents to the pattern
+            stroke="url(#emeraldGradient)"
           />
+
 
           <main className="w-full flex-auto">{children}</main>
 

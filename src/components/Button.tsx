@@ -5,9 +5,9 @@ type ButtonProps = {
   invert?: boolean
   type?: 'primary' | 'secondary'
 } & (
-    | React.ComponentPropsWithoutRef<typeof Link>
-    | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined })
-  )
+  | React.ComponentPropsWithoutRef<typeof Link>
+  | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined })
+)
 
 export function Button({
   invert = false,
@@ -16,16 +16,20 @@ export function Button({
   children,
   ...props
 }: ButtonProps) {
-  const baseClasses = 'inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition-all duration-200 ease-in-out border border-transparent'
+  const baseClasses = 'inline-flex rounded-full px-4 py-1.5 text-sm font-semibold transition-all duration-200 ease-in-out border'
 
   const primaryClasses = clsx(
-    'bg-neutral-900 text-white hover:bg-white hover:text-neutral-900 hover:border-neutral-900',
-    'dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-900 dark:hover:text-white dark:hover:border-white'
+    'bg-neutral-900 text-white hover:bg-white hover:text-neutral-900 border-neutral-900',
+    'active:bg-emerald-500 active:border-emerald-500 active:text-white',
+    'dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-900 dark:hover:text-white dark:border-white',
+    'dark:active:bg-emerald-600 dark:active:border-emerald-600'
   )
 
   const secondaryClasses = clsx(
     'bg-white text-neutral-900 border-neutral-900 hover:bg-neutral-900 hover:text-white',
-    'dark:bg-neutral-900 dark:text-white dark:border-white dark:hover:bg-white dark:hover:text-neutral-900'
+    'active:bg-emerald-500 active:border-emerald-500 active:text-white',
+    'dark:bg-neutral-900 dark:text-white dark:border-white dark:hover:bg-white dark:hover:text-neutral-900',
+    'dark:active:bg-emerald-600 dark:active:border-emerald-600'
   )
 
   className = clsx(
