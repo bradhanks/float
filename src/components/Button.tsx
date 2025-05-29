@@ -3,15 +3,15 @@ import clsx from 'clsx'
 
 type ButtonProps = {
   invert?: boolean
-  type?: 'primary' | 'secondary'
+  mode?: 'primary' | 'secondary'
 } & (
-  | React.ComponentPropsWithoutRef<typeof Link>
-  | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined })
-)
+    | React.ComponentPropsWithoutRef<typeof Link>
+    | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined })
+  )
 
 export function Button({
   invert = false,
-  type = 'primary',
+  mode = 'primary',
   className,
   children,
   ...props
@@ -36,10 +36,10 @@ export function Button({
     className,
     baseClasses,
     invert
-      ? type === 'primary'
+      ? mode === 'primary'
         ? secondaryClasses
         : primaryClasses
-      : type === 'primary'
+      : mode === 'primary'
         ? primaryClasses
         : secondaryClasses
   )
