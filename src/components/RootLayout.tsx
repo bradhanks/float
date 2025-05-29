@@ -19,6 +19,8 @@ import { Footer } from '@/components/Footer'
 import { GridPattern } from '@/components/GridPattern'
 import { Logo, Logomark } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
+import { QuickContact } from '@/components/QuickContact'
+
 import { SocialMedia } from '@/components/SocialMedia'
 
 const RootLayoutContext = createContext<{
@@ -82,7 +84,11 @@ function Header({
         </Link>
         <div className="flex items-center gap-x-8">
           <Button href="/contact" invert={invert}>
-            Contact us
+            Schedule call
+          </Button>
+
+          <Button href="/contact" invert={invert}>
+            Schedule call
           </Button>
           <button
             ref={toggleRef}
@@ -143,12 +149,12 @@ function Navigation() {
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
-        <NavigationItem href="/work">Our Work</NavigationItem>
-        <NavigationItem href="/about">About Us</NavigationItem>
+        <NavigationItem href="/services/martech-solutions">Martech Solutions</NavigationItem>
+        <NavigationItem href="/services/user-growth">User Growth</NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/process">Our Process</NavigationItem>
-        <NavigationItem href="/blog">Blog</NavigationItem>
+        <NavigationItem href="/services/attribution-analytics">Attribution</NavigationItem>
+        <NavigationItem href="/services/fractional-cmo">Fractional CMO</NavigationItem>
       </NavigationRow>
     </nav>
   )
@@ -250,9 +256,11 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                   </div>
                   <div className="sm:border-l sm:border-transparent sm:pl-16">
                     <h2 className="font-display text-base font-semibold text-white">
-                      Follow us
                     </h2>
-                    <SocialMedia className="mt-6" invert />
+                    <QuickContact
+                      invert
+                      className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
+                    />
                   </div>
                 </div>
               </Container>

@@ -7,36 +7,33 @@ import { socialMediaProfiles } from '@/components/SocialMedia'
 
 const navigation = [
   {
-    title: 'Work',
+    title: 'Services',
     links: [
-      { title: 'FamilyFund', href: '/work/family-fund' },
-      { title: 'Unseal', href: '/work/unseal' },
-      { title: 'Phobia', href: '/work/phobia' },
-      {
-        title: (
-          <>
-            See all <span aria-hidden="true">&rarr;</span>
-          </>
-        ),
-        href: '/work',
-      },
+      { title: 'Fractional CMO', href: '/services/fractional-cmo' },
+      { title: 'User Growth', href: '/services/user-growth' },
+      { title: 'Martech Solutions', href: '/services/martech-solutions' },
+      { title: 'Attribution & Analytics', href: '/services/attribution-analytics' },
+    ],
+  },
+  {
+    title: 'Customers',
+    links: [
+      { title: 'Lucid Software', href: '/customers/lucid-software' },
+      { title: 'NewtonX', href: '/customers/newtonx' },
+      { title: 'Zight', href: '/customers/zight' },
+      { title: 'Einblick', href: '/customers/einblick-ai' },
     ],
   },
   {
     title: 'Company',
     links: [
-      { title: 'About', href: '/about' },
-      { title: 'Process', href: '/process' },
+      { title: 'About Us', href: '/about' },
       { title: 'Blog', href: '/blog' },
+      { title: 'What about AI?', href: '/blog/b2b-saas-startup-ai' },
       { title: 'Contact us', href: '/contact' },
     ],
   },
-  {
-    title: 'Connect',
-    links: socialMediaProfiles,
-  },
 ]
-
 function Navigation() {
   return (
     <nav>
@@ -85,8 +82,7 @@ function NewsletterForm() {
         Sign up for our newsletter
       </h2>
       <p className="mt-4 text-sm text-neutral-700">
-        Subscribe to get the latest design news, articles, resources and
-        inspiration.
+        Subscribe for insights on growth strategy, Martech stacks, and data-driven marketing.
       </p>
       <div className="relative mt-6">
         <input

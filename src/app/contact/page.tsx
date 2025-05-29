@@ -8,7 +8,7 @@ import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { Offices } from '@/components/Offices'
 import { PageIntro } from '@/components/PageIntro'
-import { SocialMedia } from '@/components/SocialMedia'
+import { QuickContact } from '@/components/QuickContact'
 import { RootLayout } from '@/components/RootLayout'
 
 function TextInput({
@@ -113,8 +113,8 @@ function ContactDetails() {
         </h2>
         <dl className="mt-6 grid grid-cols-1 gap-8 text-sm sm:grid-cols-2">
           {[
-            ['Careers', 'careers@studioagency.com'],
-            ['Press', 'press@studioagency.com'],
+            ['General Inquires', 'admin@seedtoseries.com'],
+            ['Press', 'press@seedtoseries.com'],
           ].map(([label, email]) => (
             <div key={email}>
               <dt className="font-semibold text-neutral-950">{label}</dt>
@@ -133,9 +133,8 @@ function ContactDetails() {
 
       <Border className="mt-16 pt-16">
         <h2 className="font-display text-base font-semibold text-neutral-950">
-          Follow us
         </h2>
-        <SocialMedia className="mt-6" />
+        <QuickContact className="mt-6" />
       </Border>
     </FadeIn>
   )
@@ -149,7 +148,7 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Contact us" title="Let’s work together">
+      <PageIntro eyebrow="Let's talk." title="Let’s work together">
         <p>We can’t wait to hear from you.</p>
       </PageIntro>
 

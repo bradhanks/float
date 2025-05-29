@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 
-function Office({
+function Contact({
   name,
   children,
   invert = false,
@@ -25,28 +25,19 @@ function Office({
   )
 }
 
-export function Offices({
+export function QuickContact({
   invert = false,
   ...props
 }: React.ComponentPropsWithoutRef<'ul'> & { invert?: boolean }) {
   return (
     <ul role="list" {...props}>
       <li>
-        <Office name="Salt Lake City" invert={invert}>
-          2701 Thanksgiving Drive
+        <Contact name="Got a quick question?" invert={invert}>
+          brad@seedtoservice.com
           <br />
-          Lehi, Utah 84043
-        </Office>
+          650 407 4090
+        </Contact>
       </li>
-
-      <li>
-        <Office name="San Francisco" invert={invert}>
-          2701 Thanksgiving Drive
-          <br />
-          Redwood City, CA 84043
-        </Office>
-      </li>
-
     </ul>
   )
 }
