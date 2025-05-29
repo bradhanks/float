@@ -1,3 +1,6 @@
+
+import { MotionDiv, MotionP, MotionSpan } from '@/components/MotionWrapper'
+
 import { type Metadata } from 'next'
 import Image from 'next/image'
 
@@ -24,6 +27,7 @@ import imageMichaelFoster from '@/images/team/michael-foster.jpg'
 import imageWhitneyFrancis from '@/images/team/whitney-francis.jpg'
 import { loadArticles } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
+
 
 function Culture() {
   return (
@@ -149,25 +153,79 @@ function Team() {
                   className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8"
                 >
                   {group.people.map((person) => (
-                    <li key={person.name}>
+                    <MotionSpan
+                      key={person.name}
+                      initial="rest"
+                      whileHover="hover"
+                      className="relative"
+                    >
                       <FadeIn>
-                        <div className="group relative overflow-hidden rounded-3xl bg-neutral-100">
-                          <Image
-                            alt=""
-                            {...person.image}
-                            className="h-96 w-full object-cover grayscale transition duration-500 motion-safe:group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 flex flex-col justify-end bg-linear-to-t from-black to-black/0 to-40% p-6">
-                            <p className="font-display text-base/6 font-semibold tracking-wide text-white">
-                              {person.name}
-                            </p>
-                            <p className="mt-2 text-sm text-white">
-                              {person.role}
-                            </p>
-                          </div>
-                        </div>
+                        <MotionDiv
+                          className="group relative overflow-hidden rounded-3xl bg-neutral-100"
+                          variants={{
+                            rest: { scale: 1 },
+                            hover: { scale: 1.03 }
+                          }}
+                          transition={{
+                            duration: 0.4,
+                            ease: [0.19, 1, 0.22, 1]
+                          }}
+                        >
+                          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                        </MotionDiv>
+                        <MotionDiv
+                          className="absolute inset-0 z-0"
+                          variants={{
+                            rest: { opacity: 0 },
+                            hover: { opacity: 1 }
+                          }}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-emerald-800/20" />
+                          <div className="absolute inset-0 bg-[radial-gradient(at_center_center,rgba(16,185,129,0.1),transparent_70%)]" />
+                        </MotionDiv>
+
+                        <Image
+                          alt=""
+                          {...person.image}
+                          className="h-96 w-full object-cover grayscale transition duration-500 group-hover:grayscale-0"
+                        />
+
+                        <MotionDiv
+                          className="absolute inset-0 z-20 flex flex-col justify-end p-6"
+                          variants={{
+                            rest: { y: 0 },
+                            hover: { y: -20 }
+                          }}
+                        >
+                          <MotionP
+                            className="font-display text-base/6 font-semibold tracking-wide text-white"
+                            variants={{
+                              rest: { opacity: 1 },
+                              hover: { opacity: 0.8 }
+                            }}
+                          >
+                            {person.name}
+                          </MotionP>
+                          <MotionP
+                            className="mt-2 text-sm text-white"
+                            variants={{
+                              rest: { opacity: 0.7 },
+                              hover: { opacity: 1 }
+                            }}
+                          >
+                            {person.role}
+                          </MotionP>
+                        </MotionDiv>
                       </FadeIn>
-                    </li>
+
+                      <MotionDiv
+                        className="absolute -inset-4 z-0 rounded-3xl bg-emerald-500/10 opacity-0 blur-xl group-hover:opacity-100 transition-opacity duration-300"
+                        variants={{
+                          rest: { scale: 0.9 },
+                          hover: { scale: 1 }
+                        }}
+                      />
+                    </MotionSpan>
                   ))}
                 </ul>
               </div>
@@ -175,10 +233,9 @@ function Team() {
           </FadeInStagger>
         ))}
       </div>
-    </Container>
+    </Container >
   )
 }
-
 export const metadata: Metadata = {
   title: 'About Us',
   description:
@@ -203,7 +260,7 @@ export default async function About() {
             differently by charging triple instead.
           </p>
           <p>
-            At SeriesLab , we’re more than just colleagues — we’re a family.
+            At SeriesLab , we&apos;re more than just colleagues — we&apos;re a family.
             This means we pay very little and expect people to work late. We
             want our employees to bring their whole selves to work. In return,
             we just ask that they keep themselves there until at least 6:30pm.
