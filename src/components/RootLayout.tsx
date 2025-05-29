@@ -16,13 +16,14 @@ import { MotionDiv } from '@/components/MotionWrapper'
 import { MotionConfig, useReducedMotion } from 'framer-motion'
 
 import { Button } from '@/components/Button'
+import { PostHogButton } from '@/components/PostHogButton'
+
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { GridPattern } from '@/components/GridPattern'
 import { Logo, Logomark } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { QuickContact } from '@/components/QuickContact'
-import { PostHogProvider } from '@/app/providers'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -91,6 +92,10 @@ function Header({
           <Button href="/contact" mode="secondary" invert={invert}>
             Schedule call
           </Button>
+          <PostHogButton invert={invert} href="/signup">
+            Get started
+          </PostHogButton>
+
           <button
             ref={toggleRef}
             type="button"
@@ -161,7 +166,7 @@ function NavigationItem({
 
 function Navigation() {
   return (
-    <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
+    <nav className="font-display mt-px text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
         <NavigationItem href="/services/martech-solutions">
           Martech Solutions
@@ -217,7 +222,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
     >
       <header>
         <div
-          className="absolute top-2 right-0 left-0 z-40 pt-14"
+          className="absolute left-0 right-0 top-2 z-40 pt-14"
           aria-hidden={expanded ? 'true' : undefined}
           //@ts-expect-error (https://github.com/facebook/react/issues/17157)
           inert={expanded ? '' : undefined}
@@ -246,7 +251,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           inert={expanded ? undefined : true}
         >
           <MotionDiv layout className="bg-neutral-800">
-            <div ref={navRef} className="bg-neutral-950 pt-14 pb-16">
+            <div ref={navRef} className="bg-neutral-950 pb-16 pt-14">
               <Header
                 invert
                 panelId={panelId}
@@ -265,7 +270,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
             <Navigation />
             <div className="relative bg-neutral-950 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-neutral-800">
               <Container>
-                <div className="grid grid-cols-1 gap-y-10 pt-10 pb-16 sm:grid-cols-2 sm:pt-16">
+                <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
                   <div>
                     <h2 className="font-display text-base font-semibold text-white">
                       Our offices
@@ -299,7 +304,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           className="relative isolate flex w-full flex-col pt-9"
         >
           <GridPattern
-            className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-neutral-50 stroke-neutral-950/5"
+            className="mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full fill-neutral-50 stroke-neutral-950/5"
             yOffset={-96}
             interactive
             // Add subtle emerald accents to the pattern
@@ -321,9 +326,7 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
-      <PostHogProvider>
-        <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
-      </PostHogProvider>
+      <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
     </RootLayoutContext.Provider>
   )
 }

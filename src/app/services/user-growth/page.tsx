@@ -29,7 +29,7 @@ function Section({
     <Container className="group/section [counter-increment:section]">
       <div className="lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20">
         <div className="flex justify-center">
-          <FadeIn className="w-135 flex-none lg:w-180">
+          <FadeIn className="w-135 lg:w-180 flex-none">
             <StylizedImage
               {...image}
               sizes="(min-width: 1024px) 41rem, 31rem"
@@ -37,13 +37,13 @@ function Section({
             />
           </FadeIn>
         </div>
-        <div className="mt-12 lg:mt-0 lg:w-148 lg:flex-none lg:group-even/section:order-first">
+        <div className="lg:w-148 mt-12 lg:mt-0 lg:flex-none lg:group-even/section:order-first">
           <FadeIn>
             <div
               className="font-display text-base font-semibold before:text-neutral-300 before:content-['/_'] after:text-neutral-950 after:content-[counter(section,decimal-leading-zero)]"
               aria-hidden="true"
             />
-            <h2 className="mt-2 font-display text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">
+            <h2 className="font-display mt-2 text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">
               {title}
             </h2>
             <div className="mt-6">{children}</div>
@@ -65,7 +65,7 @@ function Discover() {
           what makes their business tick.
         </p>
         <p>
-          Our team of private investigators shadow the company director’s for
+          Our team of private investigators shadow the company director&apos;s for
           several weeks while our account managers focus on going through their
           trash. Our senior security experts then perform social engineering
           hacks to gain access to their{' '}
@@ -80,7 +80,7 @@ function Discover() {
         </p>
       </div>
 
-      <h3 className="mt-12 font-display text-base font-semibold text-neutral-950">
+      <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
         Included in this phase
       </h3>
       <TagList className="mt-4">
@@ -108,7 +108,7 @@ function Build() {
         <p>
           Each client is assigned a key account manager to keep lines of
           communication open and obscure the actual progress of the project.
-          They act as a buffer between the client’s incessant nagging and the
+          They act as a buffer between the client&apos;s incessant nagging and the
           development team who are hard at work scouring open source projects
           for code to re-purpose.
         </p>
@@ -164,13 +164,13 @@ function Deliver() {
         </p>
       </div>
 
-      <h3 className="mt-12 font-display text-base font-semibold text-neutral-950">
+      <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
         Included in this phase
       </h3>
       <List className="mt-8">
         <ListItem title="Testing">
           Our projects always have 100% test coverage, which would be impressive
-          if our tests weren’t as porous as a sieve.
+          if our tests weren&apos;t as porous as a sieve.
         </ListItem>
         <ListItem title="Infrastructure">
           To ensure reliability we only use the best Digital Ocean droplets that
@@ -188,9 +188,9 @@ function Deliver() {
 function Values() {
   return (
     <div className="relative mt-24 pt-24 sm:mt-32 sm:pt-32 lg:mt-40 lg:pt-40">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden rounded-t-4xl bg-linear-to-b from-neutral-50">
+      <div className="rounded-t-4xl bg-linear-to-b absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden from-neutral-50">
         <GridPattern
-          className="absolute inset-0 h-full w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-neutral-100 stroke-neutral-950/5"
+          className="mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] absolute inset-0 h-full w-full fill-neutral-100 stroke-neutral-950/5"
           yOffset={-270}
         />
       </div>
@@ -253,7 +253,7 @@ export default function UserGrowth() {
         <p>
           We believe in efficiency and maximizing our resources to provide the
           best value to our clients. The primary way we do that is by re-using
-          the same five projects we’ve been developing for the past decade.
+          the same five projects we&apos;ve been developing for the past decade.
         </p>
       </PageIntro>
 

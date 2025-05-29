@@ -32,8 +32,8 @@ export function StatListItem({
           scaleY: 1,
           transition: {
             duration: 0.5,
-            ease: [0.19, 1, 0.22, 1]
-          }
+            ease: [0.19, 1, 0.22, 1],
+          },
         }}
       />
 
@@ -41,7 +41,7 @@ export function StatListItem({
         className="mt-2 text-base text-neutral-600"
         whileHover={{
           x: 8,
-          transition: { duration: 0.3 }
+          transition: { duration: 0.3 },
         }}
       >
         {label}
@@ -54,8 +54,8 @@ export function StatListItem({
           x: 4,
           transition: {
             duration: 0.4,
-            ease: "backOut"
-          }
+            ease: 'backOut',
+          },
         }}
       >
         {value}

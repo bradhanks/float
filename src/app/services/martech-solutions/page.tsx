@@ -95,7 +95,7 @@ function Clients() {
     <Container className="mt-24 sm:mt-32 lg:mt-40">
       <FadeIn>
         <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          You’re in good company
+          You&apos;re in good company
         </h2>
       </FadeIn>
       <FadeInStagger className="mt-10" faster>
@@ -129,7 +129,7 @@ export default async function Work() {
         <p>
           You are flush with cash and ready to start throwing money at reputable
           vendors, right? Not so fast. Martech is a minefield of complexity and
-          confusion, and it’s easy to get lost in the weeds. We help you
+          confusion, and it&apos;s easy to get lost in the weeds. We help you
           navigate this landscape, ensuring you get the most out of your
           marketing technology investments. We will help you indeityt the right
           tools, and where you can make do with open source solutions for the

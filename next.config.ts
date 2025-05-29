@@ -1,3 +1,5 @@
+import type { NextConfig } from 'next'
+
 import nextMDX from '@next/mdx'
 import { Parser } from 'acorn'
 import jsx from 'acorn-jsx'
@@ -9,8 +11,8 @@ import { remarkRehypeWrap } from 'remark-rehype-wrap'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
 import { unifiedConditional } from 'unified-conditional'
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
+  turbopack: {},
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   async rewrites() {
     return [
@@ -78,7 +80,9 @@ export default async function config() {
         [
           unifiedConditional,
           [
-            new RegExp(`^${escapeStringRegexp(path.resolve('src/app/blog'))}`),
+            new RegExp(
+              `^${escapeStringRegexp(path.resolve('./src/app/blog'))}`,
+            ),
             [[remarkMDXLayout, '@/app/blog/wrapper', 'article']],
           ],
           [
