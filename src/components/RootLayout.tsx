@@ -22,6 +22,7 @@ import { GridPattern } from '@/components/GridPattern'
 import { Logo, Logomark } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { QuickContact } from '@/components/QuickContact'
+import { PostHogProvider } from '@/app/providers'
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -141,15 +142,17 @@ function NavigationItem({
     <Link
       href={href}
       className={clsx(
-        "group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16",
-        isActive && "bg-emerald-900/20"
+        'group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16',
+        isActive && 'bg-emerald-900/20',
       )}
     >
       <span className="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
-      <span className={clsx(
-        "relative after:absolute after:left-0 after:bottom-2 after:h-1 after:w-full after:origin-left after:scale-x-0 after:bg-emerald-400 after:transition-transform after:duration-300 group-hover:after:scale-x-100",
-        isActive && "after:scale-x-100"
-      )}>
+      <span
+        className={clsx(
+          'relative after:absolute after:bottom-2 after:left-0 after:h-1 after:w-full after:origin-left after:scale-x-0 after:bg-emerald-400 after:transition-transform after:duration-300 group-hover:after:scale-x-100',
+          isActive && 'after:scale-x-100',
+        )}
+      >
         {children}
       </span>
     </Link>
@@ -303,7 +306,6 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
             stroke="url(#emeraldGradient)"
           />
 
-
           <main className="w-full flex-auto">{children}</main>
 
           <Footer />
@@ -319,7 +321,9 @@ export function RootLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <RootLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
-      <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
+      <PostHogProvider>
+        <RootLayoutInner key={pathname}>{children}</RootLayoutInner>
+      </PostHogProvider>
     </RootLayoutContext.Provider>
   )
 }

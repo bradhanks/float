@@ -23,6 +23,8 @@
     "escape-string-regexp": "^5.0.0",
     "fast-glob": "^3.3.3",
     "framer-motion": "^12.15.0",
+    "posthog-js": "^1.248.1",
+    "posthog-node": "^4.18.0",
     "recma-import-images": "0.0.3",
     "rehype-shiki": "^0.0.9",
     "rehype-unwrap-images": "^1.0.0",
