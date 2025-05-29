@@ -81,11 +81,11 @@ function Header({
           />
         </Link>
         <div className="flex items-center gap-x-8">
-          <Button href="/contact" invert={invert}>
+          <Button href="/contact" type="primary" invert={invert}>
             Schedule call
           </Button>
 
-          <Button href="/contact" invert={invert}>
+          <Button href="/contact" type="secondary" invert={invert}>
             Schedule call
           </Button>
           <button
