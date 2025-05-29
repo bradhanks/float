@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next'
 
 import nextMDX from '@next/mdx'
-import { Parser } from 'acorn'
+import { Parser, Options as AcornOptions } from 'acorn'
 import jsx from 'acorn-jsx'
 import escapeStringRegexp from 'escape-string-regexp'
 import * as path from 'path'
@@ -34,11 +34,11 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
 }
 
-function remarkMDXLayout(source, metaName) {
+function remarkMDXLayout(source: string, metaName: string) {
   const parser = Parser.extend(jsx())
-  const parseOptions = { ecmaVersion: 'latest', sourceType: 'module' }
+  const parseOptions: AcornOptions = { ecmaVersion: 'latest', sourceType: 'module' }
 
-  return (tree) => {
+  return (tree: { children: Array<{ type: string, value: string, data: any }> }) => {
     const imp = `import _Layout from '${source}'`
     const exp = `export default function Layout(props) {
       return <_Layout {...props} ${metaName}={${metaName}} />
