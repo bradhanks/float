@@ -84,7 +84,13 @@ export const MDXComponents = {
   Typography({ className, ...props }: React.ComponentPropsWithoutRef<'div'>) {
     return <div className={clsx('typography', className)} {...props} />
   },
-  wrapper({ className, searchParams, ...props }: React.ComponentPropsWithoutRef<'div'> & { searchParams?: Record<string, string> }) {
+  wrapper({
+    className,
+    searchParams,
+    ...props
+  }: React.ComponentPropsWithoutRef<'div'> & {
+    searchParams?: Record<string, string>
+  }) {
     return (
       <div
         className={clsx(
@@ -94,5 +100,5 @@ export const MDXComponents = {
         {...props}
       />
     )
-  }
+  },
 }
