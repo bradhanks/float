@@ -96,7 +96,6 @@ function Clients() {
       <FadeIn>
         <h2 className="font-display text-2xl font-semibold text-neutral-950">
           You&apos;re in good company
-
         </h2>
       </FadeIn>
       <FadeInStagger className="mt-10" faster>

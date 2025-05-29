@@ -147,7 +147,7 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Let's talk." title="Let&apos;s work together">
+      <PageIntro eyebrow="Let's talk." title="Let's work together">
         <p>We can&apos;t wait to hear from you.</p>
       </PageIntro>
 
