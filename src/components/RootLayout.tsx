@@ -21,8 +21,6 @@ import { Logo, Logomark } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { QuickContact } from '@/components/QuickContact'
 
-import { SocialMedia } from '@/components/SocialMedia'
-
 const RootLayoutContext = createContext<{
   logoHovered: boolean
   setLogoHovered: React.Dispatch<React.SetStateAction<boolean>>
@@ -149,12 +147,20 @@ function Navigation() {
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
-        <NavigationItem href="/services/martech-solutions">Martech Solutions</NavigationItem>
-        <NavigationItem href="/services/user-growth">User Growth</NavigationItem>
+        <NavigationItem href="/services/martech-solutions">
+          Martech Solutions
+        </NavigationItem>
+        <NavigationItem href="/services/user-growth">
+          User Growth
+        </NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/services/attribution-analytics">Attribution</NavigationItem>
-        <NavigationItem href="/services/fractional-cmo">Fractional CMO</NavigationItem>
+        <NavigationItem href="/services/attribution-analytics">
+          Attribution
+        </NavigationItem>
+        <NavigationItem href="/services/fractional-cmo">
+          Fractional CMO
+        </NavigationItem>
       </NavigationRow>
     </nav>
   )
@@ -164,9 +170,9 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
   const panelId = useId()
   const [expanded, setExpanded] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
-  const openRef = useRef<React.ElementRef<'button'>>(null)
-  const closeRef = useRef<React.ElementRef<'button'>>(null)
-  const navRef = useRef<React.ElementRef<'div'>>(null)
+  const openRef = useRef<HTMLButtonElement>(null!)
+  const closeRef = useRef<HTMLButtonElement>(null!)
+  const navRef = useRef<HTMLDivElement>(null)
   const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
@@ -221,8 +227,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
           style={{ height: expanded ? 'auto' : '0.5rem' }}
           className="relative z-50 overflow-hidden bg-neutral-950 pt-2"
           aria-hidden={expanded ? undefined : 'true'}
-          //@ts-expect-error (https://github.com/facebook/react/issues/17157)
-          inert={expanded ? undefined : ''}
+          inert={expanded ? undefined : true}
         >
           <motion.div layout className="bg-neutral-800">
             <div ref={navRef} className="bg-neutral-950 pt-14 pb-16">
@@ -255,8 +260,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                     />
                   </div>
                   <div className="sm:border-l sm:border-transparent sm:pl-16">
-                    <h2 className="font-display text-base font-semibold text-white">
-                    </h2>
+                    <h2 className="font-display text-base font-semibold text-white"></h2>
                     <QuickContact
                       invert
                       className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"

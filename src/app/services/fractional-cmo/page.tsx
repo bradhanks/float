@@ -15,7 +15,6 @@ import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
 import { ListClients, clients } from '@/lib/clients'
 
-
 function CaseStudies({
   caseStudies,
 }: {
@@ -106,7 +105,6 @@ function Clients() {
           className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-4"
         >
           <ListClients clients={clients} />
-
         </ul>
       </FadeInStagger>
     </Container>
@@ -124,10 +122,7 @@ export default async function FractionalCMO() {
 
   return (
     <RootLayout>
-      <PageIntro
-        eyebrow=""
-        title="Proven solutions for real-world problems."
-      >
+      <PageIntro eyebrow="" title="Proven solutions for real-world problems.">
         <p>
           We believe in efficiency and maximizing our resources to provide the
           best value to our clients. The primary way we do that is by re-using
@@ -139,8 +134,8 @@ export default async function FractionalCMO() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: clients.lucid.name, logo: clients.lucid.logoLight }} >
-
+        client={{ name: clients.lucid.name, logo: clients.lucid.logoLight }}
+      >
         We approached <em>SeriesLab </em> because we loved their past work. They
         delivered something remarkably similar in record time.
       </Testimonial>
@@ -148,6 +143,6 @@ export default async function FractionalCMO() {
       <Clients />
 
       <ContactSection />
-    </RootLayout >
+    </RootLayout>
   )
 }

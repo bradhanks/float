@@ -132,8 +132,7 @@ function ContactDetails() {
       </Border>
 
       <Border className="mt-16 pt-16">
-        <h2 className="font-display text-base font-semibold text-neutral-950">
-        </h2>
+        <h2 className="font-display text-base font-semibold text-neutral-950"></h2>
         <QuickContact className="mt-6" />
       </Border>
     </FadeIn>

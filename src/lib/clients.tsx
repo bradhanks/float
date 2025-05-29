@@ -1,7 +1,6 @@
 import Image, { type ImageProps } from 'next/image'
 import { FadeIn } from '@/components/FadeIn'
 
-
 // Client logos (light)
 import lucidLogoLight from '@/images/clients/lucid-software/logo-light.svg'
 import einblickLogoLight from '@/images/clients/einblick-ai/logo-light.svg'
@@ -67,14 +66,15 @@ import arcadeaGroupLogomarkDark from '@/images/clients/arcadia-group/logomark-da
 import cobrowseLogomarkDark from '@/images/clients/cobrowse/logomark-dark.svg'
 
 type ClientInfo = {
-  name: string,
-  logoLight: ImageProps['src'],
-  logoDark: ImageProps['src'],
-  logomarkLight: ImageProps['src'],
+  name: string
+  logoLight: ImageProps['src']
+  logoDark: ImageProps['src']
+  logomarkLight: ImageProps['src']
   logomarkDark: ImageProps['src']
 }
 
-type Client = 'lucid'
+type Client =
+  | 'lucid'
   | 'einblick'
   | 'whistic'
   | 'rivet'
@@ -87,37 +87,123 @@ type Client = 'lucid'
   | 'pql'
   | 'suntell'
   | 'arcadeaGroup'
-  | 'cobrowse';
+  | 'cobrowse'
 
 type Clients = {
   [Key in Client]: ClientInfo
 }
 
 export const clients: Clients = {
-  lucid: { name: 'Lucid Software', logoLight: lucidLogoLight, logoDark: lucidLogoDark, logomarkLight: lucidLogomarkLight, logomarkDark: lucidLogomarkDark },
-  einblick: { name: 'Einblick.ai', logoLight: einblickLogoLight, logoDark: einblickLogoDark, logomarkLight: einblickLogomarkLight, logomarkDark: einblickLogomarkDark },
-  whistic: { name: 'Whistic', logoLight: whisticLogoLight, logoDark: whisticLogoDark, logomarkLight: whisticLogomarkLight, logomarkDark: whisticLogomarkDark },
-  rivet: { name: 'Rivet Health', logoLight: rivetLogoLight, logoDark: rivetLogoDark, logomarkLight: rivetLogomarkLight, logomarkDark: rivetLogomarkDark },
-  zight: { name: 'Zight', logoLight: zightLogoLight, logoDark: zightLogoDark, logomarkLight: zightLogomarkLight, logomarkDark: zightLogomarkDark },
-  zipbooks: { name: 'ZipBooks', logoLight: zipbooksLogoLight, logoDark: zipbooksLogoDark, logomarkLight: zipbooksLogomarkLight, logomarkDark: zipbooksLogomarkDark },
-  integrationApp: { name: 'Integration.app', logoLight: integrationAppLogoLight, logoDark: integrationAppLogoDark, logomarkLight: integrationAppLogomarkLight, logomarkDark: integrationAppLogomarkDark },
-  newtonx: { name: 'NewtonX', logoLight: newtonxLogoLight, logoDark: newtonxLogoDark, logomarkLight: newtonxLogomarkLight, logomarkDark: newtonxLogomarkDark },
-  ripoffReport: { name: 'Ripoff Report', logoLight: ripoffReportLogoLight, logoDark: ripoffReportLogoDark, logomarkLight: ripoffReportLogomarkLight, logomarkDark: ripoffReportLogomarkDark },
-  blueMatador: { name: 'Blue Matador', logoLight: blueMatadorLogoLight, logoDark: blueMatadorLogoDark, logomarkLight: blueMatadorLogomarkLight, logomarkDark: blueMatadorLogomarkDark },
-  pql: { name: 'PQL', logoLight: pqlLogoLight, logoDark: pqlLogoDark, logomarkLight: pqlLogomarkLight, logomarkDark: pqlLogomarkDark },
-  suntell: { name: 'Suntell', logoLight: suntellLogoLight, logoDark: suntellLogoDark, logomarkLight: suntellLogomarkLight, logomarkDark: suntellLogomarkDark },
-  arcadeaGroup: { name: 'Arcadea Group', logoLight: arcadeaGroupLogoLight, logoDark: arcadeaGroupLogoDark, logomarkLight: arcadeaGroupLogomarkLight, logomarkDark: arcadeaGroupLogomarkDark },
-  cobrowse: { name: 'Cobrowse.io', logoLight: cobrowseLogoLight, logoDark: cobrowseLogoDark, logomarkLight: cobrowseLogomarkLight, logomarkDark: cobrowseLogomarkDark }
+  lucid: {
+    name: 'Lucid Software',
+    logoLight: lucidLogoLight,
+    logoDark: lucidLogoDark,
+    logomarkLight: lucidLogomarkLight,
+    logomarkDark: lucidLogomarkDark,
+  },
+  einblick: {
+    name: 'Einblick.ai',
+    logoLight: einblickLogoLight,
+    logoDark: einblickLogoDark,
+    logomarkLight: einblickLogomarkLight,
+    logomarkDark: einblickLogomarkDark,
+  },
+  whistic: {
+    name: 'Whistic',
+    logoLight: whisticLogoLight,
+    logoDark: whisticLogoDark,
+    logomarkLight: whisticLogomarkLight,
+    logomarkDark: whisticLogomarkDark,
+  },
+  rivet: {
+    name: 'Rivet Health',
+    logoLight: rivetLogoLight,
+    logoDark: rivetLogoDark,
+    logomarkLight: rivetLogomarkLight,
+    logomarkDark: rivetLogomarkDark,
+  },
+  zight: {
+    name: 'Zight',
+    logoLight: zightLogoLight,
+    logoDark: zightLogoDark,
+    logomarkLight: zightLogomarkLight,
+    logomarkDark: zightLogomarkDark,
+  },
+  zipbooks: {
+    name: 'ZipBooks',
+    logoLight: zipbooksLogoLight,
+    logoDark: zipbooksLogoDark,
+    logomarkLight: zipbooksLogomarkLight,
+    logomarkDark: zipbooksLogomarkDark,
+  },
+  integrationApp: {
+    name: 'Integration.app',
+    logoLight: integrationAppLogoLight,
+    logoDark: integrationAppLogoDark,
+    logomarkLight: integrationAppLogomarkLight,
+    logomarkDark: integrationAppLogomarkDark,
+  },
+  newtonx: {
+    name: 'NewtonX',
+    logoLight: newtonxLogoLight,
+    logoDark: newtonxLogoDark,
+    logomarkLight: newtonxLogomarkLight,
+    logomarkDark: newtonxLogomarkDark,
+  },
+  ripoffReport: {
+    name: 'Ripoff Report',
+    logoLight: ripoffReportLogoLight,
+    logoDark: ripoffReportLogoDark,
+    logomarkLight: ripoffReportLogomarkLight,
+    logomarkDark: ripoffReportLogomarkDark,
+  },
+  blueMatador: {
+    name: 'Blue Matador',
+    logoLight: blueMatadorLogoLight,
+    logoDark: blueMatadorLogoDark,
+    logomarkLight: blueMatadorLogomarkLight,
+    logomarkDark: blueMatadorLogomarkDark,
+  },
+  pql: {
+    name: 'PQL',
+    logoLight: pqlLogoLight,
+    logoDark: pqlLogoDark,
+    logomarkLight: pqlLogomarkLight,
+    logomarkDark: pqlLogomarkDark,
+  },
+  suntell: {
+    name: 'Suntell',
+    logoLight: suntellLogoLight,
+    logoDark: suntellLogoDark,
+    logomarkLight: suntellLogomarkLight,
+    logomarkDark: suntellLogomarkDark,
+  },
+  arcadeaGroup: {
+    name: 'Arcadea Group',
+    logoLight: arcadeaGroupLogoLight,
+    logoDark: arcadeaGroupLogoDark,
+    logomarkLight: arcadeaGroupLogomarkLight,
+    logomarkDark: arcadeaGroupLogomarkDark,
+  },
+  cobrowse: {
+    name: 'Cobrowse.io',
+    logoLight: cobrowseLogoLight,
+    logoDark: cobrowseLogoDark,
+    logomarkLight: cobrowseLogomarkLight,
+    logomarkDark: cobrowseLogomarkDark,
+  },
 }
 
 export function ListClients({ clients }: { clients: Clients }) {
-  return (
-    (Object.keys(clients) as Client[]).map((key) =>
-      <li key={key} >
-        <FadeIn>
-          <Image src={clients[key].logoLight} alt={clients[key].name} unoptimized />
-        </FadeIn>
-      </li>
-    )
-  )
+  return (Object.keys(clients) as Client[]).map((key) => (
+    <li key={key}>
+      <FadeIn>
+        <Image
+          src={clients[key].logoLight}
+          alt={clients[key].name}
+          unoptimized
+        />
+      </FadeIn>
+    </li>
+  ))
 }

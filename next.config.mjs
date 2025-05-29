@@ -1,4 +1,3 @@
-import rehypeShiki from '@leafac/rehype-shiki'
 import nextMDX from '@next/mdx'
 import { Parser } from 'acorn'
 import jsx from 'acorn-jsx'
@@ -7,8 +6,7 @@ import * as path from 'path'
 import { recmaImportImages } from 'recma-import-images'
 import remarkGfm from 'remark-gfm'
 import { remarkRehypeWrap } from 'remark-rehype-wrap'
-import remarkUnwrapImages from 'remark-unwrap-images'
-import shiki from 'shiki'
+import rehypeUnwrapImages from 'rehype-unwrap-images'
 import { unifiedConditional } from 'unified-conditional'
 
 /** @type {import('next').NextConfig} */
@@ -42,16 +40,12 @@ function remarkMDXLayout(source, metaName) {
 }
 
 export default async function config() {
-  const highlighter = await shiki.getHighlighter({
-    theme: 'css-variables',
-  })
-
   const withMDX = nextMDX({
     extension: /\.mdx$/,
     options: {
       recmaPlugins: [recmaImportImages],
       rehypePlugins: [
-        [rehypeShiki, { highlighter }],
+        rehypeUnwrapImages,
         [
           remarkRehypeWrap,
           {
@@ -63,7 +57,6 @@ export default async function config() {
       ],
       remarkPlugins: [
         remarkGfm,
-        remarkUnwrapImages,
         [
           unifiedConditional,
           [

@@ -46,7 +46,6 @@ export function Offices({
           Redwood City, CA 84043
         </Office>
       </li>
-
     </ul>
   )
 }

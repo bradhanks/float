@@ -10,14 +10,6 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
 import { Testimonial } from '@/components/Testimonial'
-import logoBrightPath from '@/images/clients/bright-path/logo-dark.svg'
-import logoFamilyFund from '@/images/clients/family-fund/logo-dark.svg'
-import logoGreenLife from '@/images/clients/green-life/logo-dark.svg'
-import logoHomeWork from '@/images/clients/home-work/logo-dark.svg'
-import logoMailSmirk from '@/images/clients/mail-smirk/logo-dark.svg'
-import logoNorthAdventures from '@/images/clients/north-adventures/logo-dark.svg'
-import logoPhobia from '@/images/clients/phobia/logo-dark.svg'
-import logoUnseal from '@/images/clients/unseal/logo-dark.svg'
 import { formatDate } from '@/lib/formatDate'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
@@ -135,12 +127,13 @@ export default async function Work() {
         title="Marketing Technology That Works"
       >
         <p>
-          You are flush with cash and ready to start throwing money at reputable vendors, right? Not so fast.
-          Martech is a minefield of complexity and confusion, and it’s easy to get lost in the weeds.
-          We help you navigate this landscape, ensuring you get the most out of your marketing technology investments.
-          We will help you indeityt the right tools, and where you can make do with open source solutions for the time being.
-
-
+          You are flush with cash and ready to start throwing money at reputable
+          vendors, right? Not so fast. Martech is a minefield of complexity and
+          confusion, and it’s easy to get lost in the weeds. We help you
+          navigate this landscape, ensuring you get the most out of your
+          marketing technology investments. We will help you indeityt the right
+          tools, and where you can make do with open source solutions for the
+          time being.
         </p>
       </PageIntro>
 

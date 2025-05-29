@@ -29,9 +29,7 @@ function Clients() {
             role="list"
             className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
           >
-
             <ListClients clients={clients} />
-
           </ul>
         </FadeInStagger>
       </Container>
@@ -166,9 +164,12 @@ export default async function Home() {
             B2B SaaS startup valuation consulting
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            We deliver on this promise — gangbuster terms on your next round of funding.
+            We deliver on this promise — gangbuster terms on your next round of
+            funding.
             <br />
-            Bring your team, technology and learnings. We can help with traction, user growth and nailing down the unit economics of your business model.
+            Bring your team, technology and learnings. We can help with
+            traction, user growth and nailing down the unit economics of your
+            business model.
           </p>
         </FadeIn>
       </Container>

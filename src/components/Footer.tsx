@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
 import { Logo } from '@/components/Logo'
-import { socialMediaProfiles } from '@/components/SocialMedia'
 
 const navigation = [
   {
@@ -12,7 +11,10 @@ const navigation = [
       { title: 'Fractional CMO', href: '/services/fractional-cmo' },
       { title: 'User Growth', href: '/services/user-growth' },
       { title: 'Martech Solutions', href: '/services/martech-solutions' },
-      { title: 'Attribution & Analytics', href: '/services/attribution-analytics' },
+      {
+        title: 'Attribution & Analytics',
+        href: '/services/attribution-analytics',
+      },
     ],
   },
   {
@@ -82,7 +84,8 @@ function NewsletterForm() {
         Sign up for our newsletter
       </h2>
       <p className="mt-4 text-sm text-neutral-700">
-        Subscribe for insights on growth strategy, Martech stacks, and data-driven marketing.
+        Subscribe for insights on growth strategy, Martech stacks, and
+        data-driven marketing.
       </p>
       <div className="relative mt-6">
         <input

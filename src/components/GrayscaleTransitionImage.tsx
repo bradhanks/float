@@ -17,7 +17,7 @@ export function GrayscaleTransitionImage(
     'src' | 'quality' | 'className' | 'sizes' | 'priority'
   > & { alt?: string },
 ) {
-  const ref = useRef<React.ElementRef<'div'>>(null)
+  const ref = useRef<React.ComponentRef<'div'>>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start 65%', 'end 35%'],
@@ -26,12 +26,7 @@ export function GrayscaleTransitionImage(
   const filter = useMotionTemplate`grayscale(${grayscale})`
   return (
     <div ref={ref} className="group relative">
-      <MotionImage
-        alt=""
-        // @ts-expect-error - Framer Motion filter type issue with useMotionTemplate
-        style={{ filter }}
-        {...props}
-      />
+      <MotionImage alt="" style={{ filter }} {...props} />
       <div
         className="pointer-events-none absolute top-0 left-0 w-full opacity-0 transition duration-300 group-hover:opacity-100"
         aria-hidden="true"

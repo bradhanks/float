@@ -122,15 +122,14 @@ export default async function Customers() {
 
   return (
     <RootLayout>
-
-      <PageIntro
-        eyebrow="Attribution"
-        title="What's working? Do more of that."
-      >
+      <PageIntro eyebrow="Attribution" title="What's working? Do more of that.">
         <p>
-          Getting good attribution data is a pain in the ass to implement which is why it's the #1 issue I see when working with B2B SaaS startups.
-          It's take true grit to ge to the bottom of where your net new revenue is coming from in a short enough time frame to be actionable, but it's
-          the respobility for each company that's looking to provide a big payday to their investors.
+          Getting good attribution data is a pain in the ass to implement which
+          is why it&apos;s the #1 issue I see when working with B2B SaaS
+          startups. It&apos;s take true grit to ge to the bottom of where your
+          net new revenue is coming from in a short enough time frame to be
+          actionable, but it&apos;s the respobility for each company that&apos;s
+          looking to provide a big payday to their investors.
         </p>
       </PageIntro>
 
@@ -147,6 +146,6 @@ export default async function Customers() {
       <Clients />
 
       <ContactSection />
-    </RootLayout >
+    </RootLayout>
   )
 }
