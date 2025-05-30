@@ -6,10 +6,9 @@ import { useMotionTemplate, useScroll, useTransform } from 'framer-motion'
 import { MotionImage } from '@/components/MotionWrapper'
 
 export function GrayscaleTransitionImage(
-  props: Pick<
-    ImageProps,
-    'src' | 'quality' | 'className' | 'sizes' | 'priority'
-  > & { alt?: string },
+  props: Pick<ImageProps, 'src' | 'quality' | 'className' | 'sizes'> & {
+    alt?: string
+  },
 ) {
   const ref = useRef<React.ComponentRef<'div'>>(null)
   const { scrollYProgress } = useScroll({

@@ -12,6 +12,9 @@ import rehypeUnwrapImages from 'rehype-unwrap-images'
 import { unifiedConditional } from 'unified-conditional'
 
 const nextConfig: NextConfig = {
+  experimental: {
+    ppr: 'incremental',
+  },
   turbopack: {},
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   async rewrites() {
@@ -91,7 +94,9 @@ export default async function config() {
             [[remarkMDXLayout, '@/app/blog/wrapper', 'article']],
           ],
           [
-            new RegExp(`^${escapeStringRegexp(path.resolve('src/app/customers'))}`),
+            new RegExp(
+              `^${escapeStringRegexp(path.resolve('src/app/customers'))}`,
+            ),
             [[remarkMDXLayout, '@/app/customers/wrapper', 'caseStudy']],
           ],
         ],

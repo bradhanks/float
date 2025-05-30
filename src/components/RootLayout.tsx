@@ -8,22 +8,37 @@ import {
   useRef,
   useState,
 } from 'react'
+
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 import { MotionDiv } from '@/components/MotionWrapper'
-
 import { MotionConfig, useReducedMotion } from 'framer-motion'
-
-import { Button } from '@/components/Button'
 import { PostHogButton } from '@/components/PostHogButton'
-
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { GridPattern } from '@/components/GridPattern'
-import { Logo, Logomark } from '@/components/Logo'
 import { Offices } from '@/components/Offices'
 import { QuickContact } from '@/components/QuickContact'
+import CalendlyButton from '@/components/CalendlyButton'
+
+// Fix: Proper dynamic imports for logo components
+const LazyLogo = dynamic(
+  () => import('@/components/Logo').then((mod) => mod.Logo),
+  {
+    ssr: false,
+    loading: () => <div className="h-8 w-8 bg-transparent" />,
+  },
+)
+
+const LazyLogomark = dynamic(
+  () => import('@/components/Logo').then((mod) => mod.Logomark),
+  {
+    ssr: false,
+    loading: () => <div className="h-8 w-8 bg-transparent" />,
+  },
+)
 
 const RootLayoutContext = createContext<{
   logoHovered: boolean
@@ -73,27 +88,22 @@ function Header({
           onMouseEnter={() => setLogoHovered(true)}
           onMouseLeave={() => setLogoHovered(false)}
         >
-          <Logomark
+          <LazyLogomark
             className="h-8 sm:hidden"
             invert={invert}
             filled={logoHovered}
           />
-          <Logo
+          <LazyLogo
             className="hidden h-8 sm:block"
             invert={invert}
             filled={logoHovered}
           />
         </Link>
-        <div className="flex items-center gap-x-8">
-          <Button href="/contact" mode="primary" invert={invert}>
-            Schedule call
-          </Button>
 
-          <Button href="/contact" mode="secondary" invert={invert}>
-            Schedule call
-          </Button>
-          <PostHogButton invert={invert} href="/signup">
-            Get started
+        <div className="flex items-center gap-x-8">
+          <CalendlyButton invert={invert} />
+          <PostHogButton invert={invert} href="/contact" size="sm">
+            Let&apos;s talk
           </PostHogButton>
 
           <button
