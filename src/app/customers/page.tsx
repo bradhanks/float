@@ -112,7 +112,7 @@ function Clients() {
 }
 
 export const metadata: Metadata = {
-  title: 'Attribution',
+  title: 'Customers | SeriesLab',
   description:
     'Unlock revenue-to-spend ratio insights with comprehensive attribution.',
 }
