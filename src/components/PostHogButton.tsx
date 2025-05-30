@@ -35,7 +35,7 @@ export function PostHogButton({
   )
 
   const secondaryOuterClasses = clsx(
-    'bg-emerald-100 border-gray-500',
+    'bg-emerald-800 border-white',
     'dark:bg-emerald-900/20 dark:border-transparent',
   )
 
@@ -54,21 +54,18 @@ export function PostHogButton({
 
   const primaryInnerClasses = clsx(
     'border-emerald-500 bg-white text-gray-900',
-    'hover:text-emerald-600 hover:border-emerald-600',
-    'active:bg-emerald-50 active:text-emerald-700',
+    'hover:border-emerald-600',
     'dark:bg-gray-900 dark:text-gray-100 dark:border-emerald-400',
     'dark:hover:text-emerald-300 dark:hover:border-emerald-300',
-    'dark:active:bg-emerald-900/30 dark:active:text-emerald-200',
+    ' dark:active:text-emerald-200',
   )
 
   const secondaryInnerClasses = clsx(
-    'border-emerald-500 bg-white text-gray-700 bg-emerald-50',
-    'hover:text-emerald-600 hover:border-emerald-600',
-
-    'active:bg-emerald-50 active:text-emerald-700 active:border-emerald-600',
+    'bg-emerald-800 border-white border-emerald-400 bg-emerald-400 text-white bg-emerald-50',
+    ' active:border-emerald-600',
     'dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600',
     'dark:hover:text-emerald-400 dark:hover:border-emerald-400',
-    'dark:active:bg-emerald-900/30 dark:active:text-emerald-300 dark:active:border-emerald-500',
+    ' dark:active:text-emerald-300 dark:active:border-emerald-500',
   )
 
   const outerClassName = clsx(

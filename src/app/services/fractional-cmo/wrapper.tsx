@@ -61,7 +61,6 @@ export default async function CaseStudyLayout({
                   quality={90}
                   className="w-full"
                   sizes="(min-width: 1216px) 76rem, 100vw"
-                  priority
                 />
               </div>
             </div>
