@@ -16,11 +16,7 @@ export default function CalendlyButton({
     setMounted(true)
     const header = document.querySelector<HTMLElement>('header')
     setRootElement(header || document.body)
-  }, [buttonClick])
-
-  function buttonClick() {
-    posthog.capture('calendly_button_clicked')
-  }
+  }, [posthog])
 
   return (
     <div>
