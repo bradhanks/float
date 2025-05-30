@@ -30,7 +30,7 @@ export default function CalendlyButton({
             'active:text-emerald-500',
             'dark:bg-inherit dark:text-white',
             invert &&
-            'hover:text-emerald-500active:text-emerald-400 text-white',
+              'hover:text-emerald-500active:text-emerald-400 text-white',
           )}
           pageSettings={{
             backgroundColor: 'ffffff',
