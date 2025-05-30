@@ -14,24 +14,24 @@ export async function middleware(request: NextRequest) {
   // More permissive CSP for development, strict for production
   const cspHeader = isDevelopment
     ? `
-      default-src 'self';
-      script-src 'self' 'unsafe-eval' 'unsafe-inline' https://assets.calendly.com;
+      default-src 'self' 'unsafe-inline';
+      script-src 'self' 'unsafe-eval'  https://assets.calendly.com;
       style-src 'self' 'unsafe-inline' https://assets.calendly.com;
-      img-src 'self' blob: data: https://*.calendly.com;
-      font-src 'self' https://assets.calendly.com;
-      connect-src 'self' ws://localhost:* https://calendly.com;
-      frame-src https://calendly.com;
-      object-src 'none';
-      base-uri 'self';
-      form-action 'self';
+      img-src 'self' blob: data: 'unsafe-inline' https://*.calendly.com;
+      font-src 'self''unsafe-inline'  https://assets.calendly.com;
+      connect-src 'self' 'unsafe-inline' ws://localhost:* https://calendly.com;
+      frame-src 'unsafe-inline' https://calendly.com;
+      object-src 'unsafe-inline' 'none';
+      base-uri 'unsafe-inline' 'self';
+      form-action 'unsafe-inline' 'self';
       frame-ancestors 'none';
     `
     : `
-      default-src 'self';
-      script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://assets.calendly.com;
-      style-src 'self' 'nonce-${nonce}' https://assets.calendly.com;
-      img-src 'self' blob: data: https://*.calendly.com;
-      font-src 'self' https://assets.calendly.com;
+      default-src 'self' 'unsafe-inline';
+      script-src 'self' 'nonce-${nonce}' 'unsafe-eval' https://assets.calendly.com;
+      style-src 'self' 'nonce-${nonce}' 'unsafe-inline' https://assets.calendly.com;
+      img-src 'self' blob: 'unsafe-inline' data: https://*.calendly.com;
+      font-src 'self' 'unsafe-inline' https://assets.calendly.com;
       connect-src 'self' https://calendly.com;
       frame-src https://calendly.com;
       object-src 'none';
