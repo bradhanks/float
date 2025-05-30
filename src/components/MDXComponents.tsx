@@ -86,10 +86,9 @@ export const MDXComponents = {
   },
   wrapper({
     className,
-    searchParams,
     ...props
   }: React.ComponentPropsWithoutRef<'div'> & {
-    searchParams?: Record<string, string>
+    props?: Record<string, string>
   }) {
     return (
       <div
