@@ -52,7 +52,8 @@ function CaseStudies({
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          If you are an early-stage B2B SaaS startup, we're confident we've delivered results for a startup like yours.
+          If you are an early-stage B2B SaaS startup, we're confident we've
+          delivered results for a startup like yours.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -72,9 +73,7 @@ function CaseStudies({
                   </Link>
                 </h3>
                 <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
-                  <span className="font-semibold">
-                    {caseStudy.client}
-                  </span>
+                  <span className="font-semibold">{caseStudy.client}</span>
 
                   <span className="text-emerald-200" aria-hidden="true">
                     /
@@ -123,17 +122,28 @@ function Services() {
           </div>
           <List className="lg:min-w-132 mt-16 lg:mt-0 lg:w-1/2 lg:pl-4">
             <ListItem title="Martech Solutions">
-              Tech stack audits, integrations, and scalable implementations—from vanilla setups to complex AI/ML-driven systems.
-              We specialise in crafting beautiful, high quality marketing pages. The rest of the website will be a shell that uses lorem ipsum everywhere.
+              Tech stack audits, integrations, and scalable implementations—from
+              vanilla setups to complex AI/ML-driven systems. We specialise in
+              crafting beautiful, high quality marketing pages. The rest of the
+              website will be a shell that uses lorem ipsum everywhere.
             </ListItem>
             <ListItem title="User Growth">
-              Demand generation, SEM, and lifecycle marketing to accelerate traction.We specialise in crafting beautiful, high quality marketing pages. The rest of the website will be a shell that uses lorem ipsum everywhere.
+              Demand generation, SEM, and lifecycle marketing to accelerate
+              traction.We specialise in crafting beautiful, high quality
+              marketing pages. The rest of the website will be a shell that uses
+              lorem ipsum everywhere.
             </ListItem>
             <ListItem title="Attribution Analytics">
-              Cradle-to-grave metrics to prove ROI and attract investors.We specialise in crafting beautiful, high quality marketing pages. The rest of the website will be a shell that uses lorem ipsum everywhere.
+              Cradle-to-grave metrics to prove ROI and attract investors.We
+              specialise in crafting beautiful, high quality marketing pages.
+              The rest of the website will be a shell that uses lorem ipsum
+              everywhere.
             </ListItem>
             <ListItem title="Fractional CMO">
-              Hands-on leadership for startups needing a revenue-focused marketing strategist.We specialise in crafting beautiful, high quality marketing pages. The rest of the website will be a shell that uses lorem ipsum everywhere.
+              Hands-on leadership for startups needing a revenue-focused
+              marketing strategist.We specialise in crafting beautiful, high
+              quality marketing pages. The rest of the website will be a shell
+              that uses lorem ipsum everywhere.
             </ListItem>
           </List>
         </div>
@@ -144,7 +154,8 @@ function Services() {
 
 export const metadata: Metadata = {
   title: 'B2B SaaS Martech Consulting',
-  description: 'B2B SaaS marketing consultancy specializing in startups from Day 0 to Series A.'
+  description:
+    'B2B SaaS marketing consultancy specializing in startups from Day 0 to Series A.',
 }
 
 export default async function Home() {
@@ -155,10 +166,14 @@ export default async function Home() {
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-balance text-5xl font-medium tracking-tight text-neutral-950 sm:text-7xl">
-            B2B SaaS startup <span className="text-emerald-700">valuation</span> consulting
+            B2B SaaS startup <span className="text-emerald-700">valuation</span>{' '}
+            consulting
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            We deliver on this promise — <span className="text-emerald-700">superior terms on your next funding round.</span>
+            We deliver on this promise —{' '}
+            <span className="text-emerald-700">
+              superior terms on your next funding round.
+            </span>
             <br />
             Bring your team, technology and learnings. We can help with
             traction, user growth and nailing down the unit economics of your
@@ -179,8 +194,6 @@ export default async function Home() {
         finding a way to access the user&apos;s microphone without triggering
         one of those annoying permission dialogs.
       </Testimonial>
-
-
 
       <ContactSection />
     </RootLayout>

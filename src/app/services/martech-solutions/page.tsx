@@ -240,8 +240,6 @@ function Values() {
   )
 }
 
-
-
 export default function MartechSolutions() {
   return (
     <RootLayout>

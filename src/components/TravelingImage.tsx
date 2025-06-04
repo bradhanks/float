@@ -20,7 +20,6 @@ const shapes = [
   },
 ]
 
-
 export function TravelingImage({
   shape = 0,
   className,
@@ -30,19 +29,14 @@ export function TravelingImage({
   const { width, height, path } = shapes[shape]
 
   return (
-    <div
-      className={clsx(
-        className,
-        'relative aspect-655/680 overflow-hidden'
-      )}
-    >
+    <div className={clsx(className, 'aspect-655/680 relative overflow-hidden')}>
       <svg viewBox={`0 0 ${width} ${height}`} fill="none" className="h-full">
         <g clipPath={`url(#${id}-clip)`} className="group">
           <g className="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-110">
             <foreignObject width={width} height={height}>
               <div className="group relative h-full w-full overflow-hidden">
                 <Image
-                  className="h-full w-full object-cover transition-all duration-700 ease-in-out grayscale group-hover:grayscale-0 group-hover:scale-110 group-hover:translate-x-2 group-hover:-translate-y-2"
+                  className="h-full w-full object-cover grayscale transition-all duration-700 ease-in-out group-hover:-translate-y-2 group-hover:translate-x-2 group-hover:scale-110 group-hover:grayscale-0"
                   {...props}
                 />
               </div>
@@ -65,6 +59,6 @@ export function TravelingImage({
           </clipPath>
         </defs>
       </svg>
-    </div >
+    </div>
   )
 }

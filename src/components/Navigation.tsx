@@ -36,13 +36,13 @@ function NavigationItem({
       <span className="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
       <span
         className={clsx(
-          'relative after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:origin-left after:scale-x-0 after:bg-emerald-400 after:transition-transform after:ease-[cubic-bezier(0.95,0.05,0.795,0.035) after:duration-300 group-hover:after:scale-x-100',
-          isActive && 'after:scale-x-100'
+          'after:ease-[cubic-bezier(0.95,0.05,0.795,0.035) relative after:absolute after:bottom-0 after:left-0 after:h-1 after:w-full after:origin-left after:scale-x-0 after:bg-emerald-400 after:transition-transform after:duration-300 group-hover:after:scale-x-100',
+          isActive && 'after:scale-x-100',
         )}
       >
         {children}
       </span>
-    </Link >
+    </Link>
   )
 }
 

@@ -11,24 +11,22 @@ import imageMeeting from '@/images/meeting.jpg'
 import imageWhiteboard from '@/images/whiteboard.jpg'
 import ServiceSection from '@/components/ServiceSection'
 
-
-
 const sections = [
   {
-    title: "Discover",
+    title: 'Discover',
     image: { src: imageWhiteboard },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
             We work closely with our clients to understand their{' '}
-            <strong className="font-semibold text-neutral-950">needs</strong> and
-            goals, embedding ourselves in their every day operations to understand
-            what makes their business tick.
+            <strong className="font-semibold text-neutral-950">needs</strong>{' '}
+            and goals, embedding ourselves in their every day operations to
+            understand what makes their business tick.
           </p>
           <p>
-            Our team of private investigators shadow the company director's
-            for several weeks while our account managers focus on going through
+            Our team of private investigators shadow the company director's for
+            several weeks while our account managers focus on going through
             their trash. Our senior security experts then perform social
             engineering hacks to gain access to their{' '}
             <strong className="font-semibold text-neutral-950">business</strong>{' '}
@@ -37,8 +35,8 @@ const sections = [
           </p>
           <p>
             Once the full audit is complete, we report back with a comprehensive{' '}
-            <strong className="font-semibold text-neutral-950">plan</strong> and,
-            more importantly, a budget.
+            <strong className="font-semibold text-neutral-950">plan</strong>{' '}
+            and, more importantly, a budget.
           </p>
         </div>
         <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
@@ -53,46 +51,46 @@ const sections = [
           <TagListItem>Forensic audit</TagListItem>
         </TagList>
       </>
-    )
+    ),
   },
   {
-    title: "Build",
+    title: 'Build',
     image: { src: imageLaptop, shape: 1 },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
             Based off of the discovery phase, we develop a comprehensive roadmap
-            for each product and start working towards delivery. The roadmap is an
-            intricately tangled mess of technical nonsense designed to drag the
-            project out as long as possible.
+            for each product and start working towards delivery. The roadmap is
+            an intricately tangled mess of technical nonsense designed to drag
+            the project out as long as possible.
           </p>
           <p>
             Each client is assigned a key account manager to keep lines of
             communication open and obscure the actual progress of the project.
-            They act as a buffer between the client's incessant nagging and
-            the development team who are hard at work scouring open source
-            projects for code to re-purpose.
+            They act as a buffer between the client's incessant nagging and the
+            development team who are hard at work scouring open source projects
+            for code to re-purpose.
           </p>
           <p>
-            Our account managers are trained to only reply to client emails after
-            9pm, several days after the initial email. This reinforces the general
-            aura that we are very busy and dissuades clients from asking for
-            changes.
+            Our account managers are trained to only reply to client emails
+            after 9pm, several days after the initial email. This reinforces the
+            general aura that we are very busy and dissuades clients from asking
+            for changes.
           </p>
         </div>
         <Blockquote
           author={{ name: 'Debra Fiscal', role: 'CEO of Unseal' }}
           className="mt-12"
         >
-          SeriesLab were so regular with their progress updates we almost began to
-          think they were automated!
+          SeriesLab were so regular with their progress updates we almost began
+          to think they were automated!
         </Blockquote>
       </>
-    )
+    ),
   },
   {
-    title: "Deliver",
+    title: 'Deliver',
     image: { src: imageMeeting, shape: 2 },
     content: (
       <>
@@ -117,8 +115,8 @@ const sections = [
             <strong className="font-semibold text-neutral-950">
               fully functional
             </strong>{' '}
-            at launch — the auxiliary pages will, of course, be lorem ipusm shells
-            which get updated as part of our exorbitant{' '}
+            at launch — the auxiliary pages will, of course, be lorem ipusm
+            shells which get updated as part of our exorbitant{' '}
             <strong className="font-semibold text-neutral-950">
               maintenance
             </strong>{' '}
@@ -130,58 +128,72 @@ const sections = [
         </h3>
         <List className="mt-8">
           <ListItem title="Testing">
-            Our projects always have 100% test coverage, which would be impressive
-            if our tests weren't as porous as a sieve.
+            Our projects always have 100% test coverage, which would be
+            impressive if our tests weren't as porous as a sieve.
           </ListItem>
           <ListItem title="Infrastructure">
-            To ensure reliability we only use the best Digital Ocean droplets that
-            $4 a month can buy.
+            To ensure reliability we only use the best Digital Ocean droplets
+            that $4 a month can buy.
           </ListItem>
           <ListItem title="Support">
-            Because we hold the API keys for every critical service your business
-            uses, you can expect a lifetime of support, and invoices, from us.
+            Because we hold the API keys for every critical service your
+            business uses, you can expect a lifetime of support, and invoices,
+            from us.
           </ListItem>
         </List>
       </>
-    )
-  }
+    ),
+  },
 ]
 
 const features = [
   {
-    title: "Meticulous",
-    description: "The first part of any partnership is getting our designer to put your logo in our template. The second step is getting them to do the colors."
+    title: 'Meticulous',
+    description:
+      'The first part of any partnership is getting our designer to put your logo in our template. The second step is getting them to do the colors.',
   },
   {
-    title: "Efficient",
-    description: "We pride ourselves on never missing a deadline which is easy because most of the work was done years ago."
+    title: 'Efficient',
+    description:
+      'We pride ourselves on never missing a deadline which is easy because most of the work was done years ago.',
   },
   {
-    title: "Adaptable",
-    description: "Every business has unique needs and our greatest challenge is shoe-horning those needs into something we already built."
+    title: 'Adaptable',
+    description:
+      'Every business has unique needs and our greatest challenge is shoe-horning those needs into something we already built.',
   },
   {
-    title: "Honest",
-    description: "We are transparent about all of our processes, banking on the simple fact our clients never actually read anything."
+    title: 'Honest',
+    description:
+      'We are transparent about all of our processes, banking on the simple fact our clients never actually read anything.',
   },
   {
-    title: "Loyal",
-    description: "We foster long-term relationships with our clients that go beyond just delivering a product, allowing us to invoice them for decades."
+    title: 'Loyal',
+    description:
+      'We foster long-term relationships with our clients that go beyond just delivering a product, allowing us to invoice them for decades.',
   },
   {
-    title: "Innovative",
-    description: "The technological landscape is always evolving and so are we. We are constantly on the lookout for new open source projects to clone."
-  }
+    title: 'Innovative',
+    description:
+      'The technological landscape is always evolving and so are we. We are constantly on the lookout for new open source projects to clone.',
+  },
 ]
 
 export default function UserGrowth() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="User Growth" title="We are shameless about growing revenue.">
+      <PageIntro
+        eyebrow="User Growth"
+        title="We are shameless about growing revenue."
+      >
         <p>
-          Series-A VC funds are demanding, so there's no shame in a bridge round to find product-market fit — except yes.
-
-          <span className="text-emerald-700"> Let&apos;s get shameless</span> with paying user growth.
+          Series-A VC funds are demanding, so there's no shame in a bridge round
+          to find product-market fit — except yes.
+          <span className="text-emerald-700">
+            {' '}
+            Let&apos;s get shameless
+          </span>{' '}
+          with paying user growth.
         </p>
       </PageIntro>
 
@@ -195,10 +207,7 @@ export default function UserGrowth() {
 
       <FeatureGrid features={features} />
 
-      <ContactSection
-        cta="Traction is one click away."
-        btn="Schedule call"
-      />
+      <ContactSection cta="Traction is one click away." btn="Schedule call" />
     </RootLayout>
   )
 }

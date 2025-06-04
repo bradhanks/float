@@ -1,4 +1,4 @@
-import Image from "next/image"
+import Image from 'next/image'
 import logo from '@/images/clients/phobia/logomark-dark.svg'
 import imageHero from './hero.jpg'
 import imageQuotePage from './quote.png'
@@ -8,7 +8,8 @@ import imageResults from './chart@2x.png'
 export const caseStudy = {
   client: 'NewtonX',
   title: 'Scaling B2B Research with Precision Paid Search',
-  description: 'Drove 20% top-line revenue growth and a 100% ROI through optimized paid search campaigns during Series B fundraising.',
+  description:
+    'Drove 20% top-line revenue growth and a 100% ROI through optimized paid search campaigns during Series B fundraising.',
   summary: [
     'Transformed underperforming paid search into a revenue-driving channel.',
     'Achieved $2 revenue for every $1 spent within 6 months.',
@@ -19,7 +20,8 @@ export const caseStudy = {
   service: 'Paid Search (PPC)',
   testimonial: {
     author: { name: 'NewtonX Team', role: 'Marketing Leadership' },
-    content: 'Float Consulting’s campaign optimization became the backbone of our growth strategy during fundraising, delivering measurable revenue impact.',
+    content:
+      'Float Consulting’s campaign optimization became the backbone of our growth strategy during fundraising, delivering measurable revenue impact.',
   },
 }
 
@@ -41,6 +43,7 @@ teams.
 consultant.
 
 ## Background.
+
 New York-based marketing research firm, NewtonX, sought to accelerate
 growth before and during an active fundraising effort to raise an investment
 round. They had a robust sales organization with good revenue but hadn’t
@@ -50,17 +53,19 @@ different contractor at a lower price point for three (3) months, NewtonX
 engaged our services from July to December 2021.
 
 ## False Start.
+
 The previous paid search efforts were unsuccessful for the following
 reasons:
+
 1. Campaign keywords were overly broad.
 2. Campaign ad group design precluded the ability to gain insight on an
-individual keyword level.
-1 https://techcrunch.com/2021/12/08/newtonx-secures-32m-to-power-your-next-business-decision/
+   individual keyword level.
+   1 https://techcrunch.com/2021/12/08/newtonx-secures-32m-to-power-your-next-business-decision/
 3. Campaign ads failed to screen out informational searches.
 4. Campaign ads didn’t set expectations with a clear call-to-action.
 5. The campaign didn’t have a dedicated landing page with a lead form.
 6. The campaign tracking wasn’t properly implemented.
-Figure 1: First paid
+   Figure 1: First paid
 
 ## Overview
 
@@ -93,19 +98,25 @@ New York-based B2B research firm NewtonX needed to prove scalable customer acqui
 </TagList>
 
 ### Campaign Optimization
+
 - Created 1:1 keyword-to-ad-group mapping for granular ROI tracking
 - Rewrote ads to qualify buyers and set clear service expectations
 - Built dedicated landing pages per ad cohort (15% conversion lift)
 
 ### Technical Integration
+
 - Connected Google Ads → HubSpot → Salesforce for full-funnel attribution
 - Weighted lead value by sales stage to optimize bid strategies
 
 ### Organic Expansion
+
 - Leveraged converting PPC keywords to secure top-3 organic rankings
 
 <Blockquote
-  author={{ name: caseStudy.testimonial.author.name, role: caseStudy.testimonial.author.role }}
+  author={{
+    name: caseStudy.testimonial.author.name,
+    role: caseStudy.testimonial.author.role,
+  }}
 >
   {caseStudy.testimonial.content}
 </Blockquote>
@@ -113,4 +124,5 @@ New York-based B2B research firm NewtonX needed to prove scalable customer acqui
 <Image src={imageResults} alt="NewtonX PPC profit/loss chart" />
 
 ## Impact
+
 NewtonX raised $32M in December 2021, citing marketing contributions as key to their pitch. The program scaled from 1 contractor to a 3-person in-house team post-funding.

@@ -38,7 +38,13 @@ export function GrayscaleTransitionImage({
         className="pointer-events-none absolute left-0 top-0 w-full opacity-0 transition duration-300 group-hover:opacity-100"
         aria-hidden="true"
       >
-        <Image src={src} quality={quality} sizes={sizes} alt={alt} className={className} />
+        <Image
+          src={src}
+          quality={quality}
+          sizes={sizes}
+          alt={alt}
+          className={className}
+        />
       </div>
     </div>
   )

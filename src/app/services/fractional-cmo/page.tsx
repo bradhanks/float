@@ -243,7 +243,10 @@ function Values() {
 export default function FractionalCMO() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Fractional CMO" title="SeriesLab CMOs deliver consistent results.">
+      <PageIntro
+        eyebrow="Fractional CMO"
+        title="SeriesLab CMOs deliver consistent results."
+      >
         <p>
           We believe in efficiency and maximizing our resources to provide the
           best value to our clients. The primary way we do that is by re-using

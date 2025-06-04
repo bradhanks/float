@@ -1,10 +1,8 @@
-import React from 'react';
-import { Container } from '@/components/Container';
-import { FadeIn } from '@/components/FadeIn';
-import { TravelingImage } from '@/components/TravelingImage';
-import type { StaticImageData } from 'next/image';
-
-
+import React from 'react'
+import { Container } from '@/components/Container'
+import { FadeIn } from '@/components/FadeIn'
+import { TravelingImage } from '@/components/TravelingImage'
+import type { StaticImageData } from 'next/image'
 
 interface SectionProps {
   title: string

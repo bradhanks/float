@@ -11,7 +11,7 @@ interface CalendlyButtonProps {
 
 export default function CalendlyButton({
   invert = false,
-  className
+  className,
 }: CalendlyButtonProps) {
   const [mounted, setMounted] = useState(false)
 
@@ -30,7 +30,7 @@ export default function CalendlyButton({
         'bg-inherit font-sans text-sm font-semibold text-neutral-900 hover:text-emerald-700 active:text-emerald-500',
         'dark:bg-inherit dark:text-white',
         invert && 'text-white hover:text-emerald-500 active:text-emerald-400',
-        className
+        className,
       )}
       pageSettings={{
         backgroundColor: 'ffffff',
