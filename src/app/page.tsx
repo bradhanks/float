@@ -8,8 +8,6 @@ import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
 import { TravelingImage } from '@/components/TravelingImage'
-import { StylizedImage } from '@/components/StylizedImage'
-
 import { Testimonial } from '@/components/Testimonial'
 import imagePostLucid from '@/images/post-lucid.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
@@ -52,8 +50,8 @@ function CaseStudies({
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          If you are an early-stage B2B SaaS startup, we're confident we've
-          delivered results for a startup like yours.
+          If you are an early-stage B2B SaaS startup, we&apos;re confident
+          we&apos;ve delivered results for a startup like yours.
         </p>
       </SectionIntro>
       <Container className="mt-16">

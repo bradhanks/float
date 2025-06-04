@@ -61,12 +61,12 @@ export default async function Post(
       error: null,
     }
   } catch (error) {
-    console.error('Error sending email:', error)
-
     return {
       success: false,
       data: null,
-      error: 'Failed to send email. Please try again later.',
+      error:
+        'Failed to send email: ' +
+        (error instanceof Error ? error.message : 'Unknown error'),
     }
   }
 }

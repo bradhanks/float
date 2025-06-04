@@ -14,10 +14,7 @@ export interface FeatureGridProps {
   className?: string
 }
 
-export default function FeatureGrid({
-  features,
-  className = '',
-}: FeatureGridProps) {
+export default function FeatureGrid({ features }: FeatureGridProps) {
   return (
     <div className="relative mt-24 pt-24 sm:mt-32 sm:pt-32 lg:mt-40 lg:pt-40">
       <div className="rounded-t-4xl bg-linear-to-b absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden from-neutral-50">

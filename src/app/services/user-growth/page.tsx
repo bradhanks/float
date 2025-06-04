@@ -25,8 +25,8 @@ const sections = [
             understand what makes their business tick.
           </p>
           <p>
-            Our team of private investigators shadow the company director's for
-            several weeks while our account managers focus on going through
+            Our team of private investigators shadow the company director&apos;s
+            for several weeks while our account managers focus on going through
             their trash. Our senior security experts then perform social
             engineering hacks to gain access to their{' '}
             <strong className="font-semibold text-neutral-950">business</strong>{' '}
@@ -68,9 +68,9 @@ const sections = [
           <p>
             Each client is assigned a key account manager to keep lines of
             communication open and obscure the actual progress of the project.
-            They act as a buffer between the client's incessant nagging and the
-            development team who are hard at work scouring open source projects
-            for code to re-purpose.
+            They act as a buffer between the client&apos;s incessant nagging and
+            the development team who are hard at work scouring open source
+            projects for code to re-purpose.
           </p>
           <p>
             Our account managers are trained to only reply to client emails
@@ -129,7 +129,7 @@ const sections = [
         <List className="mt-8">
           <ListItem title="Testing">
             Our projects always have 100% test coverage, which would be
-            impressive if our tests weren't as porous as a sieve.
+            impressive if our tests weren&apos;t as porous as a sieve.
           </ListItem>
           <ListItem title="Infrastructure">
             To ensure reliability we only use the best Digital Ocean droplets
@@ -187,8 +187,8 @@ export default function UserGrowth() {
         title="We are shameless about growing revenue."
       >
         <p>
-          Series-A VC funds are demanding, so there's no shame in a bridge round
-          to find product-market fit — except yes.
+          Series-A VC funds are demanding, so there&apos;s no shame in a bridge
+          round to find product-market fit — except yes.
           <span className="text-emerald-700">
             {' '}
             Let&apos;s get shameless
