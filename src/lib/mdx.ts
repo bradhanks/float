@@ -56,10 +56,27 @@ export interface CaseStudy {
   }
 }
 
+export interface Service {
+  date: string
+  title: string
+  description: string
+  details: [ServiceDetail]
+}
+
+interface ServiceDetail {
+  name: string
+  role: string
+  image: ImagePropsWithOptionalAlt
+}
+
 export function loadArticles() {
   return loadEntries<Article>('blog', 'article')
 }
 
 export function loadCaseStudies() {
   return loadEntries<CaseStudy>('customers', 'caseStudy')
+}
+
+export function loadServices() {
+  return loadEntries<Service>('services', 'service')
 }

@@ -1,155 +1,273 @@
 import { type Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
 
 import { Blockquote } from '@/components/Blockquote'
-import { Border } from '@/components/Border'
-import { Button } from '@/components/Button'
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
-import { FadeIn, FadeInStagger } from '@/components/FadeIn'
+import { FadeIn } from '@/components/FadeIn'
+import { GridList, GridListItem } from '@/components/GridList'
+import { GridPattern } from '@/components/GridPattern'
+import { List, ListItem } from '@/components/List'
 import { PageIntro } from '@/components/PageIntro'
-import { Testimonial } from '@/components/Testimonial'
-import { formatDate } from '@/lib/formatDate'
-import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
+import { SectionIntro } from '@/components/SectionIntro'
+import { StylizedImage } from '@/components/StylizedImage'
+import { TagList, TagListItem } from '@/components/TagList'
+import imageLaptop from '@/images/laptop.jpg'
+import imageMeeting from '@/images/meeting.jpg'
+import imageWhiteboard from '@/images/whiteboard.jpg'
 import { RootLayout } from '@/components/RootLayout'
-import { clients, ListClients } from '@/lib/clients'
 
-function CaseStudies({
-  caseStudies,
+function Section({
+  title,
+  image,
+  children,
 }: {
-  caseStudies: Array<MDXEntry<CaseStudy>>
+  title: string
+  image: React.ComponentPropsWithoutRef<typeof StylizedImage>
+  children: React.ReactNode
 }) {
   return (
-    <Container className="mt-40">
-      <FadeIn>
-        <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          Case studies
-        </h2>
-      </FadeIn>
-      <div className="mt-10 space-y-20 sm:space-y-24 lg:space-y-32">
-        {caseStudies.map((caseStudy) => (
-          <FadeIn key={caseStudy.client}>
-            <article>
-              <Border className="grid grid-cols-3 gap-x-8 gap-y-8 pt-16">
-                <div className="col-span-full sm:flex sm:items-center sm:justify-between sm:gap-x-8 lg:col-span-1 lg:block">
-                  <div className="sm:flex sm:items-center sm:gap-x-6 lg:block">
-                    <Image
-                      src={caseStudy.logo}
-                      alt=""
-                      className="h-16 w-16 flex-none"
-                      unoptimized
-                    />
-                    <h3 className="mt-6 text-sm font-semibold text-neutral-950 sm:mt-0 lg:mt-8">
-                      {caseStudy.client}
-                    </h3>
-                  </div>
-                  <div className="mt-1 flex gap-x-4 sm:mt-0 lg:block">
-                    <p className="text-sm tracking-tight text-neutral-950 after:ml-4 after:font-semibold after:text-neutral-300 after:content-['/'] lg:mt-2 lg:after:hidden">
-                      {caseStudy.service}
-                    </p>
-                    <p className="text-sm text-neutral-950 lg:mt-2">
-                      <time dateTime={caseStudy.date}>
-                        {formatDate(caseStudy.date)}
-                      </time>
-                    </p>
-                  </div>
-                </div>
-                <div className="col-span-full lg:col-span-2 lg:max-w-2xl">
-                  <p className="font-display text-4xl font-medium text-neutral-950">
-                    <Link href={caseStudy.href}>{caseStudy.title}</Link>
-                  </p>
-                  <div className="mt-6 space-y-6 text-base text-neutral-600">
-                    {caseStudy.summary.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8 flex">
-                    <Button
-                      href={caseStudy.href}
-                      aria-label={`Read case study: ${caseStudy.client}`}
-                    >
-                      Read case study
-                    </Button>
-                  </div>
-                  {caseStudy.testimonial && (
-                    <Blockquote
-                      author={caseStudy.testimonial.author}
-                      className="mt-12"
-                    >
-                      {caseStudy.testimonial.content}
-                    </Blockquote>
-                  )}
-                </div>
-              </Border>
-            </article>
+    <Container className="group/section [counter-increment:section]">
+      <div className="lg:flex lg:items-center lg:justify-end lg:gap-x-8 lg:group-even/section:justify-start xl:gap-x-20">
+        <div className="flex justify-center">
+          <FadeIn className="w-135 lg:w-180 flex-none">
+            <StylizedImage
+              {...image}
+              sizes="(min-width: 1024px) 41rem, 31rem"
+              className="justify-center lg:justify-end lg:group-even/section:justify-start"
+            />
           </FadeIn>
-        ))}
+        </div>
+        <div className="lg:w-148 mt-12 lg:mt-0 lg:flex-none lg:group-even/section:order-first">
+          <FadeIn>
+            <div
+              className="font-display text-base font-semibold before:text-neutral-300 before:content-['/_'] after:text-neutral-950 after:content-[counter(section,decimal-leading-zero)]"
+              aria-hidden="true"
+            />
+            <h2 className="font-display mt-2 text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">
+              {title}
+            </h2>
+            <div className="mt-6">{children}</div>
+          </FadeIn>
+        </div>
       </div>
     </Container>
   )
 }
 
-function Clients() {
+function Discover() {
   return (
-    <Container className="mt-24 sm:mt-32 lg:mt-40">
-      <FadeIn>
-        <h2 className="font-display text-2xl font-semibold text-neutral-950">
-          You&apos;re in good company
-        </h2>
-      </FadeIn>
-      <FadeInStagger className="mt-10" faster>
-        <Border as={FadeIn} />
-        <ul
-          role="list"
-          className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-4"
-        >
-          <ListClients clients={clients} />
-        </ul>
-      </FadeInStagger>
-    </Container>
+    <Section title="Discover" image={{ src: imageWhiteboard }}>
+      <div className="space-y-6 text-base text-neutral-600">
+        <p>
+          We work closely with our clients to understand their{' '}
+          <strong className="font-semibold text-neutral-950">needs</strong> and
+          goals, embedding ourselves in their every day operations to understand
+          what makes their business tick.
+        </p>
+        <p>
+          Our team of private investigators shadow the company director&apos;s
+          for several weeks while our account managers focus on going through
+          their trash. Our senior security experts then perform social
+          engineering hacks to gain access to their{' '}
+          <strong className="font-semibold text-neutral-950">business</strong>{' '}
+          accounts — handing that information over to our forensic accounting
+          team.
+        </p>
+        <p>
+          Once the full audit is complete, we report back with a comprehensive{' '}
+          <strong className="font-semibold text-neutral-950">plan</strong> and,
+          more importantly, a budget.
+        </p>
+      </div>
+
+      <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
+        Included in this phase
+      </h3>
+      <TagList className="mt-4">
+        <TagListItem>In-depth questionnaires</TagListItem>
+        <TagListItem>Feasibility studies</TagListItem>
+        <TagListItem>Blood samples</TagListItem>
+        <TagListItem>Employee surveys</TagListItem>
+        <TagListItem>Proofs-of-concept</TagListItem>
+        <TagListItem>Forensic audit</TagListItem>
+      </TagList>
+    </Section>
   )
 }
 
-export const metadata: Metadata = {
-  title: 'Attribution',
-  description:
-    'Unlock revenue-to-spend ratio insights with comprehensive attribution.',
+function Build() {
+  return (
+    <Section title="Build" image={{ src: imageLaptop, shape: 1 }}>
+      <div className="space-y-6 text-base text-neutral-600">
+        <p>
+          Based off of the discovery phase, we develop a comprehensive roadmap
+          for each product and start working towards delivery. The roadmap is an
+          intricately tangled mess of technical nonsense designed to drag the
+          project out as long as possible.
+        </p>
+        <p>
+          Each client is assigned a key account manager to keep lines of
+          communication open and obscure the actual progress of the project.
+          They act as a buffer between the client&apos;s incessant nagging and
+          the development team who are hard at work scouring open source
+          projects for code to re-purpose.
+        </p>
+        <p>
+          Our account managers are trained to only reply to client emails after
+          9pm, several days after the initial email. This reinforces the general
+          aura that we are very busy and dissuades clients from asking for
+          changes.
+        </p>
+      </div>
+
+      <Blockquote
+        author={{ name: 'Debra Fiscal', role: 'CEO of Unseal' }}
+        className="mt-12"
+      >
+        SeriesLab were so regular with their progress updates we almost began to
+        think they were automated!
+      </Blockquote>
+    </Section>
+  )
 }
 
-export default async function Work() {
-  const caseStudies = await loadCaseStudies()
-
+function Deliver() {
   return (
-    <RootLayout>
-      <PageIntro
-        eyebrow="Martech Solutions"
-        title="Marketing Technology That Works"
+    <Section title="Deliver" image={{ src: imageMeeting, shape: 2 }}>
+      <div className="space-y-6 text-base text-neutral-600">
+        <p>
+          About halfway through the Build phase, we push each project out by 6
+          weeks due to a change in{' '}
+          <strong className="font-semibold text-neutral-950">
+            requirements
+          </strong>
+          . This allows us to increase the budget a final time before launch.
+        </p>
+        <p>
+          Despite largely using pre-built components, most of the{' '}
+          <strong className="font-semibold text-neutral-950">progress</strong>{' '}
+          on each project takes place in the final 24 hours. The development
+          time allocated to each client is actually spent making augmented
+          reality demos that go viral on social media.
+        </p>
+        <p>
+          We ensure that the main pages of the site are{' '}
+          <strong className="font-semibold text-neutral-950">
+            fully functional
+          </strong>{' '}
+          at launch — the auxiliary pages will, of course, be lorem ipusm shells
+          which get updated as part of our exorbitant{' '}
+          <strong className="font-semibold text-neutral-950">
+            maintenance
+          </strong>{' '}
+          retainer.
+        </p>
+      </div>
+
+      <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
+        Included in this phase
+      </h3>
+      <List className="mt-8">
+        <ListItem title="Testing">
+          Our projects always have 100% test coverage, which would be impressive
+          if our tests weren&apos;t as porous as a sieve.
+        </ListItem>
+        <ListItem title="Infrastructure">
+          To ensure reliability we only use the best Digital Ocean droplets that
+          $4 a month can buy.
+        </ListItem>
+        <ListItem title="Support">
+          Because we hold the API keys for every critical service your business
+          uses, you can expect a lifetime of support, and invoices, from us.
+        </ListItem>
+      </List>
+    </Section>
+  )
+}
+
+function Values() {
+  return (
+    <div className="relative mt-24 pt-24 sm:mt-32 sm:pt-32 lg:mt-40 lg:pt-40">
+      <div className="rounded-t-4xl bg-linear-to-b absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden from-neutral-50">
+        <GridPattern
+          className="mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] absolute inset-0 h-full w-full fill-neutral-100 stroke-neutral-950/5"
+          yOffset={-270}
+        />
+      </div>
+
+      <SectionIntro
+        eyebrow="Our values"
+        title="Balancing reliability and innovation"
       >
         <p>
-          You are flush with cash and ready to start throwing money at reputable
-          vendors, right? Not so fast. Martech is a minefield of complexity and
-          confusion, and it&apos;s easy to get lost in the weeds. We help you
-          navigate this landscape, ensuring you get the most out of your
-          marketing technology investments. We will help you indeityt the right
-          tools, and where you can make do with open source solutions for the
-          time being.
+          We strive to stay at the forefront of emerging trends and
+          technologies, while completely ignoring them and forking that old
+          Rails project we feel comfortable using. We stand by our core values
+          to justify that decision.
+        </p>
+      </SectionIntro>
+
+      <Container className="mt-24">
+        <GridList>
+          <GridListItem title="Meticulous">
+            The first part of any partnership is getting our designer to put
+            your logo in our template. The second step is getting them to do the
+            colors.
+          </GridListItem>
+          <GridListItem title="Efficient">
+            We pride ourselves on never missing a deadline which is easy because
+            most of the work was done years ago.
+          </GridListItem>
+          <GridListItem title="Adaptable">
+            Every business has unique needs and our greatest challenge is
+            shoe-horning those needs into something we already built.
+          </GridListItem>
+          <GridListItem title="Honest">
+            We are transparent about all of our processes, banking on the simple
+            fact our clients never actually read anything.
+          </GridListItem>
+          <GridListItem title="Loyal">
+            We foster long-term relationships with our clients that go beyond
+            just delivering a product, allowing us to invoice them for decades.
+          </GridListItem>
+          <GridListItem title="Innovative">
+            The technological landscape is always evolving and so are we. We are
+            constantly on the lookout for new open source projects to clone.
+          </GridListItem>
+        </GridList>
+      </Container>
+    </div>
+  )
+}
+
+
+
+export default function MartechSolutions() {
+  return (
+    <RootLayout>
+      <PageIntro eyebrow="Martech Solutions" title="How we work">
+        <p>
+          We believe in efficiency and maximizing our resources to provide the
+          best value to our clients. The primary way we do that is by re-using
+          the same five projects we&apos;ve been developing for the past decade.
         </p>
       </PageIntro>
 
-      <CaseStudies caseStudies={caseStudies} />
+      <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
+        <Discover />
+        <Build />
+        <Deliver />
+      </div>
 
-      <Testimonial
-        className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: clients.lucid.name, logo: clients.lucid.logoLight }}
-      >
-        We approached <em>SeriesLab </em> because we loved their past work. They
-        delivered something remarkably similar in record time.
-      </Testimonial>
-
-      <Clients />
+      <Values />
 
       <ContactSection />
     </RootLayout>
   )
+}
+
+export const metadata: Metadata = {
+  title: 'Martech Solutions < Services',
+  description:
+    'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
 }

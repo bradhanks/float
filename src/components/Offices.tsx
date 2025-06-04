@@ -39,13 +39,13 @@ export function Offices({
         </Office>
       </li>
 
-      <li>
+      {/* <li>
         <Office name="San Francisco" invert={invert}>
           2701 Thanksgiving Drive
           <br />
           Redwood City, CA 84043
         </Office>
-      </li>
+      </li> */}
     </ul>
   )
 }

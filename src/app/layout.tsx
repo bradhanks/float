@@ -8,8 +8,8 @@ import { headers } from 'next/headers'
 export const experimental_ppr = true
 export const metadata: Metadata = {
   title: {
-    template: '%s - SeriesA. ',
-    default: 'SeriesA. - B2B SaaS Martech Consulting',
+    template: '%s | B2B SaaS Startup Consulting | SeriesLab.',
+    default: 'B2B SaaS Martech Consulting',
   },
 }
 

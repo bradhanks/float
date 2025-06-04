@@ -20,13 +20,12 @@ const shapes = [
   },
 ]
 
-type ImagePropsWithOptionalAlt = Omit<ImageProps, 'alt'> & { alt?: string }
 
-export function StylizedImage({
+export function TravelingImage({
   shape = 0,
   className,
   ...props
-}: ImagePropsWithOptionalAlt & { shape?: 0 | 1 | 2 }) {
+}: ImageProps & { shape?: number; className?: string }) {
   const id = useId()
   const { width, height, path } = shapes[shape]
 
@@ -34,19 +33,19 @@ export function StylizedImage({
     <div
       className={clsx(
         className,
-        'aspect-655/680 relative flex w-full grayscale',
+        'relative aspect-655/680 overflow-hidden'
       )}
     >
       <svg viewBox={`0 0 ${width} ${height}`} fill="none" className="h-full">
         <g clipPath={`url(#${id}-clip)`} className="group">
-          <g className="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-105">
+          <g className="origin-center scale-100 transition duration-500 motion-safe:group-hover:scale-110">
             <foreignObject width={width} height={height}>
-              <Image
-                alt=""
-                className="w-full bg-neutral-100 object-cover"
-                style={{ aspectRatio: `${width} / ${height}` }}
-                {...props}
-              />
+              <div className="group relative h-full w-full overflow-hidden">
+                <Image
+                  className="h-full w-full object-cover transition-all duration-700 ease-in-out grayscale group-hover:grayscale-0 group-hover:scale-110 group-hover:translate-x-2 group-hover:-translate-y-2"
+                  {...props}
+                />
+              </div>
             </foreignObject>
           </g>
           <use
@@ -66,6 +65,6 @@ export function StylizedImage({
           </clipPath>
         </defs>
       </svg>
-    </div>
+    </div >
   )
 }

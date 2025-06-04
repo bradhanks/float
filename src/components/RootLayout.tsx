@@ -22,7 +22,7 @@ import { GridPattern } from '@/components/GridPattern'
 import { Offices } from '@/components/Offices'
 import { QuickContact } from '@/components/QuickContact'
 import CalendlyButton from '@/components/CalendlyButton'
-
+import Navigation from '@/components/Navigation'
 // Fix: Proper dynamic imports for logo components
 const LazyLogo = dynamic(
   () => import('@/components/Logo').then((mod) => mod.Logo),
@@ -133,70 +133,6 @@ function Header({
   )
 }
 
-function NavigationRow({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="even:mt-px sm:bg-neutral-950">
-      <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
-      </Container>
-    </div>
-  )
-}
-
-function NavigationItem({
-  href,
-  children,
-}: {
-  href: string
-  children: React.ReactNode
-}) {
-  const pathname = usePathname()
-  const isActive = pathname === href
-
-  return (
-    <Link
-      href={href}
-      className={clsx(
-        'group relative isolate -mx-6 bg-neutral-950 px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-neutral-800 sm:even:pl-16',
-        isActive && 'bg-emerald-900/20',
-      )}
-    >
-      <span className="absolute inset-y-0 -z-10 w-screen bg-neutral-900 opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
-      <span
-        className={clsx(
-          'relative after:absolute after:bottom-2 after:left-0 after:h-1 after:w-full after:origin-left after:scale-x-0 after:bg-emerald-400 after:transition-transform after:duration-300 group-hover:after:scale-x-100',
-          isActive && 'after:scale-x-100',
-        )}
-      >
-        {children}
-      </span>
-    </Link>
-  )
-}
-
-function Navigation() {
-  return (
-    <nav className="font-display mt-px text-5xl font-medium tracking-tight text-white">
-      <NavigationRow>
-        <NavigationItem href="/services/martech-solutions">
-          Martech Solutions
-        </NavigationItem>
-        <NavigationItem href="/services/user-growth">
-          User Growth
-        </NavigationItem>
-      </NavigationRow>
-      <NavigationRow>
-        <NavigationItem href="/services/attribution-analytics">
-          Attribution
-        </NavigationItem>
-        <NavigationItem href="/services/fractional-cmo">
-          Fractional CMO
-        </NavigationItem>
-      </NavigationRow>
-    </nav>
-  )
-}
-
 function RootLayoutInner({ children }: { children: React.ReactNode }) {
   const panelId = useId()
   const [expanded, setExpanded] = useState(false)
@@ -283,7 +219,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                 <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
                   <div>
                     <h2 className="font-display text-base font-semibold text-white">
-                      Our offices
+                      Our office
                     </h2>
                     <Offices
                       invert

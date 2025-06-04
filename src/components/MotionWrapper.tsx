@@ -1,7 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
+// Create motion-wrapped versions of common HTML elements
 export const MotionDiv = motion.div
 export const MotionSpan = motion.span
 export const MotionLi = motion.li
@@ -12,4 +14,4 @@ export const MotionH2 = motion.h2
 export const MotionP = motion.p
 export const MotionPath = motion.path
 export const MotionSvg = motion.svg
-export const MotionImage = motion.create('motion.img')
+export const MotionImage = motion(Image)

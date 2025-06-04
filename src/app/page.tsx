@@ -7,9 +7,11 @@ import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { List, ListItem } from '@/components/List'
 import { SectionIntro } from '@/components/SectionIntro'
+import { TravelingImage } from '@/components/TravelingImage'
 import { StylizedImage } from '@/components/StylizedImage'
+
 import { Testimonial } from '@/components/Testimonial'
-import imageLaptop from '@/images/laptop.jpg'
+import imagePostLucid from '@/images/post-lucid.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
 import { ListClients, clients } from '@/lib/clients'
@@ -20,7 +22,7 @@ function Clients() {
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="font-display text-center text-sm font-semibold tracking-wider text-white sm:text-left">
-            We&apos;ve worked with hundreds of amazing people
+            B2B SaaS industry leaders start as B2B SaaS seed-stage startups.
           </h2>
           <div className="h-px flex-auto bg-neutral-800" />
         </FadeIn>
@@ -45,13 +47,12 @@ function CaseStudies({
   return (
     <>
       <SectionIntro
-        title="Harnessing technology for a brighter future"
+        title="Getting down to brass tacks with B2B SaaS startups."
+        eyebrow="Case Studies"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
-          We believe technology is the answer to the world&apos;s greatest
-          challenges. It&apos;s also the cause, so we find ourselves in bit of a
-          catch 22 situation.
+          If you are an early-stage B2B SaaS startup, we're confident we've delivered results for a startup like yours.
         </p>
       </SectionIntro>
       <Container className="mt-16">
@@ -71,13 +72,11 @@ function CaseStudies({
                   </Link>
                 </h3>
                 <p className="mt-6 flex gap-x-2 text-sm text-neutral-950">
-                  <time
-                    dateTime={caseStudy.date.split('-')[0]}
-                    className="font-semibold"
-                  >
-                    {caseStudy.date.split('-')[0]}
-                  </time>
-                  <span className="text-neutral-300" aria-hidden="true">
+                  <span className="font-semibold">
+                    {caseStudy.client}
+                  </span>
+
+                  <span className="text-emerald-200" aria-hidden="true">
                     /
                   </span>
                   <span>Case study</span>
@@ -102,7 +101,7 @@ function Services() {
     <>
       <SectionIntro
         eyebrow="Services"
-        title="We help you identify, explore and respond to new opportunities."
+        title="Maximum B2B SaaS startup valuation without the rigmarole."
         className="mt-24 sm:mt-32 lg:mt-40"
       >
         <p>
@@ -114,32 +113,27 @@ function Services() {
         <div className="lg:flex lg:items-center lg:justify-end">
           <div className="flex justify-center lg:w-1/2 lg:justify-end lg:pr-12">
             <FadeIn className="w-135 lg:w-180 flex-none">
-              <StylizedImage
-                src={imageLaptop}
-                sizes="(min-width: 1024px) 41rem, 31rem"
+              <TravelingImage
+                alt=""
+                src={imagePostLucid}
+                sizes="(max-width: 1024px) 41rem, 31rem"
                 className="justify-center lg:justify-end"
               />
             </FadeIn>
           </div>
           <List className="lg:min-w-132 mt-16 lg:mt-0 lg:w-1/2 lg:pl-4">
-            <ListItem title="Web development">
-              We specialise in crafting beautiful, high quality marketing pages.
-              The rest of the website will be a shell that uses lorem ipsum
-              everywhere.
+            <ListItem title="Martech Solutions">
+              Tech stack audits, integrations, and scalable implementations—from vanilla setups to complex AI/ML-driven systems.
+              We specialise in crafting beautiful, high quality marketing pages. The rest of the website will be a shell that uses lorem ipsum everywhere.
             </ListItem>
-            <ListItem title="Application development">
-              We have a team of skilled developers who are experts in the latest
-              app frameworks, like Angular 1 and Google Web Toolkit.
+            <ListItem title="User Growth">
+              Demand generation, SEM, and lifecycle marketing to accelerate traction.We specialise in crafting beautiful, high quality marketing pages. The rest of the website will be a shell that uses lorem ipsum everywhere.
             </ListItem>
-            <ListItem title="E-commerce">
-              We are at the forefront of modern e-commerce development. Which
-              mainly means adding your logo to the Shopify store template
-              we&apos;ve used for the past six years.
+            <ListItem title="Attribution Analytics">
+              Cradle-to-grave metrics to prove ROI and attract investors.We specialise in crafting beautiful, high quality marketing pages. The rest of the website will be a shell that uses lorem ipsum everywhere.
             </ListItem>
-            <ListItem title="Custom content management">
-              At SeriesLab we understand the importance of having a robust and
-              customised CMS. That&apos;s why we run all of our client projects
-              out of a single, enormous Joomla instance.
+            <ListItem title="Fractional CMO">
+              Hands-on leadership for startups needing a revenue-focused marketing strategist.We specialise in crafting beautiful, high quality marketing pages. The rest of the website will be a shell that uses lorem ipsum everywhere.
             </ListItem>
           </List>
         </div>
@@ -149,8 +143,8 @@ function Services() {
 }
 
 export const metadata: Metadata = {
-  description:
-    'B2B SaaS marketing consultancy specializing in startups from Day 0 to Series A.',
+  title: 'B2B SaaS Martech Consulting',
+  description: 'B2B SaaS marketing consultancy specializing in startups from Day 0 to Series A.'
 }
 
 export default async function Home() {
@@ -161,11 +155,10 @@ export default async function Home() {
       <Container className="mt-24 sm:mt-32 md:mt-56">
         <FadeIn className="max-w-3xl">
           <h1 className="font-display text-balance text-5xl font-medium tracking-tight text-neutral-950 sm:text-7xl">
-            B2B SaaS startup valuation consulting
+            B2B SaaS startup <span className="text-emerald-700">valuation</span> consulting
           </h1>
           <p className="mt-6 text-xl text-neutral-600">
-            We deliver on this promise — gangbuster terms on your next round of
-            funding.
+            We deliver on this promise — <span className="text-emerald-700">superior terms on your next funding round.</span>
             <br />
             Bring your team, technology and learnings. We can help with
             traction, user growth and nailing down the unit economics of your
@@ -175,7 +168,7 @@ export default async function Home() {
       </Container>
 
       <Clients />
-
+      <Services />
       <CaseStudies caseStudies={caseStudies} />
 
       <Testimonial
@@ -187,7 +180,7 @@ export default async function Home() {
         one of those annoying permission dialogs.
       </Testimonial>
 
-      <Services />
+
 
       <ContactSection />
     </RootLayout>

@@ -81,11 +81,10 @@ function NewsletterForm() {
   return (
     <form className="max-w-sm">
       <h2 className="font-display text-sm font-semibold tracking-wider text-neutral-950">
-        Sign up for our newsletter
+        Sign up for our quarterly newsletter
       </h2>
       <p className="mt-4 text-sm text-neutral-700">
-        Subscribe for insights on growth strategy, Martech stacks, and
-        data-driven marketing.
+        We ruthlessly curate content for B2B SaaS founders.
       </p>
       <div className="relative mt-6">
         <input
