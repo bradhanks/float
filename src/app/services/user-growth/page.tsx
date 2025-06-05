@@ -11,7 +11,7 @@ import imageMeeting from '@/images/meeting.jpg'
 import imageWhiteboard from '@/images/whiteboard.jpg'
 import ServiceSection from '@/components/ServiceSection'
 
-const sections = [
+const services = [
   {
     title: 'Discover',
     image: { src: imageWhiteboard },
@@ -198,7 +198,7 @@ export default function UserGrowth() {
       </PageIntro>
 
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
-        {sections.map(({ title, image, content }) => (
+        {services.map(({ title, image, content }) => (
           <ServiceSection key={title} title={title} image={image}>
             {content}
           </ServiceSection>

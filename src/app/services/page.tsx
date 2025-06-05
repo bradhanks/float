@@ -1,90 +1,69 @@
 import { type Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-
-import { Border } from '@/components/Border'
-import { Button } from '@/components/Button'
 import { ContactSection } from '@/components/ContactSection'
-import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
+import FeatureGrid from '@/components/FeatureGrid'
 import { RootLayout } from '@/components/RootLayout'
-import { formatDate } from '@/lib/formatDate'
-import { loadArticles } from '@/lib/mdx'
 
-export const metadata: Metadata = {
-  title: 'B2B SaaS Startup Growth Services',
-  description:
-    'Stay up-to-date with the latest industry news as our marketing teams finds new ways to re-purpose old CSS tricks articles.',
-}
+const services_as_features = [
+  {
+    title: 'Forum',
+    description:
+      'The first part of any partnership is getting our designer to put your logo in our template. The second step is getting them to do the colors.',
+  },
+  {
+    title: 'UGC',
+    description:
+      'We pride ourselves on never missing a deadline which is easy because most of the work was done years ago.',
+  },
+  {
+    title: 'SEO',
+    description:
+      'Every business has unique needs and our greatest challenge is shoe-horning those needs into something we already built.',
+  },
+  {
+    title: 'Paid Search',
+    description:
+      'We are transparent about all of our processes, banking on the simple fact our clients never actually read anything.',
+  },
+  {
+    title: 'Loyal',
+    description:
+      'We foster long-term relationships with our clients that go beyond just delivering a product, allowing us to invoice them for decades.',
+  },
+  {
+    title: 'Innovative',
+    description:
+      'The technological landscape is always evolving and so are we. We are constantly on the lookout for new open source projects to clone.',
+  },
+]
 
-export default async function Services() {
-  const articles = await loadArticles()
-
+export default function Services() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Services" title="The latest articles and news">
+      <PageIntro
+        eyebrow="User Growth"
+        title="We are shameless about growing revenue."
+      >
         <p>
-          Stay up-to-date with the latest industry news as our marketing teams
-          finds new ways to re-purpose old CSS tricks articles.
+          Series-A VC funds are demanding, so there&apos;s no shame in a bridge
+          round to find product-market fit — except yes.
+          <span className="text-emerald-700">
+            {' '}
+            Let&apos;s get shameless
+          </span>{' '}
+          with paying user growth.
         </p>
       </PageIntro>
 
-      <Container className="mt-24 sm:mt-32 lg:mt-40">
-        <div className="space-y-24 lg:space-y-32">
-          {articles.map((article) => (
-            <FadeIn key={article.href}>
-              <article>
-                <Border className="pt-16">
-                  <div className="relative lg:-mx-4 lg:flex lg:justify-end">
-                    <div className="pt-10 lg:w-2/3 lg:flex-none lg:px-4 lg:pt-0">
-                      <h2 className="font-display text-2xl font-semibold text-neutral-950">
-                        <Link href={article.href}>{article.title}</Link>
-                      </h2>
-                      <dl className="lg:absolute lg:left-0 lg:top-0 lg:w-1/3 lg:px-4">
-                        <dt className="sr-only">Published</dt>
-                        <dd className="absolute left-0 top-0 text-sm text-neutral-950 lg:static">
-                          <time dateTime={article.date}>
-                            {formatDate(article.date)}
-                          </time>
-                        </dd>
-                        <dt className="sr-only">Author</dt>
-                        <dd className="mt-6 flex gap-x-4">
-                          <div className="flex-none overflow-hidden rounded-xl bg-neutral-100">
-                            <Image
-                              alt=""
-                              {...article.author.image}
-                              className="h-12 w-12 object-cover grayscale"
-                            />
-                          </div>
-                          <div className="text-sm text-neutral-950">
-                            <div className="font-semibold">
-                              {article.author.name}
-                            </div>
-                            <div>{article.author.role}</div>
-                          </div>
-                        </dd>
-                      </dl>
-                      <p className="mt-6 max-w-2xl text-base text-neutral-600">
-                        {article.description}
-                      </p>
-                      <Button
-                        href={article.href}
-                        aria-label={`Read more: ${article.title}`}
-                        className="mt-8"
-                      >
-                        Read more
-                      </Button>
-                    </div>
-                  </div>
-                </Border>
-              </article>
-            </FadeIn>
-          ))}
-        </div>
-      </Container>
+      <FeatureGrid features={services_as_features} />
 
-      <ContactSection />
+      <ContactSection cta="Traction is one click away." btn="Schedule call" />
     </RootLayout>
   )
+}
+
+export const metadata: Metadata = {
+  title: 'B2B SaaS Marketing Services',
+  description:
+    'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
 }
