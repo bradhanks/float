@@ -1,4 +1,5 @@
 import { type Metadata } from 'next'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 import '@/styles/tailwind.css'
 import '@/styles/base.css'
@@ -24,8 +25,10 @@ export default async function Layout({
       <meta property="csp-nonce" content={nonce} />
 
       <body className="flex min-h-full flex-col">
+        <GoogleTagManager gtmId="GTM-PP2P57S" />
         <PostHogProvider>{children}</PostHogProvider>
       </body>
+
     </html>
   )
 }
