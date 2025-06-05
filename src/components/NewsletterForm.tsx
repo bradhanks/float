@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import ArrowIcon from '@/components/ArrowIcon'
 
 interface FormData {
   email: string
@@ -56,24 +57,15 @@ export function NewsletterForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-sm">
-      <h2 className="font-display text-sm font-semibold tracking-wider text-neutral-950">
+    <form onSubmit={handleSubmit} className="mx-auto w-full max-w-md">
+      <h2 className="font-display text-sm font-semibold tracking-wider text-neutral-950 sm:text-base">
         Sign up for our quarterly newsletter
       </h2>
-      <p className="mt-4 text-sm text-neutral-700">
+      <p className="mt-4 text-sm text-neutral-700 sm:text-base">
         We ruthlessly curate content for B2B SaaS founders.
       </p>
 
       <div className="relative mt-6">
-        <input
-          id="name"
-          name="name"
-          type="text"
-          placeholder="Your name"
-          value={formData.name}
-          onChange={handleChange}
-          className="block w-full rounded-2xl border border-neutral-300 bg-transparent py-4 pl-6 pr-4 text-base text-neutral-950 placeholder:text-neutral-500 focus:border-neutral-950 focus:outline-none"
-        />
         <input
           id="email"
           name="email"
@@ -84,16 +76,19 @@ export function NewsletterForm() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-4 block w-full rounded-2xl border border-neutral-300 bg-transparent py-4 pl-6 pr-20 text-base text-neutral-950 placeholder:text-neutral-500 focus:border-neutral-950 focus:outline-none"
+          className="w-full rounded-2xl border border-neutral-300 bg-transparent py-4 pl-6 pr-32 text-base text-neutral-950 placeholder:text-neutral-500 focus:border-neutral-950 focus:outline-none sm:pr-40"
         />
-
-        <button
-          type="submit"
-          disabled={status === 'submitting'}
-          className="mt-4 flex w-full items-center justify-center rounded-xl bg-neutral-950 px-4 py-3 text-white transition hover:bg-neutral-800 disabled:opacity-70"
-        >
-          {status === 'submitting' ? 'Subscribing...' : 'Subscribe'}
-        </button>
+        <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+          <button
+            type="submit"
+            aria-label="Submit"
+            disabled={status === 'submitting'}
+            className="group flex h-10 w-full max-w-[120px] items-center justify-center rounded-xl bg-neutral-950 px-3 py-2 text-sm text-white transition hover:bg-neutral-800 sm:h-12 sm:max-w-none sm:px-6 sm:text-base"
+          >
+            {status === 'submitting' ? 'Subscribing...' : 'Subscribe'}
+            <ArrowIcon className="ml-1 w-4 transition-transform group-hover:translate-x-0.5" />
+          </button>
+        </div>
       </div>
 
       {status === 'success' && (
