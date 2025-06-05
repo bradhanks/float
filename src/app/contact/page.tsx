@@ -63,7 +63,7 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <RootLayout>
-      <PageIntro eyebrow="Let's talk." title="Let's work together">
+      <PageIntro eyebrow="Let's talk." title="Contact us">
         <p>We can&apos;t wait to hear from you.</p>
       </PageIntro>
 

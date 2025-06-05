@@ -27,7 +27,7 @@ export default function Section({ title, image, children }: SectionProps) {
         <div className="lg:w-148 mt-12 lg:mt-0 lg:flex-none lg:group-even/section:order-first">
           <FadeIn>
             <div
-              className="font-display text-base font-semibold before:text-neutral-300 before:content-['/_'] after:text-neutral-950 after:content-[counter(section,decimal-leading-zero)]"
+              className="font-display text-base font-semibold before:text-emerald-200 before:content-['/_'] after:text-emerald-700 after:content-[counter(section,decimal-leading-zero)]"
               aria-hidden="true"
             />
             <h2 className="font-display mt-2 text-3xl font-medium tracking-tight text-neutral-950 sm:text-4xl">

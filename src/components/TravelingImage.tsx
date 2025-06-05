@@ -21,10 +21,11 @@ const shapes = [
 ]
 
 export function TravelingImage({
+  alt = '',
   shape = 0,
   className,
   ...props
-}: ImageProps & { shape?: number; className?: string }) {
+}: ImageProps & { alt?: string; shape?: number; className?: string }) {
   const id = useId()
   const { width, height, path } = shapes[shape]
 
@@ -36,6 +37,7 @@ export function TravelingImage({
             <foreignObject width={width} height={height}>
               <div className="group relative h-full w-full overflow-hidden">
                 <Image
+                  alt={alt}
                   className="h-full w-full object-cover grayscale transition-all duration-700 ease-in-out group-hover:-translate-y-2 group-hover:translate-x-2 group-hover:scale-110 group-hover:grayscale-0"
                   {...props}
                 />

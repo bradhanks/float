@@ -35,7 +35,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/providers.js"
+    "src/app/providers.js",
+    "src/api/mailerLite.js"
   ],
   "exclude": ["node_modules"]
 }

@@ -28,7 +28,6 @@ export default async function Layout({
         <GoogleTagManager gtmId="GTM-PP2P57S" />
         <PostHogProvider>{children}</PostHogProvider>
       </body>
-
     </html>
   )
 }
