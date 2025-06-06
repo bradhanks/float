@@ -36,10 +36,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/providers.js",
-    "src/api/mailerLite.js",
-    "src/lib/firebaseAdmin.ts",
-    "src/app/api/subscribe-mailerlite/route.ts",
-    "src/app/api/firebase/route.ts"
+    "src/api/mailerLite.js"
   ],
   "exclude": ["node_modules"]
 }
