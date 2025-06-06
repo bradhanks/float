@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { GoogleTagManager } from '@next/third-parties/google'
 import PostHogClient from '@/lib/posthog/client'
 import { useDistinctId } from '@/hooks/useDistinctId'
+import { Analytics } from '@vercel/analytics/next'
 
 function ClientGTM() {
   const distinctId = useDistinctId()
@@ -46,6 +47,7 @@ export default function AnalyticsTag() {
       <ClientGTM />
       <FirebaseTracker />
       <PostHogTracker />
+      <Analytics />
     </>
   )
 }
