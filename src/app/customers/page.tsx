@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { Blockquote } from '@/components/Blockquote'
 import { Border } from '@/components/Border'
 import { Button } from '@/components/Button'
-import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { PageIntro } from '@/components/PageIntro'
@@ -13,7 +12,7 @@ import { Testimonial } from '@/components/Testimonial'
 import { formatDate } from '@/lib/formatDate'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
-import { ListClients, clients } from '@/lib/clients'
+import { ListCustomers, customers } from '@/lib/customers'
 
 function CaseStudies({
   caseStudies,
@@ -90,7 +89,7 @@ function CaseStudies({
   )
 }
 
-function Clients() {
+function CustomerShowcase() {
   return (
     <Container className="mt-24 sm:mt-32 lg:mt-40">
       <FadeIn>
@@ -104,7 +103,7 @@ function Clients() {
           role="list"
           className="grid grid-cols-2 gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-4"
         >
-          <ListClients clients={clients} />
+          <ListCustomers customers={customers} />
         </ul>
       </FadeInStagger>
     </Container>
@@ -137,15 +136,16 @@ export default async function Customers() {
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: clients.lucid.name, logo: clients.lucid.logoLight }}
+        customer={{
+          name: customers.lucid.name,
+          logo: customers.lucid.logoLight,
+        }}
       >
         We approached <em>SeriesLab </em> because we loved their past work. They
         delivered something remarkably similar in record time.
       </Testimonial>
 
-      <Clients />
-
-      <ContactSection />
+      <CustomerShowcase />
     </RootLayout>
   )
 }

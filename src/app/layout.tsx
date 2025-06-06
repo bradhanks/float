@@ -1,10 +1,13 @@
 import { type Metadata } from 'next'
-import { GoogleTagManager } from '@next/third-parties/google'
-
 import '@/styles/tailwind.css'
 import '@/styles/base.css'
 import { PostHogProvider } from '@/app/providers'
 import { headers } from 'next/headers'
+import { initializeApp, applicationDefault } from 'firebase-admin/app'
+
+initializeApp({
+  credential: applicationDefault(),
+})
 
 export const experimental_ppr = true
 export const metadata: Metadata = {
@@ -25,7 +28,6 @@ export default async function Layout({
       <meta property="csp-nonce" content={nonce} />
 
       <body className="flex min-h-full flex-col">
-        <GoogleTagManager gtmId="GTM-PP2P57S" />
         <PostHogProvider>{children}</PostHogProvider>
       </body>
     </html>

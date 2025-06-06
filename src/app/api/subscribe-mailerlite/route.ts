@@ -1,5 +1,3 @@
-// app/api/subscribe-mailerlite/route.ts (for App Router)
-
 import { NextRequest, NextResponse } from 'next/server'
 import MailerLite from '@mailerlite/mailerlite-nodejs'
 

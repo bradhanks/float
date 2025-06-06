@@ -12,9 +12,9 @@ import { Testimonial } from '@/components/Testimonial'
 import imagePostLucid from '@/images/post-lucid.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
-import { ListClients, clients } from '@/lib/clients'
+import { ListCustomers, customers } from '@/lib/customers'
 
-function Clients() {
+function Customers() {
   return (
     <div className="rounded-4xl mt-24 bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
       <Container>
@@ -29,7 +29,7 @@ function Clients() {
             role="list"
             className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
           >
-            <ListClients clients={clients} />
+            <ListCustomers customers={customers} />
           </ul>
         </FadeInStagger>
       </Container>
@@ -180,13 +180,16 @@ export default async function Home() {
         </FadeIn>
       </Container>
 
-      <Clients />
+      <Customers />
       <Services />
       <CaseStudies caseStudies={caseStudies} />
 
       <Testimonial
         className="mt-24 sm:mt-32 lg:mt-40"
-        client={{ name: clients.lucid.name, logo: clients.lucid.logoLight }}
+        customer={{
+          name: customers.lucid.name,
+          logo: customers.lucid.logoLight,
+        }}
       >
         The team at SeriesLab went above and beyond with our onboarding, even
         finding a way to access the user&apos;s microphone without triggering
