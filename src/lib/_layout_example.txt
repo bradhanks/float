@@ -1,0 +1,43 @@
+// pages/_app.tsx or app/layout.tsx
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { trackPage, identifyUser } from '@/lib/analytics/tracker'
+
+export default function App({ Component, pageProps }: any) {
+  const router = useRouter()
+
+  useEffect(() => {
+    // Track initial page load
+    trackPage(router.pathname)
+
+    // Track route changes
+    const handleRouteChange = (url: string) => {
+      trackPage(url)
+    }
+
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router])
+
+  // Example: Identify user when they log in
+  useEffect(() => {
+    const user = getCurrentUser() // Your auth logic
+    if (user) {
+      identifyUser(user.id, {
+        email: user.email,
+        plan: user.plan,
+        signup_date: user.createdAt
+      })
+    }
+  }, [])
+
+  return <Component {...pageProps} />
+}
+
+// Utility function placeholder
+function getCurrentUser() {
+  // Return your current user from auth context/state
+  return null
+}
