@@ -1,6 +1,8 @@
 onlyBuiltDependencies:
+  - '@firebase/util'
   - '@tailwindcss/oxide'
   - core-js
   - oniguruma
+  - protobufjs
   - sharp
   - unrs-resolver
