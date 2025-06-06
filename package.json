@@ -44,7 +44,8 @@
     "tailwindcss": "^4.1.8",
     "typescript": "^5.8.3",
     "unified": "11.0.5",
-    "unified-conditional": "0.0.2"
+    "unified-conditional": "0.0.2",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@types/node": "22.15.24",
