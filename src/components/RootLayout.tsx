@@ -23,6 +23,7 @@ import { Offices } from '@/components/Offices'
 import { QuickContact } from '@/components/QuickContact'
 import CalendlyButton from '@/components/CalendlyButton'
 import Navigation from '@/components/Navigation'
+
 // Fix: Proper dynamic imports for logo components
 const LazyLogo = dynamic(
   () => import('@/components/Logo').then((mod) => mod.Logo),
