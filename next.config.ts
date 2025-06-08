@@ -13,7 +13,7 @@ import { unifiedConditional } from 'unified-conditional'
 
 const nextConfig: NextConfig = {
   experimental: {
-    ppr: 'incremental',
+ //   ppr: 'incremental',
   },
   turbopack: {},
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],

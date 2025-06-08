@@ -1,7 +1,7 @@
 'use client'
 import { useEffect } from 'react'
 import { GoogleTagManager } from '@next/third-parties/google'
-import PostHogClient from '@/lib/posthog/client'
+import PostHogClient from '@/lib/posthog'
 import { useDistinctId } from '@/hooks/useDistinctId'
 import { Analytics } from '@vercel/analytics/next'
 
@@ -10,8 +10,8 @@ function ClientGTM() {
 
   const dataLayer = distinctId
     ? {
-        distinct_id: distinctId,
-      }
+      distinct_id: distinctId,
+    }
     : undefined
 
   return <GoogleTagManager gtmId="GTM-PP2P57S" dataLayer={dataLayer} />

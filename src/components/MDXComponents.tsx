@@ -100,4 +100,30 @@ export const MDXComponents = {
       />
     )
   },
+  Tip: ({ children }: { children: React.ReactNode }) => {
+    return (
+      <div className="my-6 rounded-lg border-l-4 border-blue-500 bg-blue-50 p-4 text-sm text-blue-800">
+        <p className="font-semibold">Pro Tip</p>
+        <p>{children}</p>
+      </div>
+    )
+  },
+
+  Example: ({ children }: { children: React.ReactNode }) => {
+    return (
+      <div className="my-6 rounded-md border border-gray-200 bg-gray-50 p-4 font-mono text-sm text-gray-700">
+        <p className="mb-2 font-semibold">Example</p>
+        <div>{children}</div>
+      </div>
+    )
+  },
+
+  Definition: ({ children }: { children: React.ReactNode }) => {
+    return (
+      <div className="my-4 border-l-2 border-indigo-500 pl-3">
+        <h3 className="text-lg font-semibold text-indigo-700">Definition</h3>
+        <p className="mt-1">{children}</p>
+      </div>
+    )
+  },
 }

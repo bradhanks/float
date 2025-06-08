@@ -1,64 +1,95 @@
-import React, { useEffect } from 'react';
-import { generateFAQSchema, injectStructuredData, FAQ as FAQType } from './utils/structuredData';
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from '@headlessui/react'
+import React, { useEffect } from 'react'
+import { generateFAQSchema, injectStructuredData } from '@/utils/structuredData'
 
-// Your existing FAQ component interface
-interface FAQProps {
-  faqs?: FAQType[];
-  title?: string;
-  subtitle?: string;
-}
+const faqs = [
+  {
+    question: "What's the best thing about Switzerland?",
+    answer:
+      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+  },
+  {
+    question: 'How do you approach B2B SaaS consulting?',
+    answer:
+      'We focus on data-driven strategies, scalable growth frameworks, and comprehensive market analysis to help your SaaS business achieve sustainable growth.',
+  },
+  {
+    question: 'What industries do you specialize in?',
+    answer:
+      'We specialize in B2B SaaS, MarTech, FinTech, and enterprise software companies looking to scale their operations and improve their go-to-market strategies.',
+  },
+]
 
-const FAQ: React.FC<FAQProps> = ({
-  faqs = [
-    {
-      question: "What services do you offer?",
-      answer: "We provide comprehensive web development, consulting, and digital solutions tailored to your business needs."
-    },
-    {
-      question: "How long does a typical project take?",
-      answer: "Project timelines vary based on complexity, but most projects are completed within 2-8 weeks."
-    },
-    {
-      question: "Do you provide ongoing support?",
-      answer: "Yes, we offer comprehensive maintenance and support packages for all our projects."
-    }
-  ],
-  title = "Frequently Asked Questions",
-  subtitle = "Find answers to common questions about our services"
-}) => {
-
-  // Inject FAQ structured data
+export default function FAQ() {
   useEffect(() => {
-    const faqSchema = generateFAQSchema(faqs);
-    injectStructuredData(faqSchema, 'faq-schema');
-  }, [faqs]);
+    const faqSchema = generateFAQSchema(faqs)
+    injectStructuredData(faqSchema)
+  }, [])
 
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">{title}</h2>
-          <p className="text-lg text-gray-600">{subtitle}</p>
-        </div>
+    <div className="bg-white">
+      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+            Frequently asked questions
+          </h2>
+          <dl className="mt-16 divide-y divide-gray-900/10">
+            {faqs.map((faq) => (
+              <Disclosure
+                key={faq.question}
+                as="div"
+                className="py-6 first:pt-0 last:pb-0"
+              >
+                <dt>
+                  <DisclosureButton className="group flex w-full items-start justify-between text-left text-gray-900">
+                    <span className="text-base/7 font-semibold">
+                      {faq.question}
+                    </span>
+                    <span className="ml-6 flex h-7 items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="size-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M12 4.5v15m7.5-7.5h-15"
+                        />
+                      </svg>
 
-        <div className="space-y-6">
-          {faqs.map((faq, index) => (
-            <details
-              key={index}
-              className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 group"
-            >
-              <summary className="cursor-pointer text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors">
-                {faq.question}
-              </summary>
-              <div className="mt-4 text-gray-600 leading-relaxed">
-                {faq.answer}
-              </div>
-            </details>
-          ))}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="size-6"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5 12h14"
+                        />
+                      </svg>
+                    </span>
+                  </DisclosureButton>
+                </dt>
+                <DisclosurePanel as="dd" className="mt-2 pr-12">
+                  <p className="text-base/7 text-gray-600">{faq.answer}</p>
+                </DisclosurePanel>
+              </Disclosure>
+            ))}
+          </dl>
         </div>
       </div>
-    </section>
-  );
-};
-
-export default FAQ;
+    </div>
+  )
+}

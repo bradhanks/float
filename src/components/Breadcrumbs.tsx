@@ -1,19 +1,22 @@
-import React, { useEffect } from 'react';
-import Link from 'next/link';
-import { generateBreadcrumbSchema, injectStructuredData, BreadcrumbItem } from './utils/structuredData';
+import React, { useEffect } from 'react'
+import Link from 'next/link'
+import {
+  generateBreadcrumbSchema,
+  injectStructuredData,
+  BreadcrumbItem,
+} from '@/utils/structuredData'
 
 interface BreadcrumbsProps {
-  items: BreadcrumbItem[];
-  className?: string;
+  items: BreadcrumbItem[]
+  className?: string
 }
 
-const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = "" }) => {
-
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
   // Inject breadcrumb structured data
   useEffect(() => {
-    const breadcrumbSchema = generateBreadcrumbSchema(items);
-    injectStructuredData(breadcrumbSchema, 'breadcrumb-schema');
-  }, [items]);
+    const breadcrumbSchema = generateBreadcrumbSchema(items)
+    injectStructuredData(breadcrumbSchema)
+  }, [items])
 
   return (
     <nav className={`flex ${className}`} aria-label="Breadcrumb">
@@ -22,7 +25,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = "" }) => {
           <li key={index} className="inline-flex items-center">
             {index > 0 && (
               <svg
-                className="w-6 h-6 text-gray-400"
+                className="h-6 w-6 text-gray-400"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
@@ -50,7 +53,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = "" }) => {
         ))}
       </ol>
     </nav>
-  );
-};
+  )
+}
 
-export default Breadcrumbs;
+export default Breadcrumbs
