@@ -11,8 +11,8 @@ function ClientGTM() {
 
   const dataLayer = distinctId
     ? {
-      distinct_id: distinctId,
-    }
+        distinct_id: distinctId,
+      }
     : undefined
 
   return <GoogleTagManager gtmId="GTM-PP2P57S" dataLayer={dataLayer} />

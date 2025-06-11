@@ -18,7 +18,6 @@ export function Testimonial({
   maxRating?: number
   className?: string
 }) {
-
   return (
     <div
       className={clsx(

@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tinacms dev -c \"next dev\"",
-    "build": "tinacms build && next build",
-    "start": "tinacms build && next start",
+    "dev": "next dev",
+    "build": "next build",
+    "start": " next start",
     "lint": "next lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -27,6 +27,7 @@
     "@next/mdx": "^15.3.2",
     "@next/third-parties": "^15.3.3",
     "@portabletext/react": "^3.2.1",
+    "@prisma/extension-accelerate": "^2.0.1",
     "@sanity/client": "^7.5.0",
     "@sanity/code-input": "^5.1.2",
     "@sanity/color-input": "^4.0.3",
@@ -53,7 +54,6 @@
     "next-sitemap": "^4.2.3",
     "posthog-js": "^1.248.1",
     "posthog-node": "^4.18.0",
-    "prisma": "^6.9.0",
     "react-calendly": "^4.4.0",
     "recma-import-images": "0.0.3",
     "rehype-shiki": "^0.0.9",
@@ -66,14 +66,12 @@
     "styled-components": "^6.1.18",
     "tailwind-plus-studio": "link:",
     "tailwindcss": "^4.1.8",
-    "tinacms": "^2.7.8",
     "typescript": "^5.8.3",
     "unified": "11.0.5",
     "unified-conditional": "0.0.2",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
-    "@tinacms/cli": "^1.9.8",
     "@types/node": "22.15.24",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
@@ -95,6 +93,21 @@
     "overrides": {
       "react": "18.2.0",
       "react-dom": "18.2.0"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "@firebase/util",
+      "@prisma/client",
+      "@prisma/engines",
+      "@tailwindcss/oxide",
+      "@vercel/speed-insights",
+      "better-sqlite3",
+      "core-js",
+      "esbuild",
+      "oniguruma",
+      "prisma",
+      "protobufjs",
+      "sharp",
+      "unrs-resolver"
+    ]
   }
 }
