@@ -101,7 +101,4 @@ export const MDXComponents = {
       />
     )
   },
-  code: InlineCode,
-  pre: CodeBlock,
-  Example,
 }

@@ -9,8 +9,11 @@ import {
 interface BreadcrumbsProps {
   items: BreadcrumbItem[]
   className?: string
+  items: BreadcrumbItem[]
+  className?: string
 }
 
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
 const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
   // Inject breadcrumb structured data
   useEffect(() => {
@@ -25,6 +28,7 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
           <li key={index} className="inline-flex items-center">
             {index > 0 && (
               <svg
+                className="h-6 w-6 text-gray-400"
                 className="h-6 w-6 text-gray-400"
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -55,5 +59,8 @@ const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items, className = '' }) => {
     </nav>
   )
 }
+  )
+}
 
+export default Breadcrumbs
 export default Breadcrumbs
