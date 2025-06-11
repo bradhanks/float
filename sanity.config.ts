@@ -9,7 +9,6 @@ import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { codeInput } from '@sanity/code-input'
 import { colorInput } from '@sanity/color-input'
-import { HelloWorldAction } from './src/sanity/actions'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from './src/sanity/env'
@@ -22,15 +21,12 @@ export default defineConfig({
   dataset,
   // Add and edit the content schema in the './sanity/schemaTypes' folder
   schema,
-  document: {
-    actions: [HelloWorldAction],
-  },
   plugins: [
     structureTool({ structure }),
-    codeInput(),
-    colorInput(),
     // Vision is for querying with GROQ from inside the Studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
+    codeInput(),
+    colorInput(),
   ],
 })

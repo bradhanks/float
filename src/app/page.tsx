@@ -4,9 +4,6 @@ import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { type SanityDocument } from 'next-sanity'
-import { client } from '@/sanity/client'
-
 import { ContactSection } from '@/components/ContactSection'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
@@ -18,8 +15,6 @@ import imagePostLucid from '@/images/post-lucid.jpg'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 import { RootLayout } from '@/components/RootLayout'
 import { ListCustomers, customers } from '@/lib/customers'
-
-const options = { next: { revalidate: 30 } }
 
 function Customers() {
   return (

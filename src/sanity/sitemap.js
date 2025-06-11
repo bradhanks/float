@@ -1,5 +1,4 @@
-// Import the Sanity client module
-import { sanity } from '$lib/sanity'
+import { client } from '$lib/sanity/client'
 
 // Base URL for the website
 const baseUrl = 'https://www.example.com'
@@ -43,7 +42,7 @@ async function fetchDataFromSanity() {
     }
   }`
   // Fetch and return the query result
-  return await sanity.fetch(query)
+  return await client.sanityFetch(query)
 }
 
 // Generate sitemap XML from fetched data

@@ -1,5 +1,4 @@
-import rehypeShiki from '@leafac/rehype-shiki'
-import nextMDX from '@next/mdx'
+import createMDX from '@next/mdx'
 import { Parser } from 'acorn'
 import jsx from 'acorn-jsx'
 import escapeStringRegexp from 'escape-string-regexp'
@@ -75,9 +74,9 @@ function remarkMDXLayout(source, metaName) {
   }
 }
 
-export default async function config() {
-  const withMDX = nextMDX({
-    extension: /\.mdx$/,
+export default function config() {
+  const withMDX = createMDX({
+    extension: /\.(md|mdx)$/,
     options: {
       recmaPlugins: [recmaImportImages],
       rehypePlugins: [
