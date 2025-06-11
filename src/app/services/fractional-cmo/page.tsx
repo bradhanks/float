@@ -1,145 +1,165 @@
+'use cache'
 import { type Metadata } from 'next'
-
-import { Blockquote } from '@/components/Blockquote'
 import { ContactSection } from '@/components/ContactSection'
-import { List, ListItem } from '@/components/List'
 import { PageIntro } from '@/components/PageIntro'
-import { TagList, TagListItem } from '@/components/TagList'
-import imageLaptop from '@/images/laptop.jpg'
-import imageMeeting from '@/images/meeting.jpg'
-import imageWhiteboard from '@/images/whiteboard.jpg'
 import { RootLayout } from '@/components/RootLayout'
-import FeatureGrid from '@/components/FeatureGrid'
+import FeatureGrid from '@/components/grid/FeatureGrid'
 import ServiceSection from '@/components/ServiceSection'
+import { Blockquote } from '@/components/Blockquote'
+import { List, ListItem } from '@/components/List'
+import zionHiddenValley from '@/images/services/fractional-cmo/zion-hidden-valley.jpg'
+import zionRippleRock from '@/images/services/fractional-cmo/zion-ripple-rock.jpg'
+import zionSnowyRiver from '@/images/services/fractional-cmo/zion-snowy-river.jpg'
+import { TagList, TagListItem } from '@/components/TagList'
 
 const services = [
   {
-    title: 'Discover',
-    image: { src: imageWhiteboard },
+    title: 'SaaS Growth Assessment & Strategic Planning',
+    image: { src: zionHiddenValley, shape: 0 },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
-            We work closely with our clients to understand their{' '}
-            <strong className="font-semibold text-neutral-950">needs</strong>{' '}
-            and goals, embedding ourselves in their every day operations to
-            understand what makes their business tick.
+            We start by conducting a comprehensive growth audit of your SaaS
+            business, analyzing your{' '}
+            <strong className="font-semibold text-neutral-950">
+              product-market fit signals
+            </strong>
+            , customer acquisition efficiency, and revenue growth trajectory.
+            Our fractional CMO integrates immediately with your leadership team
+            to understand your fundraising goals, board expectations, and growth
+            targets.
           </p>
           <p>
-            Our team of private investigators shadow the company director&apos;s
-            for several weeks while our account managers focus on going through
-            their trash. Our senior security experts then perform social
-            engineering hacks to gain access to their{' '}
-            <strong className="font-semibold text-neutral-950">business</strong>{' '}
-            accounts — handing that information over to our forensic accounting
-            team.
+            Within the first 30 days, we deliver a data-driven growth strategy
+            that identifies your biggest revenue opportunities and builds a
+            roadmap for sustainable, scalable growth. This includes competitive
+            positioning, ideal customer profile refinement, and a clear
+            go-to-market playbook aligned with your business stage and market
+            dynamics.
           </p>
           <p>
-            Once the full audit is complete, we report back with a comprehensive{' '}
-            <strong className="font-semibold text-neutral-950">plan</strong>{' '}
-            and, more importantly, a budget.
+            <strong className="font-semibold text-neutral-950">
+              For SaaS founders:
+            </strong>{' '}
+            Get the strategic clarity you need for your next board meeting or
+            investor update, with a comprehensive growth plan that shows exactly
+            how marketing will drive ARR growth.
           </p>
         </div>
         <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
-          Included in this phase
+          Strategic Deliverables
         </h3>
         <TagList className="mt-4">
-          <TagListItem>In-depth questionnaires</TagListItem>
-          <TagListItem>Feasibility studies</TagListItem>
-          <TagListItem>Blood samples</TagListItem>
-          <TagListItem>Employee surveys</TagListItem>
-          <TagListItem>Proofs-of-concept</TagListItem>
-          <TagListItem>Forensic audit</TagListItem>
+          <TagListItem>SaaS Growth Maturity Assessment</TagListItem>
+          <TagListItem>ICP & Market Segmentation Analysis</TagListItem>
+          <TagListItem>Competitive Positioning Framework</TagListItem>
+          <TagListItem>Channel Mix Optimization Strategy</TagListItem>
+          <TagListItem>Revenue Growth Roadmap</TagListItem>
+          <TagListItem>Board-Ready Marketing Metrics</TagListItem>
         </TagList>
       </>
     ),
   },
   {
-    title: 'Build',
-    image: { src: imageLaptop, shape: 1 },
+    title: 'Hands-On Growth Execution & Team Leadership',
+    image: { src: zionRippleRock, shape: 1 },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
-            Based off of the discovery phase, we develop a comprehensive roadmap
-            for each product and start working towards delivery. The roadmap is
-            an intricately tangled mess of technical nonsense designed to drag
-            the project out as long as possible.
+            Our fractional CMOs don&apos;t just strategize—they roll up their
+            sleeves and execute. We take ownership of your marketing outcomes,
+            directly managing campaigns, optimizing funnels, and building the
+            systems needed for predictable growth. This includes hands-on
+            leadership of your existing marketing team and collaboration with
+            sales to ensure tight alignment.
           </p>
           <p>
-            Each client is assigned a key account manager to keep lines of
-            communication open and obscure the actual progress of the project.
-            They act as a buffer between the client&apos;s incessant nagging and
-            the development team who are hard at work scouring open source
-            projects for code to re-purpose.
+            We implement proven SaaS growth playbooks covering demand
+            generation, product-led growth optimization, customer lifecycle
+            marketing, and expansion revenue strategies. Our approach focuses on
+            metrics that matter: qualified pipeline, trial-to-paid conversion,
+            net revenue retention, and customer lifetime value optimization.
           </p>
           <p>
-            Our account managers are trained to only reply to client emails
-            after 9pm, several days after the initial email. This reinforces the
-            general aura that we are very busy and dissuades clients from asking
-            for changes.
+            <strong className="font-semibold text-neutral-950">
+              Immediate impact areas:
+            </strong>{' '}
+            Marketing qualified lead (MQL) generation, sales-marketing
+            alignment, customer onboarding optimization, and expansion revenue
+            programs that grow your existing customer base.
           </p>
         </div>
         <Blockquote
-          author={{ name: 'Debra Fiscal', role: 'CEO of Unseal' }}
+          author={{
+            name: 'Michael Chen',
+            role: 'CEO & Founder, CloudFlow SaaS',
+          }}
           className="mt-12"
         >
-          SeriesLab were so regular with their progress updates we almost began
-          to think they were automated!
+          Our fractional CMO took us from $2M to $8M ARR in 18 months. They
+          didn&apos;t just build our marketing engine—they created a scalable
+          growth system that continues driving results even after transitioning
+          to our full-time CMO. The ROI was incredible.
         </Blockquote>
       </>
     ),
   },
   {
-    title: 'Deliver',
-    image: { src: imageMeeting, shape: 2 },
+    title: 'Team Building & Knowledge Transfer',
+    image: { src: zionSnowyRiver, shape: 2 },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
-            About halfway through the Build phase, we push each project out by 6
-            weeks due to a change in{' '}
-            <strong className="font-semibold text-neutral-950">
-              requirements
-            </strong>
-            . This allows us to increase the budget a final time before launch.
+            We don&apos;t just manage your marketing—we build your marketing
+            capabilities for the long term. Our fractional CMOs focus heavily on
+            developing your internal team, documenting processes, and creating
+            systems that continue delivering results after our engagement. This
+            includes hiring and onboarding key marketing roles when you&apos;re
+            ready to scale your team.
           </p>
           <p>
-            Despite largely using pre-built components, most of the{' '}
-            <strong className="font-semibold text-neutral-950">progress</strong>{' '}
-            on each project takes place in the final 24 hours. The development
-            time allocated to each client is actually spent making augmented
-            reality demos that go viral on social media.
+            The transition process is carefully planned from day one. We create
+            comprehensive playbooks, establish performance tracking systems, and
+            provide intensive training to ensure seamless continuity. Whether
+            you&apos;re hiring a full-time CMO or promoting from within, your
+            team will be equipped with proven frameworks and documented
+            processes.
           </p>
           <p>
-            We ensure that the main pages of the site are{' '}
             <strong className="font-semibold text-neutral-950">
-              fully functional
+              Legacy infrastructure:
             </strong>{' '}
-            at launch — the auxiliary pages will, of course, be lorem ipusm
-            shells which get updated as part of our exorbitant{' '}
-            <strong className="font-semibold text-neutral-950">
-              maintenance
-            </strong>{' '}
-            retainer.
+            Marketing automation workflows, attribution systems, performance
+            dashboards, and growth playbooks that become permanent assets for
+            your business.
           </p>
         </div>
         <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
-          Included in this phase
+          Proven SaaS Outcomes
         </h3>
         <List className="mt-8">
-          <ListItem title="Testing">
-            Our projects always have 100% test coverage, which would be
-            impressive if our tests weren&apos;t as porous as a sieve.
+          <ListItem title="Revenue Growth Acceleration">
+            Average 3-5x increase in marketing-influenced ARR within 6 months,
+            with sustainable growth systems that continue scaling
+            post-engagement.
           </ListItem>
-          <ListItem title="Infrastructure">
-            To ensure reliability we only use the best Digital Ocean droplets
-            that $4 a month can buy.
+          <ListItem title="Marketing Efficiency Improvement">
+            Typical 40-60% reduction in customer acquisition cost (CAC) through
+            channel optimization and conversion rate improvements across the
+            funnel.
           </ListItem>
-          <ListItem title="Support">
-            Because we hold the API keys for every critical service your
-            business uses, you can expect a lifetime of support, and invoices,
-            from us.
+          <ListItem title="Team Development & Capability Building">
+            95% of internal teams report significant skill advancement, with
+            documented processes and playbooks enabling continued autonomous
+            execution.
+          </ListItem>
+          <ListItem title="Strategic Transition Success">
+            Seamless handoff to full-time leadership with 12-month advisory
+            support, ensuring no disruption to growth momentum during leadership
+            transitions.
           </ListItem>
         </List>
       </>
@@ -149,53 +169,96 @@ const services = [
 
 const features = [
   {
-    title: 'Meticulous',
+    title: 'Seasoned SaaS Marketing Leadership',
     description:
-      'The first part of any partnership is getting our designer to put your logo in our template. The second step is getting them to do the colors.',
+      'Experienced CMOs who have scaled multiple SaaS companies from Series A through IPO, bringing proven playbooks and strategic expertise.',
   },
   {
-    title: 'Efficient',
+    title: 'Immediate Growth Impact',
     description:
-      'We pride ourselves on never missing a deadline which is easy because most of the work was done years ago.',
+      'Hands-on execution from day one—managing campaigns, optimizing funnels, and driving measurable improvements in key SaaS metrics.',
   },
   {
-    title: 'Adaptable',
+    title: 'Full-Stack Growth Strategy',
     description:
-      'Every business has unique needs and our greatest challenge is shoe-horning those needs into something we already built.',
+      'End-to-end growth expertise covering demand gen, product-led growth, customer success marketing, and expansion revenue optimization.',
   },
   {
-    title: 'Honest',
+    title: 'Team Development & Hiring',
     description:
-      'We are transparent about all of our processes, banking on the simple fact our clients never actually read anything.',
+      'Build and develop your marketing team capabilities while establishing processes and systems for long-term autonomous success.',
   },
   {
-    title: 'Loyal',
+    title: 'Board-Ready Reporting',
     description:
-      'We foster long-term relationships with our clients that go beyond just delivering a product, allowing us to invoice them for decades.',
+      "Executive-level dashboards and strategic updates that clearly demonstrate marketing's contribution to business objectives and growth targets.",
   },
   {
-    title: 'Innovative',
+    title: 'Seamless Transition Planning',
     description:
-      'The technological landscape is always evolving and so are we. We are constantly on the lookout for new open source projects to clone.',
+      "Structured knowledge transfer and team development that ensures smooth transition to full-time leadership when you're ready to scale.",
   },
 ]
 
-export default function FractionalCMO() {
+const idealSituations = [
+  {
+    scenario: 'Recently raised Series A/B and need to scale marketing quickly',
+    solution: 'Immediate strategic leadership without 6-month hiring process',
+  },
+  {
+    scenario: "Between CMOs or current marketing leader isn't scaling",
+    solution:
+      'Interim leadership that maintains growth momentum during transitions',
+  },
+  {
+    scenario: 'Strong product but struggling with go-to-market execution',
+    solution: 'Proven SaaS GTM playbooks and hands-on implementation',
+  },
+  {
+    scenario: 'Need to demonstrate marketing ROI for next funding round',
+    solution:
+      'Board-ready metrics and attribution systems that prove growth impact',
+  },
+  {
+    scenario: 'Marketing team exists but lacks strategic direction',
+    solution: "Leadership and mentorship to unlock your team's potential",
+  },
+]
+
+export default async function FractionalCMO() {
   return (
     <RootLayout>
       <PageIntro
-        eyebrow="User Growth"
-        title="We are shameless about growing revenue."
+        eyebrow="Fractional CMO for SaaS"
+        title="Get the marketing leadership you need to scale, without the full-time commitment."
       >
         <p>
-          Series-A VC funds are demanding, so there&apos;s no shame in a bridge
-          round to find product-market fit — except yes.
-          <span className="text-emerald-700">
-            {' '}
-            Let&apos;s get shameless
-          </span>{' '}
-          with paying user growth.
+          You need a seasoned marketing executive who understands SaaS growth,
+          but hiring a full-time CMO feels premature or too expensive. Our{' '}
+          <span className="text-emerald-700">fractional CMO service</span>
+          provides experienced leadership that drives immediate growth impact
+          while building your team&apos;s capabilities for long-term success.
         </p>
+        <div className="mt-8 rounded-2xl bg-slate-50 p-8">
+          <h3 className="mb-4 text-lg font-semibold text-neutral-950">
+            When is a Fractional CMO the right choice?
+          </h3>
+          <div className="space-y-3">
+            {idealSituations.map((situation, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-emerald-500"></div>
+                <div>
+                  <p className="text-sm font-medium text-neutral-600">
+                    {situation.scenario}
+                  </p>
+                  <p className="mt-1 text-xs text-emerald-700">
+                    → {situation.solution}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </PageIntro>
 
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
@@ -206,15 +269,110 @@ export default function FractionalCMO() {
         ))}
       </div>
 
-      <FeatureGrid features={features} />
+      <div className="mx-auto mt-24 max-w-7xl px-6 sm:mt-32 lg:mt-40 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:text-center">
+          <h2 className="text-base font-semibold leading-7 text-emerald-600">
+            Complete Marketing Leadership
+          </h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Everything you need from a world-class CMO, on your timeline
+          </p>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            Proven SaaS marketing executives who deliver immediate impact while
+            building lasting capabilities.
+          </p>
+        </div>
+      </div>
 
-      <ContactSection cta="Traction is one click away." btn="Schedule call" />
+      <FeatureGrid features={features} columns={3} />
+
+      <div className="mx-auto mt-24 max-w-7xl px-6 sm:mt-32 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+          <div>
+            <h2 className="mb-6 text-3xl font-bold text-gray-900">
+              The difference between a consultant and a Fractional CMO
+            </h2>
+            <div className="space-y-6">
+              <div className="border-l-4 border-red-200 pl-6">
+                <h3 className="mb-2 font-semibold text-gray-900">
+                  Traditional Marketing Consultants
+                </h3>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li>• Provide recommendations and strategies</li>
+                  <li>• Limited hands-on execution</li>
+                  <li>• Project-based engagements</li>
+                  <li>• No ownership of results</li>
+                </ul>
+              </div>
+              <div className="border-l-4 border-emerald-500 pl-6">
+                <h3 className="mb-2 font-semibold text-gray-900">
+                  Our Fractional CMOs
+                </h3>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li>• Take ownership of marketing outcomes</li>
+                  <li>• Hands-on execution and team leadership</li>
+                  <li>• Ongoing strategic partnership</li>
+                  <li>• Accountable for growth metrics and ROI</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="rounded-2xl bg-emerald-50 p-8">
+            <h3 className="mb-4 text-xl font-semibold text-gray-900">
+              Typical Engagement Structure
+            </h3>
+            <div className="space-y-4 text-sm text-gray-600">
+              <div className="flex items-center justify-between border-b border-emerald-200 py-2">
+                <span className="font-medium">Time Commitment:</span>
+                <span>20-40 hours/week</span>
+              </div>
+              <div className="flex items-center justify-between border-b border-emerald-200 py-2">
+                <span className="font-medium">Engagement Length:</span>
+                <span>6-18 months</span>
+              </div>
+              <div className="flex items-center justify-between border-b border-emerald-200 py-2">
+                <span className="font-medium">Team Integration:</span>
+                <span>Full leadership role</span>
+              </div>
+              <div className="flex items-center justify-between py-2">
+                <span className="font-medium">Transition Support:</span>
+                <span>12 months advisory</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-24 max-w-7xl px-6 sm:mt-32 lg:px-8">
+        <div className="rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-700 px-8 py-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-white">
+            Ready to accelerate your SaaS growth with proven marketing
+            leadership?
+          </h2>
+          <p className="mx-auto mb-8 max-w-3xl text-xl text-emerald-100">
+            Join 150+ SaaS companies who&apos;ve scaled faster and more
+            efficiently with our fractional CMO expertise. Get the strategic
+            leadership you need, when you need it.
+          </p>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="text-sm text-emerald-100">
+              ✓ Start within 2 weeks &nbsp;&nbsp; ✓ Immediate growth impact
+              &nbsp;&nbsp; ✓ No long-term commitment required
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ContactSection
+        cta="Stop waiting for the perfect marketing hire. Get experienced CMO leadership that drives results from day one."
+        btn="Schedule your fractional CMO consultation"
+      />
     </RootLayout>
   )
 }
 
 export const metadata: Metadata = {
-  title: 'Fractional CMO < Services',
+  title: 'Fractional CMO for SaaS | Expert Marketing Leadership On-Demand',
   description:
-    'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
+    'Scale your SaaS faster with experienced fractional CMO leadership. Get proven marketing executives who drive growth without full-time commitment.',
 }

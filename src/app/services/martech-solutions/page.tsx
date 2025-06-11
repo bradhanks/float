@@ -1,144 +1,117 @@
+'use cache'
 import { type Metadata } from 'next'
 import { ContactSection } from '@/components/ContactSection'
 import { PageIntro } from '@/components/PageIntro'
 import { RootLayout } from '@/components/RootLayout'
-import FeatureGrid from '@/components/FeatureGrid'
+import FeatureGrid from '@/components/grid/FeatureGrid'
 import ServiceSection from '@/components/ServiceSection'
 import { Blockquote } from '@/components/Blockquote'
 import { List, ListItem } from '@/components/List'
-import imageLaptop from '@/images/laptop.jpg'
-import imageMeeting from '@/images/meeting.jpg'
-import imageWhiteboard from '@/images/whiteboard.jpg'
+import australiaCraggyCoast from '@/images/services/marketing-technology/australia-craggy-coast.jpg'
+import australiaRockyCoast from '@/images/services/marketing-technology/australia-rocky-coast.jpg'
+import australia from '@/images/services/marketing-technology/australia.jpg'
 import { TagList, TagListItem } from '@/components/TagList'
 
 const services = [
   {
-    title: 'Discover',
-    image: { src: imageWhiteboard },
+    title: 'Strategy & Discovery',
+    image: { src: australiaCraggyCoast, shape: 0 },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
-            We work closely with our clients to understand their{' '}
-            <strong className="font-semibold text-neutral-950">needs</strong>{' '}
-            and goals, embedding ourselves in their every day operations to
-            understand what makes their business tick.
+            We begin by conducting a comprehensive assessment of your current{' '}
+            <span className="font-medium">Marketing Techonolgy</span> stack,
+            business objectives, and customer journey touchpoints. Our experts
+            analyze technical architecture, data flows, and integration points
+            to identify optimization opportunities.
           </p>
           <p>
-            Our team of private investigators shadow the company director&apos;s
-            for several weeks while our account managers focus on going through
-            their trash. Our senior security experts then perform social
-            engineering hacks to gain access to their{' '}
-            <strong className="font-semibold text-neutral-950">business</strong>{' '}
-            accounts — handing that information over to our forensic accounting
-            team.
-          </p>
-          <p>
-            Once the full audit is complete, we report back with a comprehensive{' '}
-            <strong className="font-semibold text-neutral-950">plan</strong>{' '}
-            and, more importantly, a budget.
+            Through collaborative workshopping and stakeholder interviews, we
+            map your marketing workflows against industry benchmarks. This phase
+            culminates in a tailored Marketing Techonolgy roadmap that aligns
+            with your growth goals while ensuring technical feasibility and cost
+            efficiency.
           </p>
         </div>
         <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
-          Included in this phase
+          Key Activities
         </h3>
         <TagList className="mt-4">
-          <TagListItem>In-depth questionnaires</TagListItem>
-          <TagListItem>Feasibility studies</TagListItem>
-          <TagListItem>Blood samples</TagListItem>
-          <TagListItem>Employee surveys</TagListItem>
-          <TagListItem>Proofs-of-concept</TagListItem>
-          <TagListItem>Forensic audit</TagListItem>
+          <TagListItem>Marketing Techonolgy Health Check</TagListItem>
+          <TagListItem>Integration Audit</TagListItem>
+          <TagListItem>Workflow Optimization</TagListItem>
+          <TagListItem>Platform Gap Analysis</TagListItem>
+          <TagListItem>ROI Modeling</TagListItem>
         </TagList>
       </>
     ),
   },
   {
-    title: 'Build',
-    image: { src: imageLaptop, shape: 1 },
+    title: 'Custom Implementation',
+    image: { src: australiaRockyCoast, shape: 1 },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
-            Based off of the discovery phase, we develop a comprehensive roadmap
-            for each product and start working towards delivery. The roadmap is
-            an intricately tangled mess of technical nonsense designed to drag
-            the project out as long as possible.
+            Leveraging our proven implementation frameworks, we configure and
+            customize solutions that solve your specific challenges. Our
+            engineers specialize in building seamless integrations between
+            marketing platforms, CRMs, and data warehouses using modern tech
+            stacks (AWS, Azure, Snowflake, Segment).
           </p>
           <p>
-            Each client is assigned a key account manager to keep lines of
-            communication open and obscure the actual progress of the project.
-            They act as a buffer between the client&apos;s incessant nagging and
-            the development team who are hard at work scouring open source
-            projects for code to re-purpose.
-          </p>
-          <p>
-            Our account managers are trained to only reply to client emails
-            after 9pm, several days after the initial email. This reinforces the
-            general aura that we are very busy and dissuades clients from asking
-            for changes.
+            We prioritize modular development with API-first architecture,
+            ensuring your Marketing Techonolgy ecosystem remains adaptable to
+            future innovations. All implementations follow strict governance
+            protocols with continuous testing at every stage to maintain data
+            integrity and system reliability.
           </p>
         </div>
         <Blockquote
-          author={{ name: 'Debra Fiscal', role: 'CEO of Unseal' }}
+          author={{ name: 'Sarah Chen', role: 'CMO at GrowthTech' }}
           className="mt-12"
         >
-          SeriesLab were so regular with their progress updates we almost began
-          to think they were automated!
+          Their implementation transformed our disjointed tools into a cohesive
+          engine that drives 30% faster campaign execution.
         </Blockquote>
       </>
     ),
   },
   {
-    title: 'Deliver',
-    image: { src: imageMeeting, shape: 2 },
+    title: 'Deployment & Optimization',
+    image: { src: australia, shape: 2 },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
-            About halfway through the Build phase, we push each project out by 6
-            weeks due to a change in{' '}
-            <strong className="font-semibold text-neutral-950">
-              requirements
-            </strong>
-            . This allows us to increase the budget a final time before launch.
+            We ensure smooth go-lives through phased rollouts and comprehensive
+            training programs. Post-launch, our team monitors system performance
+            metrics and conducts quarterly business reviews to optimize ROI
+            through continuous improvement.
           </p>
           <p>
-            Despite largely using pre-built components, most of the{' '}
-            <strong className="font-semibold text-neutral-950">progress</strong>{' '}
-            on each project takes place in the final 24 hours. The development
-            time allocated to each client is actually spent making augmented
-            reality demos that go viral on social media.
-          </p>
-          <p>
-            We ensure that the main pages of the site are{' '}
-            <strong className="font-semibold text-neutral-950">
-              fully functional
-            </strong>{' '}
-            at launch — the auxiliary pages will, of course, be lorem ipusm
-            shells which get updated as part of our exorbitant{' '}
-            <strong className="font-semibold text-neutral-950">
-              maintenance
-            </strong>{' '}
-            retainer.
+            Our support includes proactive maintenance, security updates, and
+            strategic roadmap refreshes to keep your Marketing Techonolgy
+            investments aligned with evolving business needs. We provide
+            detailed documentation and knowledge transfer sessions to ensure
+            internal teams can leverage the full capabilities of your solutions.
           </p>
         </div>
         <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
-          Included in this phase
+          Success Metrics
         </h3>
         <List className="mt-8">
-          <ListItem title="Testing">
-            Our projects always have 100% test coverage, which would be
-            impressive if our tests weren&apos;t as porous as a sieve.
+          <ListItem title="Time-to-Value">
+            Average 60% reduction in deployment timelines through reusable
+            components and agile methodologies.
           </ListItem>
-          <ListItem title="Infrastructure">
-            To ensure reliability we only use the best Digital Ocean droplets
-            that $4 a month can buy.
+          <ListItem title="System Performance">
+            99.95% uptime SLA with automated monitoring and failover mechanisms.
           </ListItem>
-          <ListItem title="Support">
-            Because we hold the API keys for every critical service your
-            business uses, you can expect a lifetime of support, and invoices,
-            from us.
+          <ListItem title="ROI Tracking">
+            Custom dashboards measuring business impact across CAC, LTV, and
+            conversion rates.
           </ListItem>
         </List>
       </>
@@ -148,52 +121,43 @@ const services = [
 
 const features = [
   {
-    title: 'Meticulous',
+    title: 'Martech Solutions',
+    href: '/services/martech-solutions',
     description:
-      'The first part of any partnership is getting our designer to put your logo in our template. The second step is getting them to do the colors.',
+      'Building integrated marketing ecosystems that unify data, automation, and analytics to drive measurable business outcomes.',
   },
   {
-    title: 'Efficient',
+    title: 'Data Engineering',
+    href: '/services/data-engineering',
     description:
-      'We pride ourselves on never missing a deadline which is easy because most of the work was done years ago.',
+      'Creating scalable data architectures that power intelligent marketing decisions and personalized customer experiences.',
   },
   {
-    title: 'Adaptable',
+    title: 'Platform Integration',
+    href: '/services/platform-integration',
     description:
-      'Every business has unique needs and our greatest challenge is shoe-horning those needs into something we already built.',
+      'Connecting disparate systems through robust APIs and middleware solutions that eliminate data silos.',
   },
   {
-    title: 'Honest',
+    title: 'Cloud Migration',
+    href: '/services/cloud-migration',
     description:
-      'We are transparent about all of our processes, banking on the simple fact our clients never actually read anything.',
-  },
-  {
-    title: 'Loyal',
-    description:
-      'We foster long-term relationships with our clients that go beyond just delivering a product, allowing us to invoice them for decades.',
-  },
-  {
-    title: 'Innovative',
-    description:
-      'The technological landscape is always evolving and so are we. We are constantly on the lookout for new open source projects to clone.',
+      'Modernizing legacy infrastructure with secure cloud implementations that enhance agility and reduce operational costs.',
   },
 ]
 
-export default function MartechSolutions() {
+export default async function MartechSolutions() {
   return (
     <RootLayout>
       <PageIntro
-        eyebrow="User Growth"
-        title="We are shameless about growing revenue."
+        eyebrow="Martech Services"
+        title="Transform marketing complexity into competitive advantage."
       >
         <p>
-          Series-A VC funds are demanding, so there&apos;s no shame in a bridge
-          round to find product-market fit — except yes.
-          <span className="text-emerald-700">
-            {' '}
-            Let&apos;s get shameless
-          </span>{' '}
-          with paying user growth.
+          In today&apos;s fragmented digital landscape,marketing technology
+          should be an accelerator, not a constraint. Our proven framework
+          delivers Marketing Techonolgy ecosystems that scale with your
+          ambitions while maximizing existing investments.
         </p>
       </PageIntro>
 
@@ -205,15 +169,19 @@ export default function MartechSolutions() {
         ))}
       </div>
 
-      <FeatureGrid features={features} />
+      <FeatureGrid features={features} columns={2} />
 
-      <ContactSection cta="Traction is one click away." btn="Schedule call" />
+      <ContactSection
+        cta="Ready to future-proof your marketing technology?"
+        btn="Start free assessment"
+      />
     </RootLayout>
   )
 }
 
 export const metadata: Metadata = {
-  title: 'Martech Solutions < Services',
+  title:
+    'Marketing Technology Solutions | B2B SaaS Marketing Technology Services',
   description:
-    'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
+    'Expert implementation of integrated Marketing Techonolgy stacks that unify data, automation, and analytics to drive measurable business growth.',
 }

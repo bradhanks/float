@@ -1,144 +1,112 @@
+'use cache'
+
 import { type Metadata } from 'next'
-import { Blockquote } from '@/components/Blockquote'
 import { ContactSection } from '@/components/ContactSection'
-import { List, ListItem } from '@/components/List'
 import { PageIntro } from '@/components/PageIntro'
-import { TagList, TagListItem } from '@/components/TagList'
-import FeatureGrid from '@/components/FeatureGrid'
 import { RootLayout } from '@/components/RootLayout'
-import imageLaptop from '@/images/laptop.jpg'
-import imageMeeting from '@/images/meeting.jpg'
-import imageWhiteboard from '@/images/whiteboard.jpg'
+import FeatureGrid from '@/components/grid/FeatureGrid'
 import ServiceSection from '@/components/ServiceSection'
+import { Blockquote } from '@/components/Blockquote'
+import { List, ListItem } from '@/components/List'
+import jacobsCorner from '@/images/services/user-growth/jacobs-corner.jpg'
+import bigColdSpring from '@/images/services/user-growth/big-cold-spring.jpg'
+import downstream from '@/images/services/user-growth/downstream.jpg'
+import { TagList, TagListItem } from '@/components/TagList'
 
 const services = [
   {
-    title: 'Discover',
-    image: { src: imageWhiteboard },
+    title: 'Growth Strategy',
+    image: { src: bigColdSpring },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
-            We work closely with our clients to understand their{' '}
-            <strong className="font-semibold text-neutral-950">needs</strong>{' '}
-            and goals, embedding ourselves in their every day operations to
-            understand what makes their business tick.
+            We begin with a comprehensive growth audit to identify high-impact
+            opportunities across your customer lifecycle. Our experts analyze
+            acquisition channels, conversion funnels, and retention mechanisms
+            to build a data-driven growth roadmap.
           </p>
           <p>
-            Our team of private investigators shadow the company director&apos;s
-            for several weeks while our account managers focus on going through
-            their trash. Our senior security experts then perform social
-            engineering hacks to gain access to their{' '}
-            <strong className="font-semibold text-neutral-950">business</strong>{' '}
-            accounts — handing that information over to our forensic accounting
-            team.
-          </p>
-          <p>
-            Once the full audit is complete, we report back with a comprehensive{' '}
-            <strong className="font-semibold text-neutral-950">plan</strong>{' '}
-            and, more importantly, a budget.
+            Through cohort analysis and customer segmentation, we uncover hidden
+            growth levers specific to your business model. This phase delivers a
+            prioritized execution plan with clear KPIs and ROI projections.
           </p>
         </div>
         <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
-          Included in this phase
+          Key Activities
         </h3>
         <TagList className="mt-4">
-          <TagListItem>In-depth questionnaires</TagListItem>
-          <TagListItem>Feasibility studies</TagListItem>
-          <TagListItem>Blood samples</TagListItem>
-          <TagListItem>Employee surveys</TagListItem>
-          <TagListItem>Proofs-of-concept</TagListItem>
-          <TagListItem>Forensic audit</TagListItem>
+          <TagListItem>Growth Audit</TagListItem>
+          <TagListItem>Funnel Analysis</TagListItem>
+          <TagListItem>Cohort Segmentation</TagListItem>
+          <TagListItem>Channel Benchmarking</TagListItem>
+          <TagListItem>Experiment Roadmap</TagListItem>
         </TagList>
       </>
     ),
   },
   {
-    title: 'Build',
-    image: { src: imageLaptop, shape: 1 },
+    title: 'Execution & Testing',
+    image: { src: jacobsCorner, shape: 1 },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
-            Based off of the discovery phase, we develop a comprehensive roadmap
-            for each product and start working towards delivery. The roadmap is
-            an intricately tangled mess of technical nonsense designed to drag
-            the project out as long as possible.
+            Our growth engineers implement A/B tests, conversion experiments,
+            and channel-specific campaigns across your digital properties. We
+            utilize both qualitative and quantitative research methods to
+            validate hypotheses at scale.
           </p>
           <p>
-            Each client is assigned a key account manager to keep lines of
-            communication open and obscure the actual progress of the project.
-            They act as a buffer between the client&apos;s incessant nagging and
-            the development team who are hard at work scouring open source
-            projects for code to re-purpose.
-          </p>
-          <p>
-            Our account managers are trained to only reply to client emails
-            after 9pm, several days after the initial email. This reinforces the
-            general aura that we are very busy and dissuades clients from asking
-            for changes.
+            Through continuous experimentation, we optimize landing pages, CTAs,
+            and user journeys while building scalable infrastructure for ongoing
+            testing. Our approach combines behavioral psychology with
+            statistical rigor to maximize learning velocity.
           </p>
         </div>
         <Blockquote
-          author={{ name: 'Debra Fiscal', role: 'CEO of Unseal' }}
+          author={{ name: 'Alex Morgan', role: 'CEO at GrowthTech' }}
           className="mt-12"
         >
-          SeriesLab were so regular with their progress updates we almost began
-          to think they were automated!
+          Their systematic approach increased our trial-to-paid conversion rate
+          by 47% within 90 days while establishing a sustainable experimentation
+          framework.
         </Blockquote>
       </>
     ),
   },
   {
-    title: 'Deliver',
-    image: { src: imageMeeting, shape: 2 },
+    title: 'Scale & Optimize',
+    image: { src: downstream, shape: 2 },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
-            About halfway through the Build phase, we push each project out by 6
-            weeks due to a change in{' '}
-            <strong className="font-semibold text-neutral-950">
-              requirements
-            </strong>
-            . This allows us to increase the budget a final time before launch.
+            We transition successful experiments into scalable growth systems,
+            implementing automation workflows and predictive analytics to
+            maintain momentum. Our team builds custom dashboards that track
+            growth health metrics and surface optimization opportunities.
           </p>
           <p>
-            Despite largely using pre-built components, most of the{' '}
-            <strong className="font-semibold text-neutral-950">progress</strong>{' '}
-            on each project takes place in the final 24 hours. The development
-            time allocated to each client is actually spent making augmented
-            reality demos that go viral on social media.
-          </p>
-          <p>
-            We ensure that the main pages of the site are{' '}
-            <strong className="font-semibold text-neutral-950">
-              fully functional
-            </strong>{' '}
-            at launch — the auxiliary pages will, of course, be lorem ipusm
-            shells which get updated as part of our exorbitant{' '}
-            <strong className="font-semibold text-neutral-950">
-              maintenance
-            </strong>{' '}
-            retainer.
+            Through quarterly business reviews and performance recalibration, we
+            ensure sustained growth velocity. We provide hands-on training to
+            transfer knowledge and methodologies to your internal teams for
+            long-term success.
           </p>
         </div>
         <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
-          Included in this phase
+          Success Metrics
         </h3>
         <List className="mt-8">
-          <ListItem title="Testing">
-            Our projects always have 100% test coverage, which would be
-            impressive if our tests weren&apos;t as porous as a sieve.
+          <ListItem title="Growth Velocity">
+            Average 3x increase in monthly growth rate within first 6 months.
           </ListItem>
-          <ListItem title="Infrastructure">
-            To ensure reliability we only use the best Digital Ocean droplets
-            that $4 a month can buy.
+          <ListItem title="Experiment Velocity">
+            15+ validated experiments per quarter with 30%+ success rate.
           </ListItem>
-          <ListItem title="Support">
-            Because we hold the API keys for every critical service your
-            business uses, you can expect a lifetime of support, and invoices,
-            from us.
+          <ListItem title="System Scalability">
+            Infrastructure designed to support 10x user growth without
+            performance degradation.
           </ListItem>
         </List>
       </>
@@ -148,52 +116,40 @@ const services = [
 
 const features = [
   {
-    title: 'Meticulous',
+    title: 'Growth Strategy',
     description:
-      'The first part of any partnership is getting our designer to put your logo in our template. The second step is getting them to do the colors.',
+      'Data-driven planning that identifies high-impact opportunities across acquisition, activation, and monetization.',
   },
   {
-    title: 'Efficient',
+    title: 'Conversion Optimization',
     description:
-      'We pride ourselves on never missing a deadline which is easy because most of the work was done years ago.',
+      'Scientific experimentation framework to maximize conversion rates across the customer journey.',
   },
   {
-    title: 'Adaptable',
+    title: 'Channel Scaling',
     description:
-      'Every business has unique needs and our greatest challenge is shoe-horning those needs into something we already built.',
+      'Performance marketing expertise across paid, organic, and partnership channels.',
   },
   {
-    title: 'Honest',
+    title: 'Retention Engineering',
     description:
-      'We are transparent about all of our processes, banking on the simple fact our clients never actually read anything.',
-  },
-  {
-    title: 'Loyal',
-    description:
-      'We foster long-term relationships with our clients that go beyond just delivering a product, allowing us to invoice them for decades.',
-  },
-  {
-    title: 'Innovative',
-    description:
-      'The technological landscape is always evolving and so are we. We are constantly on the lookout for new open source projects to clone.',
+      'Behavioral analytics and proactive interventions to improve user engagement and lifetime value.',
   },
 ]
 
-export default function UserGrowth() {
+export default async function UserGrowth() {
   return (
     <RootLayout>
       <PageIntro
-        eyebrow="User Growth"
-        title="We are shameless about growing revenue."
+        eyebrow="User Growth Services"
+        title="Transform growth from theory into measurable outcomes."
       >
         <p>
-          Series-A VC funds are demanding, so there&apos;s no shame in a bridge
-          round to find product-market fit — except yes.
-          <span className="text-emerald-700">
-            {' '}
-            Let&apos;s get shameless
-          </span>{' '}
-          with paying user growth.
+          In today&apos;s competitive landscape,&nbsp;
+          <span className="font-semibold text-blue-600">user growth</span>
+          requires more than just tactics - it demands a systematic approach
+          combining strategy, experimentation, and execution excellence. Our
+          proven framework delivers sustainable growth at any business stage.
         </p>
       </PageIntro>
 
@@ -205,15 +161,18 @@ export default function UserGrowth() {
         ))}
       </div>
 
-      <FeatureGrid features={features} />
+      <FeatureGrid features={features} columns={2} />
 
-      <ContactSection cta="Traction is one click away." btn="Schedule call" />
+      <ContactSection
+        cta="Ready to unlock exponential growth potential?"
+        btn="Start growth audit"
+      />
     </RootLayout>
   )
 }
 
 export const metadata: Metadata = {
-  title: 'User Growth < Services',
+  title: 'User Growth Services | Data-Driven Customer Acquisition',
   description:
-    'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
+    'Proven growth strategies that deliver scalable user acquisition, retention, and monetization through systematic experimentation and data-driven optimization.',
 }

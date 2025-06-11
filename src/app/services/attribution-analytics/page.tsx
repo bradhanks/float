@@ -1,144 +1,158 @@
+'use cache'
 import { type Metadata } from 'next'
-
-import { Blockquote } from '@/components/Blockquote'
 import { ContactSection } from '@/components/ContactSection'
-import { List, ListItem } from '@/components/List'
 import { PageIntro } from '@/components/PageIntro'
-import { TagList, TagListItem } from '@/components/TagList'
-import imageLaptop from '@/images/laptop.jpg'
-import imageMeeting from '@/images/meeting.jpg'
-import imageWhiteboard from '@/images/whiteboard.jpg'
 import { RootLayout } from '@/components/RootLayout'
-import FeatureGrid from '@/components/FeatureGrid'
+import FeatureGrid from '@/components/grid/FeatureGrid'
 import ServiceSection from '@/components/ServiceSection'
+import { Blockquote } from '@/components/Blockquote'
+import { List, ListItem } from '@/components/List'
+import purpleFlower from '@/images/services/attribution-analytics/purple-flower.jpg'
+import yellowFlower from '@/images/services/attribution-analytics/yellow-flower.jpg'
+import oceanView from '@/images/services/attribution-analytics/ocean-view.jpg'
+import { TagList, TagListItem } from '@/components/TagList'
+
 const services = [
   {
-    title: 'Discover',
-    image: { src: imageWhiteboard },
+    title: 'SaaS Attribution Assessment & Strategy',
+    image: { src: purpleFlower },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
-            We work closely with our clients to understand their{' '}
-            <strong className="font-semibold text-neutral-950">needs</strong>{' '}
-            and goals, embedding ourselves in their every day operations to
-            understand what makes their business tick.
+            We start by understanding your unique SaaS customer acquisition
+            funnel, from initial awareness through trial conversion to paid
+            subscription. Our comprehensive audit maps every touchpoint in your{' '}
+            <strong className="font-medium text-neutral-950">
+              multi-channel customer journey
+            </strong>
+            , identifying critical gaps that are costing you revenue.
           </p>
           <p>
-            Our team of private investigators shadow the company director&apos;s
-            for several weeks while our account managers focus on going through
-            their trash. Our senior security experts then perform social
-            engineering hacks to gain access to their{' '}
-            <strong className="font-semibold text-neutral-950">business</strong>{' '}
-            accounts — handing that information over to our forensic accounting
-            team.
+            Working directly with your team, we analyze your current attribution
+            blind spots—those mysterious traffic sources showing up as
+            &quot;direct&quot; in Google Analytics, the true impact of your
+            content marketing on trial-to-paid conversion, and the hidden
+            influence of your product-led growth motions. We then design a
+            custom attribution framework that captures the full complexity of
+            modern SaaS customer acquisition.
           </p>
           <p>
-            Once the full audit is complete, we report back with a comprehensive{' '}
-            <strong className="font-semibold text-neutral-950">plan</strong>{' '}
-            and, more importantly, a budget.
+            <strong className="font-medium text-neutral-950">
+              For SaaS founders:
+            </strong>{' '}
+            Stop wondering which marketing channels actually drive your best
+            customers. Get clarity on whether your $50K/month paid search spend
+            is generating profitable LTV or just vanity metrics.
           </p>
         </div>
         <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
-          Included in this phase
+          Strategic Deliverables
         </h3>
         <TagList className="mt-4">
-          <TagListItem>In-depth questionnaires</TagListItem>
-          <TagListItem>Feasibility studies</TagListItem>
-          <TagListItem>Blood samples</TagListItem>
-          <TagListItem>Employee surveys</TagListItem>
-          <TagListItem>Proofs-of-concept</TagListItem>
-          <TagListItem>Forensic audit</TagListItem>
+          <TagListItem>SaaS Funnel Attribution Audit</TagListItem>
+          <TagListItem>Customer Journey Mapping</TagListItem>
+          <TagListItem>Channel Performance Gaps Analysis</TagListItem>
+          <TagListItem>LTV-Focused KPI Framework</TagListItem>
+          <TagListItem>Multi-Touch Model Architecture</TagListItem>
+          <TagListItem>Product-Led Growth Attribution</TagListItem>
         </TagList>
       </>
     ),
   },
   {
-    title: 'Build',
-    image: { src: imageLaptop, shape: 1 },
+    title: 'Advanced Implementation & Integration',
+    image: { src: yellowFlower, shape: 1 },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
-            Based off of the discovery phase, we develop a comprehensive roadmap
-            for each product and start working towards delivery. The roadmap is
-            an intricately tangled mess of technical nonsense designed to drag
-            the project out as long as possible.
+            Our technical team implements enterprise-grade attribution tracking
+            that goes far beyond basic Google Analytics. We deploy sophisticated
+            multi-touch attribution models that accurately track your prospects
+            across devices, sessions, and months-long consideration
+            cycles—critical for B2B SaaS where purchase decisions rarely happen
+            in a single session.
           </p>
           <p>
-            Each client is assigned a key account manager to keep lines of
-            communication open and obscure the actual progress of the project.
-            They act as a buffer between the client&apos;s incessant nagging and
-            the development team who are hard at work scouring open source
-            projects for code to re-purpose.
+            We integrate data from your entire marketing and sales tech stack:
+            HubSpot, Salesforce, Mixpanel, Amplitude, Google Ads, LinkedIn, and
+            more. Our custom data pipelines create a unified customer view that
+            connects every marketing touchpoint to actual revenue outcomes, not
+            just superficial engagement metrics.
           </p>
           <p>
-            Our account managers are trained to only reply to client emails
-            after 9pm, several days after the initial email. This reinforces the
-            general aura that we are very busy and dissuades clients from asking
-            for changes.
+            <strong className="font-medium text-neutral-950">
+              Technical highlights:
+            </strong>{' '}
+            Server-side tracking for iOS 14.5+ compliance, cross-domain
+            attribution for complex SaaS funnels, cohort-based LTV attribution,
+            and real-time revenue impact measurement.
           </p>
         </div>
         <Blockquote
-          author={{ name: 'Debra Fiscal', role: 'CEO of Unseal' }}
+          author={{ name: 'Sarah Mitchell', role: 'CMO, TechFlow SaaS' }}
           className="mt-12"
         >
-          SeriesLab were so regular with their progress updates we almost began
-          to think they were automated!
+          Before working with them, we were flying blind on a $200K monthly
+          marketing budget. Their attribution system revealed that our
+          &apos;lowest performing&apos; content channels were actually driving
+          our highest-LTV customers. We reallocated spend and increased MRR
+          growth by 40% in just three months.
         </Blockquote>
       </>
     ),
   },
   {
-    title: 'Deliver',
-    image: { src: imageMeeting, shape: 2 },
+    title: 'Revenue-Focused Optimization & Growth',
+    image: { src: oceanView, shape: 2 },
     content: (
       <>
         <div className="space-y-6 text-base text-neutral-600">
           <p>
-            About halfway through the Build phase, we push each project out by 6
-            weeks due to a change in{' '}
-            <strong className="font-semibold text-neutral-950">
-              requirements
-            </strong>
-            . This allows us to increase the budget a final time before launch.
+            We deliver executive-ready dashboards that show exactly which
+            marketing activities drive qualified pipeline, trial-to-paid
+            conversion, and long-term customer value. No more vanity
+            metrics—just clear ROI data that helps you make confident budget
+            allocation decisions.
           </p>
           <p>
-            Despite largely using pre-built components, most of the{' '}
-            <strong className="font-semibold text-neutral-950">progress</strong>{' '}
-            on each project takes place in the final 24 hours. The development
-            time allocated to each client is actually spent making augmented
-            reality demos that go viral on social media.
+            Our ongoing optimization includes monthly strategy sessions where we
+            analyze attribution insights and recommend specific tactical
+            changes. We help you identify underperforming channels to cut,
+            high-potential opportunities to scale, and the optimal marketing mix
+            for your growth stage and market.
           </p>
           <p>
-            We ensure that the main pages of the site are{' '}
-            <strong className="font-semibold text-neutral-950">
-              fully functional
-            </strong>{' '}
-            at launch — the auxiliary pages will, of course, be lorem ipusm
-            shells which get updated as part of our exorbitant{' '}
-            <strong className="font-semibold text-neutral-950">
-              maintenance
-            </strong>{' '}
-            retainer.
+            <span className="font-medium text-neutral-950">
+              Growth acceleration:{' '}
+            </span>{' '}
+            We don&apos;t just measure—we help you act on the insights. Expect
+            regular recommendations on campaign optimization, budget
+            reallocation, and new channel testing based on your attribution
+            data.
           </p>
         </div>
         <h3 className="font-display mt-12 text-base font-semibold text-neutral-950">
-          Included in this phase
+          Proven SaaS Results
         </h3>
         <List className="mt-8">
-          <ListItem title="Testing">
-            Our projects always have 100% test coverage, which would be
-            impressive if our tests weren&apos;t as porous as a sieve.
+          <ListItem title="Customer Acquisition Cost (CAC) Reduction">
+            Average 28% decrease in blended CAC through elimination of
+            ineffective spend and optimization of high-performing channels.
           </ListItem>
-          <ListItem title="Infrastructure">
-            To ensure reliability we only use the best Digital Ocean droplets
-            that $4 a month can buy.
+          <ListItem title="Marketing-Attributed Revenue Growth">
+            Clients typically see 45-60% improvement in marketing-influenced
+            pipeline within the first quarter post-implementation.
           </ListItem>
-          <ListItem title="Support">
-            Because we hold the API keys for every critical service your
-            business uses, you can expect a lifetime of support, and invoices,
-            from us.
+          <ListItem title="Attribution Accuracy & Speed">
+            99.5% data accuracy with real-time attribution updates and executive
+            reporting delivered within 2-4 weeks of engagement.
+          </ListItem>
+          <ListItem title="LTV:CAC Ratio Improvement">
+            Most SaaS clients achieve 20-35% improvement in LTV:CAC ratios
+            through better channel mix optimization and customer quality
+            insights.
           </ListItem>
         </List>
       </>
@@ -148,59 +162,94 @@ const services = [
 
 const features = [
   {
-    title: 'Meticulous',
+    title: 'SaaS-Specific Multi-Touch Attribution',
     description:
-      'The first part of any partnership is getting our designer to put your logo in our template. The second step is getting them to do the colors.',
+      'Track complex B2B customer journeys that span months and multiple stakeholders. Understand which touchpoints actually drive high-value trials and conversions.',
   },
   {
-    title: 'Efficient',
+    title: 'Revenue-First Data Integration',
     description:
-      'We pride ourselves on never missing a deadline which is easy because most of the work was done years ago.',
+      'Connect marketing spend directly to MRR growth with unified tracking across your CRM, analytics, and advertising platforms.',
   },
   {
-    title: 'Adaptable',
+    title: 'LTV-Based Channel Optimization',
     description:
-      'Every business has unique needs and our greatest challenge is shoe-horning those needs into something we already built.',
+      'Make budget decisions based on long-term customer value, not just conversion volume. Identify which channels drive your most profitable customer segments.',
   },
   {
-    title: 'Honest',
+    title: 'Product-Led Growth Attribution',
     description:
-      'We are transparent about all of our processes, banking on the simple fact our clients never actually read anything.',
+      'Measure the marketing impact on product adoption, feature usage, and organic growth loops—critical for modern SaaS success.',
   },
   {
-    title: 'Loyal',
+    title: 'Executive-Ready Reporting',
     description:
-      'We foster long-term relationships with our clients that go beyond just delivering a product, allowing us to invoice them for decades.',
+      "Get board-level visibility into marketing ROI with clear, actionable dashboards that show marketing's direct contribution to revenue growth.",
   },
   {
-    title: 'Innovative',
+    title: 'Continuous Growth Optimization',
     description:
-      'The technological landscape is always evolving and so are we. We are constantly on the lookout for new open source projects to clone.',
+      'Ongoing strategic guidance and monthly optimization recommendations to accelerate growth and improve marketing efficiency.',
   },
 ]
 
-export const metadata: Metadata = {
-  title: 'Attribution Analytics < Services',
-  description:
-    'We believe in efficiency and maximizing our resources to provide the best value to our clients.',
-}
+const painPoints = [
+  {
+    problem: "Can't prove marketing ROI to investors or board",
+    solution:
+      'Executive dashboards showing direct marketing contribution to ARR growth',
+  },
+  {
+    problem: "Wasting budget on channels that don't convert to revenue",
+    solution: 'Revenue-based attribution revealing true channel performance',
+  },
+  {
+    problem: 'Long sales cycles make attribution nearly impossible',
+    solution: 'Multi-touch models designed for complex B2B customer journeys',
+  },
+  {
+    problem: 'Analytics show conversions but revenue stays flat',
+    solution:
+      'LTV-focused measurement that optimizes for customer quality, not just quantity',
+  },
+]
 
-export default function AttributionAnalytics() {
+export default async function AttributionAnalytics() {
   return (
     <RootLayout>
       <PageIntro
-        eyebrow="User Growth"
-        title="We are shameless about growing revenue."
+        eyebrow="SaaS Attribution Analytics"
+        title="Stop guessing which marketing channels actually drive revenue growth."
       >
         <p>
-          Series-A VC funds are demanding, so there&apos;s no shame in a bridge
-          round to find product-market fit — except yes.
+          You&apos;re spending six figures on marketing, but can&apos;t
+          definitively prove which channels drive your best customers. Our&nbsp;
           <span className="text-emerald-700">
-            {' '}
-            Let&apos;s get shameless
-          </span>{' '}
-          with paying user growth.
+            revenue-focused attribution system
+          </span>
+          gives SaaS founders and marketing leaders the clarity they need to
+          scale efficiently and demonstrate ROI to stakeholders.
         </p>
+        <div className="mt-8 rounded-2xl bg-slate-50 p-8">
+          <h3 className="mb-4 text-lg font-semibold text-neutral-950">
+            Are you experiencing these attribution challenges?
+          </h3>
+          <div className="space-y-3">
+            {painPoints.map((point, index) => (
+              <div key={index} className="flex items-start gap-3">
+                <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-red-500"></div>
+                <div>
+                  <p className="text-sm font-medium text-neutral-600">
+                    {point.problem}
+                  </p>
+                  <p className="mt-1 text-xs text-emerald-700">
+                    → {point.solution}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </PageIntro>
 
       <div className="mt-24 space-y-24 [counter-reset:section] sm:mt-32 sm:space-y-32 lg:mt-40 lg:space-y-40">
@@ -211,9 +260,52 @@ export default function AttributionAnalytics() {
         ))}
       </div>
 
-      <FeatureGrid features={features} />
+      <div className="mx-auto mt-24 max-w-7xl px-6 sm:mt-32 lg:mt-40 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:text-center">
+          <h2 className="text-base font-semibold leading-7 text-emerald-600">
+            Complete Attribution Solution
+          </h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Everything you need to optimize your SaaS marketing spend
+          </p>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            Purpose-built for SaaS companies who need to prove marketing ROI and
+            accelerate profitable growth.
+          </p>
+        </div>
+      </div>
 
-      <ContactSection cta="Traction is one click away." btn="Schedule call" />
+      <FeatureGrid features={features} columns={3} />
+
+      <div className="mx-auto mt-24 max-w-7xl px-6 sm:mt-32 lg:px-8">
+        <div className="rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-700 px-8 py-16 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-white">
+            Ready to see which marketing channels actually drive your growth?
+          </h2>
+          <p className="mx-auto mb-8 max-w-3xl text-xl text-emerald-100">
+            Join 200+ SaaS companies who&apos;ve eliminated attribution
+            guesswork and accelerated profitable growth with our revenue-focused
+            attribution system.
+          </p>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="text-sm text-emerald-100">
+              ✓ Implementation in 2-4 weeks &nbsp;&nbsp; ✓ ROI guarantee
+              &nbsp;&nbsp; ✓ Dedicated growth strategist
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ContactSection
+        cta="Stop flying blind with your marketing budget. Get complete visibility into what's driving your SaaS growth."
+        btn="Schedule your attribution strategy call"
+      />
     </RootLayout>
   )
+}
+
+export const metadata: Metadata = {
+  title: 'SaaS Attribution Analytics | Prove Marketing ROI & Accelerate Growth',
+  description:
+    'Stop guessing which marketing channels drive revenue. Our SaaS-focused attribution system shows exactly which activities generate your best customers and highest LTV.',
 }
