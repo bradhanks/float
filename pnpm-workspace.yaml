@@ -1,7 +1,9 @@
 onlyBuiltDependencies:
   - '@firebase/util'
   - '@tailwindcss/oxide'
+  - '@vercel/speed-insights'
   - core-js
+  - esbuild
   - oniguruma
   - protobufjs
   - sharp
