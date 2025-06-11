@@ -3,6 +3,7 @@ import '@/styles/tailwind.css'
 import '@/styles/base.css'
 import { PostHogProvider } from '@/app/providers'
 import { headers } from 'next/headers'
+import AnalyticsTag from '@/components/AnalyticsTag'
 
 export const experimental_ppr = true
 export const metadata: Metadata = {
@@ -92,7 +93,10 @@ export default async function Layout({
       <meta name="theme-color" content="#ffffff" />
 
       <body className="flex min-h-full flex-col">
-        <PostHogProvider>{children}</PostHogProvider>
+        <PostHogProvider>
+          {children}
+          <AnalyticsTag />
+        </PostHogProvider>
       </body>
     </html>
   )
