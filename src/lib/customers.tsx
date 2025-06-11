@@ -194,16 +194,68 @@ export const customers: Customers = {
   },
 }
 
+// export function ListCustomers({ customers }: { customers: Customers }) {
+//   return (Object.keys(customers) as Customer[]).map((key) => (
+//     <li key={key}>
+//       <FadeIn>
+//         <Image
+//           src={customers[key].logoLight}
+//           alt={customers[key].name}
+//           unoptimized
+//         />
+//       </FadeIn>
+//     </li>
+//   ))
+// }
+
 export function ListCustomers({ customers }: { customers: Customers }) {
-  return (Object.keys(customers) as Customer[]).map((key) => (
-    <li key={key}>
-      <FadeIn>
-        <Image
-          src={customers[key].logoLight}
-          alt={customers[key].name}
-          unoptimized
-        />
-      </FadeIn>
-    </li>
-  ))
+  return (
+    <>
+      <li>
+        <FadeIn>
+          <Image
+            src="/lucidchart.jpg"
+            alt="Lucichart logo"
+            width={200}
+            height={50}
+          />
+        </FadeIn>
+      </li>
+      <li>
+        <FadeIn>
+          <Image
+            src="/einblick.jpg"
+            alt="Einblick logo"
+            width={200}
+            height={50}
+          />
+        </FadeIn>
+      </li>
+      <li>
+        <FadeIn>
+          <Image src="/zight.png" alt="Zight logo" width={200} height={50} />
+        </FadeIn>
+      </li>
+      <li>
+        <FadeIn>
+          <Image
+            src="/cobrowse.jpg"
+            alt="Cobrowse logo"
+            width={200}
+            height={50}
+          />
+        </FadeIn>
+      </li>
+      {/* <li>
+        <FadeIn>
+          <Image
+            src="/newtonx.jpg"
+            alt="NewtonX logo"
+            width={200}
+            height={50}
+          />
+        </FadeIn>
+      </li> */}
+    </>
+  )
 }
