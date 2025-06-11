@@ -1,7 +1,7 @@
 // src/app/api/firebase/route.ts
 
 import { NextRequest } from 'next/server'
-import { db } from '@/lib/firebaseAdmin'
+import { db } from '@/lib/firebase'
 
 export async function POST(request: NextRequest) {
   let data
