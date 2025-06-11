@@ -7,19 +7,7 @@ import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { GridPattern } from '@/components/GridPattern'
 import { SectionIntro } from '@/components/SectionIntro'
 import { formatDate } from '@/lib/formatDate'
-
-function ArrowIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 24 6" aria-hidden="true" {...props}>
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M24 3 18 .5v2H0v1h18v2L24 3Z"
-      />
-    </svg>
-  )
-}
-
+import { DynamicIcon } from '@/components/Icon'
 interface Page {
   href: string
   date: string
@@ -27,7 +15,32 @@ interface Page {
   description: string
 }
 
-function PageLink({ page }: { page: Page }) {
+export function ReadMoreLink({
+  page,
+  cta = 'CTA',
+}: {
+  page: Page
+  cta?: string
+}) {
+  return (
+    <Link
+      href={page.href}
+      className="group mt-6 flex gap-x-3 text-base font-semibold text-neutral-950 transition hover:opacity-80"
+      aria-label={`Read more: ${page.title}`}
+    >
+      {cta}
+
+      <DynamicIcon
+        name="ArrowLongRightIcon"
+        className="duration-50 flex-none self-center fill-current transition-transform group-hover:translate-x-0.5"
+        ariaHidden
+      />
+      <span className="absolute inset-0" />
+    </Link>
+  )
+}
+
+export function PageLink({ page }: { page: Page }) {
   return (
     <article key={page.href}>
       <Border
@@ -46,11 +59,15 @@ function PageLink({ page }: { page: Page }) {
         <p className="mt-2.5 text-base text-neutral-600">{page.description}</p>
         <Link
           href={page.href}
-          className="mt-6 flex gap-x-3 text-base font-semibold text-neutral-950 transition hover:text-neutral-700"
+          className="group mt-6 flex gap-x-3 text-base font-semibold text-neutral-950 transition hover:opacity-80"
           aria-label={`Read more: ${page.title}`}
         >
           Read more
-          <ArrowIcon className="w-6 flex-none fill-current" />
+          <DynamicIcon
+            name="ArrowLongRightIcon"
+            className="duration-50 flex-none self-center fill-current transition-transform group-hover:translate-x-0.5"
+            ariaHidden
+          />
           <span className="absolute inset-0" />
         </Link>
       </Border>

@@ -3,7 +3,7 @@
 import { useId, useActionState } from 'react'
 import Form from 'next/form'
 import { FadeIn } from '@/components/FadeIn'
-import { PostHogButton } from '@/components/PostHogButton'
+import { PostHogButton } from '@/components/Button'
 import Post from '@/lib/send-email'
 
 function TextInput({

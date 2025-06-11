@@ -5,7 +5,8 @@ import { Border } from '@/components/Border'
 import { GrayscaleTransitionImage } from '@/components/GrayscaleTransitionImage'
 import { StatList, StatListItem } from '@/components/StatList'
 import { TagList, TagListItem } from '@/components/TagList'
-
+import { CodeBlock, InlineCode } from '@/components/mdx/CodeBlock'
+import { Example } from '@/components/mdx/Example'
 export const MDXComponents = {
   Blockquote({
     className,
@@ -100,4 +101,7 @@ export const MDXComponents = {
       />
     )
   },
+  code: InlineCode,
+  pre: CodeBlock,
+  Example,
 }

@@ -15,13 +15,12 @@ import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
 import { MotionDiv } from '@/components/MotionWrapper'
 import { MotionConfig, useReducedMotion } from 'framer-motion'
-import { PostHogButton } from '@/components/PostHogButton'
+import { Button, CalendlyButton, PostHogButton } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { Footer } from '@/components/Footer'
 import { GridPattern } from '@/components/GridPattern'
 import { Offices } from '@/components/Offices'
 import { QuickContact } from '@/components/QuickContact'
-import CalendlyButton from '@/components/CalendlyButton'
 import Navigation from '@/components/Navigation'
 
 // Fix: Proper dynamic imports for logo components
@@ -102,6 +101,10 @@ function Header({
         </Link>
 
         <div className="flex items-center gap-x-8">
+          <Button mode="secondary" invert={invert}>
+            <Link href="/services">Services</Link>
+          </Button>
+
           <CalendlyButton invert={invert} />
           <PostHogButton invert={invert} href="/contact" size="sm">
             Let&apos;s talk
@@ -220,7 +223,7 @@ function RootLayoutInner({ children }: { children: React.ReactNode }) {
                 <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
                   <div>
                     <h2 className="font-display text-base font-semibold text-white">
-                      Our office
+                      Our offices
                     </h2>
                     <Offices
                       invert

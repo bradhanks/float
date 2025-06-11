@@ -32,20 +32,31 @@ export function Offices({
   return (
     <ul role="list" {...props}>
       <li>
-        <Office name="Salt Lake City" invert={invert}>
-          2701 Thanksgiving Drive
+        <Office name="Solana Beach" invert={invert}>
+          125 South Highway 101
           <br />
-          Lehi, Utah 84043
+          Solana Beach, California 92075
         </Office>
       </li>
-
-      {/* <li>
-        <Office name="San Francisco" invert={invert}>
-          2701 Thanksgiving Drive
+      <li>
+        <Office name="Boulder" invert={invert}>
+          2101 Pearl Street
           <br />
-          Redwood City, CA 84043
+          Boulder, Colorado 80302
         </Office>
-      </li> */}
+      </li>
+      <li>
+        <Office name="Lehi" invert={invert}>
+          2701 North Thanksgiving Way Lehi, Utah 84043
+        </Office>
+      </li>
+      <li>
+        <Office name="Portland" invert={invert}>
+          1120 Southeast Madison Street
+          <br />
+          Portland, Oregon 97214
+        </Office>
+      </li>
     </ul>
   )
 }

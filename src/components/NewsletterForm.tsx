@@ -62,7 +62,7 @@ export function NewsletterForm() {
         Sign up for our quarterly newsletter
       </h2>
       <p className="mt-4 text-sm text-neutral-700 sm:text-base">
-        We ruthlessly curate content for B2B SaaS founders.
+        We curate content for B2B SaaS founders.
       </p>
 
       <div className="relative mt-6">

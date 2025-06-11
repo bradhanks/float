@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container } from '@/components/Container'
-import { GridList, GridListItem } from '@/components/GridList'
+import { GridList } from '@/components/grid/GridList'
+import { GridListItem } from '@/components/grid/GridListItem'
 import { SectionIntro } from '@/components/SectionIntro'
 import { GridPattern } from '@/components/GridPattern'
 
@@ -11,10 +12,10 @@ interface Feature {
 
 export interface FeatureGridProps {
   features: Feature[]
-  className?: string
+  columns?: number
 }
 
-export default function FeatureGrid({ features }: FeatureGridProps) {
+export default function FeatureGrid({ features, columns }: FeatureGridProps) {
   return (
     <div className="relative mt-24 pt-24 sm:mt-32 sm:pt-32 lg:mt-40 lg:pt-40">
       <div className="rounded-t-4xl bg-linear-to-b absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden from-neutral-50">
@@ -35,7 +36,7 @@ export default function FeatureGrid({ features }: FeatureGridProps) {
         </p>
       </SectionIntro>
       <Container className="mt-24">
-        <GridList>
+        <GridList columns={columns}>
           {features.map(({ title, description }) => (
             <GridListItem key={title} title={title}>
               {description}

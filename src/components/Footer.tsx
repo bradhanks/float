@@ -27,15 +27,15 @@ const navigation = [
   //     { title: 'Einblick', href: '/customers/einblick-ai' },
   //   ],
   // },
-  {
-    title: 'Company',
-    links: [
-      { title: 'About Us', href: '/about' },
-      { title: 'Blog', href: '/blog' },
-      // { title: 'What about AI?', href: '/blog/b2b-saas-startup-ai' },
-      { title: 'Contact us', href: '/contact' },
-    ],
-  },
+  // {
+  //   title: 'Company',
+  //   links: [
+  //     { title: 'About Us', href: '/about' },
+  //     { title: 'Blog', href: '/blog' },
+  //     // { title: 'What about AI?', href: '/blog/b2b-saas-startup-ai' },
+  //     { title: 'Contact us', href: '/contact' },
+  //   ],
+  // },
 ]
 function Navigation() {
   return (

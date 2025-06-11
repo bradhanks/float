@@ -14,4 +14,4 @@ export const MotionH2 = motion.h2
 export const MotionP = motion.p
 export const MotionPath = motion.path
 export const MotionSvg = motion.svg
-export const MotionImage = motion(Image)
+export const MotionImage = motion.create(Image)
