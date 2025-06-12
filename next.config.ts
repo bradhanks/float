@@ -1,5 +1,7 @@
-import createMDX from '@next/mdx'
-import { Parser } from 'acorn'
+import type { NextConfig } from 'next'
+
+import nextMDX from '@next/mdx'
+import { Parser, Options as AcornOptions } from 'acorn'
 import jsx from 'acorn-jsx'
 import escapeStringRegexp from 'escape-string-regexp'
 import * as path from 'path'
@@ -9,11 +11,16 @@ import { remarkRehypeWrap } from 'remark-rehype-wrap'
 import rehypeUnwrapImages from 'rehype-unwrap-images'
 import { unifiedConditional } from 'unified-conditional'
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    useCache: true,
+const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      { hostname: 'cdn.sanity.io' },
+    ]
   },
+  experimental: {
+    useCache: true
+  },
+  turbopack: {},
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
   async rewrites() {
     return [
@@ -33,27 +40,18 @@ const nextConfig = {
   },
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
-  images: {
-    dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-      },
-    ],
-  },
 }
 
-function remarkMDXLayout(source, metaName) {
+function remarkMDXLayout(source: string, metaName: string) {
   const parser = Parser.extend(jsx())
-  const parseOptions = {
+  const parseOptions: AcornOptions = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   }
 
-  return (tree) => {
+  return (tree: {
+    children: Array<{ type: string; value: string; data: any }>
+  }) => {
     const imp = `import _Layout from '${source}'`
     const exp = `export default function Layout(props) {
       return <_Layout {...props} ${metaName}={${metaName}} />
@@ -74,9 +72,9 @@ function remarkMDXLayout(source, metaName) {
   }
 }
 
-export default function config() {
-  const withMDX = createMDX({
-    extension: /\.(md|mdx)$/,
+export default async function config() {
+  const withMDX = nextMDX({
+    extension: /\.mdx$/,
     options: {
       recmaPlugins: [recmaImportImages],
       rehypePlugins: [
