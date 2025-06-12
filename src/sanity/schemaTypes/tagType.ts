@@ -1,5 +1,5 @@
 import { defineType, defineField } from 'sanity'
-import { TagIcon } from '@sanity/icons'
+import { TagIcon } from '@heroicons/react/24/outline'
 
 export const tagType = defineType({
   name: 'tag',

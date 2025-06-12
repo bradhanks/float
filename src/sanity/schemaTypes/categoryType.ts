@@ -1,5 +1,5 @@
 import { defineType, defineField } from 'sanity'
-import { FolderIcon } from '@sanity/icons'
+import { FolderIcon } from '@heroicons/react/24/outline'
 
 export const categoryType = defineType({
   name: 'category',

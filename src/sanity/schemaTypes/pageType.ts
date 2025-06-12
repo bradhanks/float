@@ -1,5 +1,5 @@
 import { defineType, defineField } from 'sanity'
-import { DocumentIcon } from '@sanity/icons'
+import { DocumentIcon } from '@heroicons/react/24/outline'
 
 export const pageType = defineType({
   name: 'page',

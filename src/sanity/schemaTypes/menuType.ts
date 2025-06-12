@@ -1,11 +1,11 @@
 import { defineField, defineType } from 'sanity'
-import { MenuIcon } from '@sanity/icons'
+import { Bars3Icon } from '@heroicons/react/24/outline'
 
 export const menuType = defineType({
   name: 'menu',
   title: 'Menu',
   type: 'document',
-  icon: MenuIcon,
+  icon: Bars3Icon,
   fields: [
     defineField({
       name: 'title',

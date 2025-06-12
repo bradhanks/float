@@ -1,11 +1,11 @@
 import { defineType, defineField } from 'sanity'
-import { ImageIcon } from '@sanity/icons'
+import { PhotoIcon } from '@heroicons/react/24/outline'
 
 export const mediaType = defineType({
   name: 'media',
   title: 'Media',
   type: 'document',
-  icon: ImageIcon,
+  icon: PhotoIcon,
   fields: [
     defineField({
       name: 'title',

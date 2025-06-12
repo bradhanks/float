@@ -1,5 +1,5 @@
 import { defineType, defineField } from 'sanity'
-import { EnvelopeIcon } from '@sanity/icons'
+import { EnvelopeIcon } from '@heroicons/react/24/outline'
 
 export const subscriberType = defineType({
   name: 'subscriber',

@@ -1,11 +1,11 @@
 import { defineType, defineField } from 'sanity'
-import { CommentIcon } from '@sanity/icons'
+import { ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline'
 
 export const commentType = defineType({
   name: 'comment',
   title: 'Comment',
   type: 'document',
-  icon: CommentIcon,
+  icon: ChatBubbleBottomCenterTextIcon,
   fields: [
     defineField({
       name: 'name',

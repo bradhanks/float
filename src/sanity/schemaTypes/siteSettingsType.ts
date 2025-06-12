@@ -1,5 +1,5 @@
 import { defineType, defineField } from 'sanity'
-import { CogIcon } from '@sanity/icons'
+import { CogIcon } from '@heroicons/react/24/outline'
 
 export const siteSettingsType = defineType({
   name: 'siteSettings',

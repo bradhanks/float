@@ -1,6 +1,6 @@
 import { defineType, defineField } from 'sanity'
 
-import { CalendarIcon } from '@sanity/icons'
+import { CalendarIcon } from '@heroicons/react/24/outline'
 
 export const eventType = defineType({
   name: 'event',
