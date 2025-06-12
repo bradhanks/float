@@ -5,7 +5,6 @@ import { PostHogProvider } from '@/app/providers'
 import { headers } from 'next/headers'
 import { SanityLive } from '@/sanity/lib/live'
 
-export const experimental_ppr = true
 export const metadata: Metadata = {
   title: {
     template: '%s | B2B SaaS Startup Consulting | SeriesLab.',

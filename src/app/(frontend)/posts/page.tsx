@@ -12,7 +12,6 @@ import { RootLayout } from '@/components/RootLayout'
 import { formatDate } from '@/lib/formatDate'
 import { sanityFetch } from '@/sanity/lib/live'
 import { POSTS_QUERY } from '@/sanity/lib/queries'
-import { type SanityDocument } from 'next-sanity'
 
 export const metadata: Metadata = {
   title: 'B2B SaaS Startup Blog',
