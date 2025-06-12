@@ -1,4 +1,3 @@
-'use client'
 import { useEffect, useState } from 'react'
 import { generateOrganizationSchema } from '@/utils/structuredData'
 
