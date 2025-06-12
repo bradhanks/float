@@ -1,7 +1,8 @@
 'use client'
+
 import { useEffect } from 'react'
 import { GoogleTagManager } from '@next/third-parties/google'
-import PostHogClient from '@/lib/posthog'
+import { usePostHogClient } from '@/hooks/usePostHogClient'
 import { useDistinctId } from '@/hooks/useDistinctId'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -11,33 +12,22 @@ function ClientGTM() {
 
   const dataLayer = distinctId
     ? {
-        distinct_id: distinctId,
-      }
+      distinct_id: distinctId,
+    }
     : undefined
 
   return <GoogleTagManager gtmId="GTM-PP2P57S" dataLayer={dataLayer} />
 }
 
-function FirebaseTracker() {
-  const distinct_id = useDistinctId()
-
-  useEffect(() => {
-    if (distinct_id) {
-      fetch('/api/firebase', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ distinct_id }),
-      })
-    }
-  }, [distinct_id])
-
-  return null
-}
-
 function PostHogTracker() {
   const distinctId = useDistinctId()
+  const posthog = usePostHogClient()
 
-  PostHogClient().identify({ distinctId: distinctId })
+  useEffect(() => {
+    if (distinctId && posthog) {
+      posthog.identify(distinctId)
+    }
+  }, [distinctId, posthog])
 
   return null
 }
@@ -46,7 +36,6 @@ export default function AnalyticsTag() {
   return (
     <>
       <ClientGTM />
-      <FirebaseTracker />
       <PostHogTracker />
       <Analytics />
       <SpeedInsights />

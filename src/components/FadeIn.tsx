@@ -2,7 +2,7 @@
 import { MotionDiv } from '@/components/MotionWrapper'
 
 import { createContext, useContext } from 'react'
-import { useReducedMotion } from 'framer-motion'
+import { useReducedMotion } from 'motion/react'
 
 const FadeInStaggerContext = createContext(false)
 

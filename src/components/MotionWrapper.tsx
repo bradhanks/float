@@ -1,17 +1,18 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import Image from 'next/image'
+import { motion } from 'motion/react'
 
-// Create motion-wrapped versions of common HTML elements
-export const MotionDiv = motion.div
-export const MotionSpan = motion.span
-export const MotionLi = motion.li
-export const MotionDt = motion.dt
-export const MotionDd = motion.dd
-export const MotionH1 = motion.h1
-export const MotionH2 = motion.h2
-export const MotionP = motion.p
-export const MotionPath = motion.path
+import Image from 'next/image'
+import dynamic from 'next/dynamic'
+
+export const MotionDiv = dynamic(() => import('motion/react').then(mod => mod.motion.div), { ssr: false })
+export const MotionSpan = dynamic(() => import('motion/react').then(mod => mod.motion.span), { ssr: false })
+export const MotionLi = dynamic(() => import('motion/react').then(mod => mod.motion.li), { ssr: false })
+export const MotionDt = dynamic(() => import('motion/react').then(mod => mod.motion.dt), { ssr: false })
+export const MotionDd = dynamic(() => import('motion/react').then(mod => mod.motion.dd), { ssr: false })
+export const MotionH1 = dynamic(() => import('motion/react').then(mod => mod.motion.h1), { ssr: false })
+export const MotionH2 = dynamic(() => import('motion/react').then(mod => mod.motion.h2), { ssr: false })
+export const MotionP = dynamic(() => import('motion/react').then(mod => mod.motion.p), { ssr: false })
+export const MotionPath = dynamic(() => import('motion/react').then(mod => mod.motion.path), { ssr: false })
 export const MotionSvg = motion.svg
 export const MotionImage = motion.create(Image)

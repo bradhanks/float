@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import Image, { type ImageProps } from 'next/image'
-import { useMotionTemplate, useScroll, useTransform } from 'framer-motion'
+import { useMotionTemplate, useScroll, useTransform } from 'motion/react'
 import { MotionImage } from '@/components/MotionWrapper'
 import clsx from 'clsx'
 

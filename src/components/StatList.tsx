@@ -1,3 +1,5 @@
+'use client'
+
 import { Border } from '@/components/Border'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 import { MotionDiv, MotionDt, MotionDd } from '@/components/MotionWrapper'
