@@ -1,11 +1,9 @@
 import { type Metadata } from 'next'
 import '@/styles/tailwind.css'
 import '@/styles/base.css'
-import { PostHogProvider } from '@/app/providers'
 import { headers } from 'next/headers'
-import AnalyticsTag from '@/components/AnalyticsTag'
+import { ClientProvider } from '@/components/ClientProvider'
 
-export const experimental_ppr = true
 export const metadata: Metadata = {
   title: {
     template: '%s | B2B SaaS Startup Consulting | SeriesLab.',
@@ -93,10 +91,7 @@ export default async function Layout({
       <meta name="theme-color" content="#ffffff" />
 
       <body className="flex min-h-full flex-col">
-        <PostHogProvider>
-          {children}
-          <AnalyticsTag />
-        </PostHogProvider>
+        <ClientProvider>{children}</ClientProvider>
       </body>
     </html>
   )
