@@ -28,29 +28,68 @@ const SectionIntro = dynamic(() =>
 const AppLayout = dynamic(() =>
   import('@/components/AppLayout'),
 )
+const ListCustomers = dynamic(() =>
+  import('@/lib/customers').then((mod) => mod.ListCustomers),
+)
+import { customers } from '@/lib/customers'
 
-// async function Customers() {
-//   return (
-//     <div className="rounded-4xl mt-24 bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
-//       <Container>
-//         <FadeIn className="flex items-center gap-x-8">
-//           <h2 className="font-display text-center text-sm font-semibold tracking-wider text-white sm:text-left">
-//             B2B SaaS industry leaders start as B2B SaaS seed-stage startups.
-//           </h2>
-//           <div className="h-px flex-auto bg-neutral-800" />
-//         </FadeIn>
-//         <FadeInStagger faster>
-//           <ul
-//             role="list"
-//             className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
-//           >
-//             <ListCustomers customers={customers} />
-//           </ul>
-//         </FadeInStagger>
-//       </Container>
-//     </div>
-//   )
-// }
+function Customers() {
+  return (
+    <div className="rounded-4xl mt-24 bg-neutral-950 py-20 sm:mt-32 sm:py-32 lg:mt-56">
+      <Container>
+        <FadeIn className="flex items-center gap-x-8">
+          <h2 className="font-display text-center text-sm font-semibold tracking-wider text-white sm:text-left">
+            B2B SaaS industry leaders start as B2B SaaS seed-stage startups.
+          </h2>
+          <div className="h-px flex-auto bg-neutral-800" />
+        </FadeIn>
+        <FadeInStagger faster>
+          <ul
+            role="list"
+            className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
+          >
+
+            <li>
+              <FadeIn>
+                <Image
+                  src="/lucidchart.jpg"
+                  alt="Lucichart logo"
+                  width={200}
+                  height={50}
+                />
+              </FadeIn>
+            </li>
+            <li>
+              <FadeIn>
+                <Image
+                  src="/einblick.jpg"
+                  alt="Einblick logo"
+                  width={200}
+                  height={50}
+                />
+              </FadeIn>
+            </li>
+            <li>
+              <FadeIn>
+                <Image src="/zight.png" alt="Zight logo" width={200} height={50} />
+              </FadeIn>
+            </li>
+            <li>
+              <FadeIn>
+                <Image
+                  src="/cobrowse.jpg"
+                  alt="Cobrowse logo"
+                  width={200}
+                  height={50}
+                />
+              </FadeIn>
+            </li>
+          </ul>
+        </FadeInStagger>
+      </Container>
+    </div>
+  )
+}
 
 function CaseStudies({
   caseStudies,
@@ -131,7 +170,7 @@ export default async function Home() {
         </FadeIn>
       </Container>
 
-      {/* <Customers /> */}
+      <Customers />
       <Services />
       <CaseStudies caseStudies={caseStudies} />
 
