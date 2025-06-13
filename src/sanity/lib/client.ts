@@ -7,10 +7,10 @@ export const dynamic = 'force-static'
 export { metadata, viewport } from 'next-sanity/studio'
 
 export const client = createClient({
-  projectId,
-  dataset,
-  apiVersion, // https://www.sanity.io/docs/api-versioning
-  useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
+  projectId: projectId,
+  dataset: dataset,
+  apiVersion: apiVersion, // https://www.sanity.io/docs/api-versioning
+  useCdn: false,
 })
 
 export async function sanityFetch<const QueryString extends string>({

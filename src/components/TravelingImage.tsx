@@ -1,5 +1,4 @@
-'use client'
-import { useId } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import Image, { type ImageProps } from 'next/image'
 import clsx from 'clsx'
 
@@ -27,7 +26,7 @@ export function TravelingImage({
   className,
   ...props
 }: ImageProps & { alt?: string; shape?: number; className?: string }) {
-  const id = useId()
+  const id = uuidv4()
   const { width, height, path } = shapes[shape]
 
   return (

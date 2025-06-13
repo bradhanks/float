@@ -1,13 +1,14 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 
-import { Border } from '@/components/Border'
+import Border from '@/components/Border'
+
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
-import { GridPattern } from '@/components/GridPattern'
+import BackgroundPattern  from '@/components/BackgroundPattern'
 import { SectionIntro } from '@/components/SectionIntro'
 import { formatDate } from '@/lib/formatDate'
-import { DynamicIcon } from '@/components/Icon'
+import DynamicIcon from '@/components/Icon'
 interface Page {
   href: string
   date: string
@@ -89,7 +90,7 @@ export function PageLinks({
   return (
     <div className={clsx('relative pt-24 sm:pt-32 lg:pt-40', className)}>
       <div className="rounded-t-4xl bg-linear-to-b absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden from-neutral-50">
-        <GridPattern
+        <BackgroundPattern
           className="mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] absolute inset-0 h-full w-full fill-neutral-100 stroke-neutral-950/5"
           yOffset={-270}
         />

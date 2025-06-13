@@ -1,14 +1,25 @@
 import { type Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
-import { Border } from '@/components/Border'
-import { Button } from '@/components/Button'
-import { ContactSection } from '@/components/ContactSection'
-import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
-import { PageIntro } from '@/components/PageIntro'
-import { RootLayout } from '@/components/RootLayout'
+const Border = dynamic(() => import('@/components/Border'))
+const ContactSection = dynamic(() =>
+  import('@/components/ContactSection').then((mod) => mod.ContactSection),
+)
+const Container = dynamic(() =>
+  import('@/components/Container').then((mod) => mod.Container),
+)
+const FadeIn = dynamic(() =>
+  import('@/components/FadeIn').then((mod) => mod.FadeIn),
+)
+const PageIntro = dynamic(() =>
+  import('@/components/PageIntro').then((mod) => mod.PageIntro),
+)
+const AppLayout = dynamic(() =>
+  import('@/components/AppLayout')
+)
+
 import { formatDate } from '@/lib/formatDate'
 import { loadArticles } from '@/lib/mdx'
 import { ReadMoreLink } from '@/components/PageLinks'
@@ -23,7 +34,7 @@ export default async function Blog() {
   const articles = await loadArticles()
 
   return (
-    <RootLayout>
+    <AppLayout>
       <PageIntro eyebrow="Blog" title="The latest articles and news">
         <p>
           Stay up-to-date with the latest industry news as our marketing teams
@@ -80,6 +91,6 @@ export default async function Blog() {
       </Container>
 
       <ContactSection />
-    </RootLayout>
+    </AppLayout>
   )
 }

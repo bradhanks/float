@@ -4,7 +4,7 @@ import { useEffect, useState, ComponentType, SVGAttributes } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { PopupButton } from 'react-calendly'
-import { DynamicIcon, type ButtonIconProps } from '@/components/Icon'
+import DynamicIcon, { type ButtonIconProps } from '@/components/Icon'
 
 type ButtonSize = 'sm' | 'md' | 'lg'
 type ButtonMode = 'primary' | 'secondary' | 'soft' | 'outline'

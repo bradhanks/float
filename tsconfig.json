@@ -13,7 +13,7 @@
       "./node_modules/@types",
       "./node_modules/.pnpm/@types+node@22.15.24/node_modules/@types/node"
     ],
-    "target": "es6",
+    "target": "esnext",
     "lib": [
       "dom",
       "dom.iterable",
@@ -47,8 +47,10 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/providers.js"
-, "sanity.config.js", "next.config.ts"  ],
+    "src/app/providers.js",
+    "sanity.config.js",
+    "next.config.ts"
+  ],
   "exclude": [
     "node_modules"
   ]

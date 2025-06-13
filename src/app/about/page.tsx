@@ -1,19 +1,48 @@
-import { MotionDiv, MotionP, MotionSpan } from '@/components/MotionWrapper'
-
 import { type Metadata } from 'next'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 
-import { Border } from '@/components/Border'
-import { ContactSection } from '@/components/ContactSection'
-import { Container } from '@/components/Container'
-import { FadeIn, FadeInStagger } from '@/components/FadeIn'
-import { GridList } from '@/components/grid/GridList'
-import { GridListItem } from '@/components/grid/GridListItem'
+// Dynamic imports for other components
+const Border = dynamic(() => import('@/components/Border'))
 
-import { PageIntro } from '@/components/PageIntro'
-import { PageLinks } from '@/components/PageLinks'
-import { SectionIntro } from '@/components/SectionIntro'
-import { StatList, StatListItem } from '@/components/StatList'
+const AppLayout = dynamic(() =>
+  import('@/components/AppLayout')
+)
+
+const ContactSection = dynamic(() =>
+  import('@/components/ContactSection').then((mod) => mod.ContactSection),
+)
+const Container = dynamic(() =>
+  import('@/components/Container').then((mod) => mod.Container),
+)
+const FadeIn = dynamic(() =>
+  import('@/components/FadeIn').then((mod) => mod.FadeIn),
+)
+const FadeInStagger = dynamic(() =>
+  import('@/components/FadeIn').then((mod) => mod.FadeInStagger),
+)
+const GridList = dynamic(() =>
+  import('@/components/grid/GridList').then((mod) => mod.GridList),
+)
+const GridListItem = dynamic(() =>
+  import('@/components/grid/GridListItem').then((mod) => mod.GridListItem),
+)
+const PageIntro = dynamic(() =>
+  import('@/components/PageIntro').then((mod) => mod.PageIntro),
+)
+const PageLinks = dynamic(() =>
+  import('@/components/PageLinks').then((mod) => mod.PageLinks),
+)
+const SectionIntro = dynamic(() =>
+  import('@/components/SectionIntro').then((mod) => mod.SectionIntro),
+)
+const StatList = dynamic(() =>
+  import('@/components/StatList').then((mod) => mod.StatList),
+)
+const StatListItem = dynamic(() =>
+  import('@/components/StatList').then((mod) => mod.StatListItem),
+)
+
 import imageAngelaFisher from '@/images/team/angela-fisher.jpg'
 import imageBenjaminRussel from '@/images/team/benjamin-russel.jpg'
 import imageBlakeReid from '@/images/team/blake-reid.jpg'
@@ -27,7 +56,7 @@ import imageLeslieAlexander from '@/images/team/leslie-alexander.jpg'
 import imageMichaelFoster from '@/images/team/michael-foster.jpg'
 import imageWhitneyFrancis from '@/images/team/whitney-francis.jpg'
 import { loadArticles } from '@/lib/mdx'
-import { RootLayout } from '@/components/RootLayout'
+import { MotionDiv, MotionSpan, MotionP } from '@/components/MotionWrapper'
 
 function Culture() {
   return (
@@ -246,7 +275,7 @@ export default async function About() {
   const blogArticles = (await loadArticles()).slice(0, 2)
 
   return (
-    <RootLayout>
+    <AppLayout>
       <PageIntro eyebrow="About us" title="Our strength is collaboration">
         <p>
           We believe that our strength lies in our collaborative approach, which
@@ -288,6 +317,6 @@ export default async function About() {
       />
 
       <ContactSection />
-    </RootLayout>
+    </AppLayout>
   )
 }

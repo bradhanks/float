@@ -1,6 +1,12 @@
 import clsx from 'clsx'
-import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
+import dynamic from 'next/dynamic'
+
+const Container = dynamic(() =>
+  import('@/components/Container').then((mod) => mod.Container),
+)
+const FadeIn = dynamic(() =>
+  import('@/components/FadeIn').then((mod) => mod.FadeIn),
+)
 
 export function PageIntro({
   eyebrow,

@@ -234,10 +234,8 @@ export const generateBreadcrumbSchema = (items: BreadcrumbItem[]) => {
 }
 
 export function injectStructuredData(schema: any) {
-  if (typeof window !== 'undefined') {
-    const script = document.createElement('script')
-    script.type = 'application/ld+json'
-    script.text = JSON.stringify(schema)
-    document.head.appendChild(script)
-  }
+  const script = document.createElement('script')
+  script.type = 'application/ld+json'
+  script.text = JSON.stringify(schema)
+  document.head.appendChild(script)
 }

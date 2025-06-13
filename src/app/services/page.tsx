@@ -1,9 +1,7 @@
-'use cache'
-
 import { Metadata } from 'next'
 import { GridIntroWithButtons } from '@/components/grid/GridIntro'
 import { ContactSection } from '@/components/ContactSection'
-import { RootLayout } from '@/components/RootLayout'
+import AppLayout  from '@/components/AppLayout'
 
 const services_as_features = [
   {
@@ -42,7 +40,7 @@ const services_as_features = [
 
 export default async function Services() {
   return (
-    <RootLayout>
+    <AppLayout>
       <GridIntroWithButtons
         eyebrow="Consulting Services"
         title="Building value starts here."
@@ -63,7 +61,7 @@ export default async function Services() {
         cta="Ready to transform potential into performance?"
         btn="Schedule a strategy session"
       />
-    </RootLayout>
+    </AppLayout>
   )
 }
 

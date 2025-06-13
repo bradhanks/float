@@ -4,7 +4,7 @@ import nextMDX from '@next/mdx'
 import { Parser, Options as AcornOptions } from 'acorn'
 import jsx from 'acorn-jsx'
 import escapeStringRegexp from 'escape-string-regexp'
-import * as path from 'path'
+import path from 'path'
 import { recmaImportImages } from 'recma-import-images'
 import remarkGfm from 'remark-gfm'
 import { remarkRehypeWrap } from 'remark-rehype-wrap'
@@ -13,12 +13,10 @@ import { unifiedConditional } from 'unified-conditional'
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [
-      { hostname: 'cdn.sanity.io' },
-    ]
+    remotePatterns: [{ hostname: 'cdn.sanity.io' }],
   },
   experimental: {
-    useCache: true
+    useCache: true,
   },
   turbopack: {},
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
@@ -108,6 +106,9 @@ export default async function config() {
       ],
     },
   })
+  const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+  })
 
-  return withMDX(nextConfig)
+  return withBundleAnalyzer(withMDX(nextConfig))
 }

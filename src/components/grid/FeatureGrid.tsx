@@ -1,9 +1,21 @@
 import React from 'react'
-import { Container } from '@/components/Container'
-import { GridList } from '@/components/grid/GridList'
-import { GridListItem } from '@/components/grid/GridListItem'
-import { SectionIntro } from '@/components/SectionIntro'
-import { GridPattern } from '@/components/GridPattern'
+import dynamic from 'next/dynamic'
+
+const Container = dynamic(() =>
+  import('@/components/Container').then((mod) => mod.Container),
+)
+const GridList = dynamic(() =>
+  import('@/components/grid/GridList').then((mod) => mod.GridList),
+)
+const GridListItem = dynamic(() =>
+  import('@/components/grid/GridListItem').then((mod) => mod.GridListItem),
+)
+const SectionIntro = dynamic(() =>
+  import('@/components/SectionIntro').then((mod) => mod.SectionIntro),
+)
+const BackgroundPattern = dynamic(() =>
+  import('@/components/BackgroundPattern')
+)
 
 interface Feature {
   title: string
@@ -19,7 +31,7 @@ export default function FeatureGrid({ features, columns }: FeatureGridProps) {
   return (
     <div className="relative mt-24 pt-24 sm:mt-32 sm:pt-32 lg:mt-40 lg:pt-40">
       <div className="rounded-t-4xl bg-linear-to-b absolute inset-x-0 top-0 -z-10 h-[884px] overflow-hidden from-neutral-50">
-        <GridPattern
+        <BackgroundPattern
           className="mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] absolute inset-0 h-full w-full fill-neutral-100 stroke-neutral-950/5"
           yOffset={-270}
         />

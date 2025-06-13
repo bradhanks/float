@@ -3,7 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { Blockquote } from '@/components/Blockquote'
-import { Border } from '@/components/Border'
+import Border from '@/components/Border'
+
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
 import { FadeIn, FadeInStagger } from '@/components/FadeIn'
@@ -11,7 +12,7 @@ import { PageIntro } from '@/components/PageIntro'
 import { Testimonial } from '@/components/Testimonial'
 import { formatDate } from '@/lib/formatDate'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
-import { RootLayout } from '@/components/RootLayout'
+import AppLayout from '@/components/AppLayout'
 import { ListCustomers, customers } from '@/lib/customers'
 
 function CaseStudies({
@@ -120,7 +121,7 @@ export default async function Customers() {
   const caseStudies = await loadCaseStudies()
 
   return (
-    <RootLayout>
+    <AppLayout>
       <PageIntro eyebrow="Attribution" title="What's working? Do more of that.">
         <p>
           Getting good attribution data is a pain in the ass to implement which
@@ -146,6 +147,6 @@ export default async function Customers() {
       </Testimonial>
 
       <CustomerShowcase />
-    </RootLayout>
+    </AppLayout>
   )
 }

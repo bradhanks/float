@@ -2,7 +2,15 @@ import { type Metadata } from 'next'
 import '@/styles/tailwind.css'
 import '@/styles/base.css'
 import { headers } from 'next/headers'
-import { ClientProvider } from '@/components/ClientProvider'
+import ClientProvider from '@/components/ClientProvider'
+
+import { Mona_Sans } from 'next/font/google'
+
+const monaSans = Mona_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+})
 
 export const metadata: Metadata = {
   title: {
@@ -30,7 +38,10 @@ export default async function Layout({
 }) {
   const nonce = await headers().then((mod) => mod.get('x-nonce') || '')
   return (
-    <html lang="en" className="h-full bg-neutral-950 text-base antialiased">
+    <html
+      lang="en"
+      className={`h-full bg-neutral-950 text-base antialiased ${monaSans.className}`}
+    >
       <meta property="csp-nonce" content={nonce} />
       <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
       <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />

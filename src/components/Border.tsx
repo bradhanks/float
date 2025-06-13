@@ -7,7 +7,7 @@ type BorderProps<T extends React.ElementType> = {
   invert?: boolean
 }
 
-export function Border<T extends React.ElementType = 'div'>({
+export default function Border<T extends React.ElementType = 'div'>({
   as,
   className,
   children,

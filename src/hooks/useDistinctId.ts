@@ -9,7 +9,6 @@ export function useDistinctId(): string {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    // Use cached value if available
     if (distinctIdCache) {
       setDistinctId(distinctIdCache)
       return

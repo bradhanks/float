@@ -1,9 +1,17 @@
 'use client'
 
 import { useId, useActionState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+import dynamic from 'next/dynamic'
 import Form from 'next/form'
-import { FadeIn } from '@/components/FadeIn'
-import { PostHogButton } from '@/components/Button'
+
+const FadeIn = dynamic(() =>
+  import('@/components/FadeIn').then((mod) => mod.FadeIn),
+)
+const PostHogButton = dynamic(() =>
+  import('@/components/Button').then((mod) => mod.PostHogButton),
+)
+
 import Post from '@/lib/send-email'
 
 function TextInput({

@@ -1,10 +1,12 @@
 import Image, { type ImageProps } from 'next/image'
 import clsx from 'clsx'
+import dynamic from 'next/dynamic'
 
 import { Container } from '@/components/Container'
 import { FadeIn } from '@/components/FadeIn'
-import { GridPattern } from '@/components/GridPattern'
-
+const BackgroundPattern = dynamic(
+  () => import('@/components/BackgroundPattern'),
+)
 export function Testimonial({
   children,
   customer,
@@ -25,7 +27,7 @@ export function Testimonial({
         className,
       )}
     >
-      <GridPattern
+      <BackgroundPattern
         className="mask-[linear-gradient(to_bottom_left,white_50%,transparent_60%)] absolute inset-0 -z-10 h-full w-full fill-neutral-100 stroke-neutral-950/5"
         yOffset={-256}
       />
@@ -38,7 +40,7 @@ export function Testimonial({
               </p>
             </blockquote>
             <figcaption className="mt-10 flex items-center gap-4">
-              <Image src={customer.logo} alt={customer.name} unoptimized />
+              <Image src={customer.logo} alt={customer.name} />
               <div className="flex items-center">
                 {[...Array(rating)].map((_, i) => (
                   <svg

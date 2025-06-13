@@ -1,9 +1,10 @@
 import React from 'react'
 import clsx from 'clsx'
 import Link from 'next/link'
-import { Border } from '@/components/Border'
+import Border from '@/components/Border'
+
 import { FadeIn } from '@/components/FadeIn'
-import { DynamicIcon } from '@/components/Icon'
+import DynamicIcon from '@/components/Icon'
 
 export function GridListItem({
   title,

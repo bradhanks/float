@@ -1,4 +1,4 @@
-import { SanityDocument } from '@sanity/client'
+// import { SanityDocument } from '@sanity/client'
 import { postPathsQuery, postQuery } from '@/sanity/lib/queries'
 import { sanityFetch } from '@/sanity/lib/live'
 import { client } from '@/sanity/lib/client'

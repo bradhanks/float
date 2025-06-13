@@ -1,14 +1,27 @@
 import { type Metadata } from 'next'
-import Image from 'next/image'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
-import { Border } from '@/components/Border'
-import { Button } from '@/components/Button'
-import { ContactSection } from '@/components/ContactSection'
-import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
-import { PageIntro } from '@/components/PageIntro'
-import { RootLayout } from '@/components/RootLayout'
+const Border = dynamic(() => import('@/components/Border'))
+const ContactSection = dynamic(() =>
+  import('@/components/ContactSection').then((mod) => mod.ContactSection),
+)
+const Container = dynamic(() =>
+  import('@/components/Container').then((mod) => mod.Container),
+)
+const FadeIn = dynamic(() =>
+  import('@/components/FadeIn').then((mod) => mod.FadeIn),
+)
+const PageIntro = dynamic(() =>
+  import('@/components/PageIntro').then((mod) => mod.PageIntro),
+)
+const AppLayout = dynamic(() =>
+  import('@/components/AppLayout')
+)
+const Button = dynamic(() =>
+  import('@/components/Button').then((mod) => mod.Button),
+)
+
 import { formatDate } from '@/lib/formatDate'
 import { sanityFetch } from '@/sanity/lib/live'
 import { POSTS_QUERY } from '@/sanity/lib/queries'
@@ -23,7 +36,7 @@ export default async function Posts(): Promise<React.ReactElement> {
   const { data: posts } = await sanityFetch({ query: POSTS_QUERY })
 
   return (
-    <RootLayout>
+    <AppLayout>
       <PageIntro eyebrow="Blog" title="The latest articles and news">
         <p>
           Stay up-to-date with the latest industry news as our marketing teams
@@ -105,6 +118,6 @@ export default async function Posts(): Promise<React.ReactElement> {
       </Container>
 
       <ContactSection />
-    </RootLayout>
+    </AppLayout>
   )
 }

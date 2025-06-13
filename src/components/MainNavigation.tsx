@@ -1,9 +1,13 @@
 'use client'
 
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import clsx from 'clsx'
-import { Container } from '@/components/Container'
+
+const Container = dynamic(() =>
+  import('@/components/Container').then((mod) => mod.Container),
+)
 
 function NavigationRow({ children }: { children: React.ReactNode }) {
   return (
@@ -46,7 +50,7 @@ function NavigationItem({
   )
 }
 
-export default function Navigation() {
+export default function MainNavigation() {
   return (
     <nav className="font-display mt-px text-5xl font-medium tracking-tight text-white">
       <NavigationRow>

@@ -1,5 +1,6 @@
 import { ComponentType, SVGAttributes } from 'react'
-import * as HeroIcons from '@heroicons/react/24/outline'
+import * as HeroIcons from '@heroicons/react/24/solid'
+
 import clsx from 'clsx'
 
 export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -37,10 +38,18 @@ export interface ButtonIconProps extends Omit<IconProps, 'icon'> {
   invert?: boolean
 }
 
-export function DynamicIcon({
-  name,
-  ...props
-}: ButtonIconProps & { name: keyof typeof HeroIcons }) {
+interface DynamicIconProps extends ButtonIconProps {
+  name: keyof typeof HeroIcons
+}
+
+export default function DynamicIcon({ name, ...props }: DynamicIconProps) {
   const IconComponent = HeroIcons[name]
   return <Icon icon={IconComponent} {...props} />
+}
+
+export function XMarkIcon(props: ButtonIconProps) {
+  return <DynamicIcon name="XMarkIcon" {...props} />
+}
+export function MenuIcon(props: ButtonIconProps) {
+  return <DynamicIcon name="Bars3Icon" {...props} />
 }

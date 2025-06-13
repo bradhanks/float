@@ -191,11 +191,9 @@ export const generateBreadcrumbSchema = (items: BreadcrumbItem[]) => {
 }
 
 export const injectStructuredData = (schema: object, id?: string) => {
-  if (typeof window !== 'undefined') {
-    const existingScript = id ? document.getElementById(id) : null
-    if (existingScript) {
-      existingScript.remove()
-    }
+  const existingScript = id ? document.getElementById(id) : null
+  if (existingScript) {
+    existingScript.remove()
 
     const script = document.createElement('script')
     script.type = 'application/ld+json'

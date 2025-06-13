@@ -1,8 +1,7 @@
-'use cache'
 import { type Metadata } from 'next'
 import { ContactSection } from '@/components/ContactSection'
 import { PageIntro } from '@/components/PageIntro'
-import { RootLayout } from '@/components/RootLayout'
+import AppLayout from '@/components/AppLayout'
 import FeatureGrid from '@/components/grid/FeatureGrid'
 import ServiceSection from '@/components/ServiceSection'
 import { Blockquote } from '@/components/Blockquote'
@@ -216,7 +215,7 @@ const painPoints = [
 
 export default async function AttributionAnalytics() {
   return (
-    <RootLayout>
+    <AppLayout>
       <PageIntro
         eyebrow="SaaS Attribution Analytics"
         title="Stop guessing which marketing channels actually drive revenue growth."
@@ -300,7 +299,7 @@ export default async function AttributionAnalytics() {
         cta="Stop flying blind with your marketing budget. Get complete visibility into what's driving your SaaS growth."
         btn="Schedule your attribution strategy call"
       />
-    </RootLayout>
+    </AppLayout>
   )
 }
 

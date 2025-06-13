@@ -1,14 +1,27 @@
 import { type Metadata } from 'next'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 
-import { Border } from '@/components/Border'
-import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
-import { Offices } from '@/components/Offices'
-import { PageIntro } from '@/components/PageIntro'
-import { QuickContact } from '@/components/QuickContact'
-import { RootLayout } from '@/components/RootLayout'
-import ContactForm from '@/components/ContactForm'
+const Border = dynamic(() => import('@/components/Border'))
+const Container = dynamic(() =>
+  import('@/components/Container').then((mod) => mod.Container),
+)
+const FadeIn = dynamic(() =>
+  import('@/components/FadeIn').then((mod) => mod.FadeIn),
+)
+const PageIntro = dynamic(() =>
+  import('@/components/PageIntro').then((mod) => mod.PageIntro),
+)
+const ContactForm = dynamic(() => import('@/components/ContactForm'))
+const QuickContact = dynamic(() =>
+  import('@/components/QuickContact').then((mod) => mod.QuickContact),
+)
+const Offices = dynamic(() =>
+  import('@/components/Offices').then((mod) => mod.Offices),
+)
+const AppLayout = dynamic(() =>
+  import('@/components/AppLayout')
+)
 
 function ContactDetails() {
   return (
@@ -61,7 +74,7 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <RootLayout>
+    <AppLayout>
       <PageIntro eyebrow="Let's talk." title="Contact us">
         <p>We can&apos;t wait to hear from you.</p>
       </PageIntro>
@@ -72,6 +85,6 @@ export default function Contact() {
           <ContactDetails />
         </div>
       </Container>
-    </RootLayout>
+    </AppLayout>
   )
 }

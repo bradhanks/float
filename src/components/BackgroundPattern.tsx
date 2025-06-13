@@ -20,7 +20,7 @@ function Block({
   )
 }
 
-export function GridPattern({
+export default function BackgroundPattern({
   yOffset = 0,
   interactive = false,
   ...props

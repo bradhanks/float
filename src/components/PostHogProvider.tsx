@@ -4,25 +4,45 @@ import posthog from 'posthog-js'
 import { PostHogProvider as PHProvider, usePostHog } from 'posthog-js/react'
 import { Suspense, useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
+import { UUID } from 'node:crypto'
 
-export function PostHogProvider({ children }: { children: React.ReactNode }) {
+export function PostHogProvider({
+  distinctID,
+  children,
+}: {
+  distinctID: UUID
+  children: React.ReactNode
+}) {
   useEffect(() => {
-    posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-      api_host: '/ingest',
-      ui_host: 'https://us.posthog.com',
-      defaults: '2025-05-24',
-      persistence: 'memory',
-      debug: process.env.NODE_ENV === 'development',
-      bootstrap: {
-        // optional
-        distinctID: 'user distinct id',
-        // featureFlags: {
-        //   'feature-flag-1': true,
-        //   'feature-flag-2': false,
-        // },
-      },
-    })
-  }, [])
+    const loadPostHog = async () => {
+      const { default: posthog } = await import('posthog-js')
+      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
+        api_host: '/ingest',
+        ui_host: 'https://us.posthog.com',
+        defaults: '2025-05-24',
+        persistence: 'memory',
+        debug: process.env.NODE_ENV === 'development',
+        bootstrap: {
+          // optional
+          distinctID: distinctID,
+          // featureFlags: {
+          //   'feature-flag-1': true,
+          //   'feature-flag-2': false,
+          // },
+        },
+      })
+    }
+
+    // Load on first user interaction
+    const handleInteraction = () => {
+      loadPostHog()
+      window.removeEventListener('click', handleInteraction)
+      window.removeEventListener('scroll', handleInteraction)
+    }
+
+    window.addEventListener('click', handleInteraction)
+    window.addEventListener('scroll', handleInteraction)
+  }, [distinctID])
 
   return (
     <PHProvider client={posthog}>

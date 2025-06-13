@@ -1,9 +1,15 @@
 import Link from 'next/link'
-
-import { Container } from '@/components/Container'
-import { FadeIn } from '@/components/FadeIn'
-import { Logo } from '@/components/Logo'
-import { NewsletterForm } from '@/components/NewsletterForm'
+import dynamic from 'next/dynamic'
+const Container = dynamic(() =>
+  import('@/components/Container').then((mod) => mod.Container),
+)
+const FadeIn = dynamic(() =>
+  import('@/components/FadeIn').then((mod) => mod.FadeIn),
+)
+const Logo = dynamic(() => import('@/components/Logo').then((mod) => mod.Logo))
+const NewsletterForm = dynamic(() =>
+  import('@/components/NewsletterForm').then((mod) => mod.NewsletterForm),
+)
 
 const navigation = [
   {
@@ -65,7 +71,7 @@ function Navigation() {
   )
 }
 
-export function Footer() {
+export default function Footer() {
   return (
     <Container as="footer" className="mt-24 w-full sm:mt-32 lg:mt-40">
       <FadeIn>

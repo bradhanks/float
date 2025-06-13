@@ -1,12 +1,24 @@
 import React from 'react'
 import clsx from 'clsx'
-import { Container } from '@/components/Container'
+import dynamic from 'next/dynamic'
 import { FadeIn } from '@/components/FadeIn'
-import { GridList, GridListWithButtons } from '@/components/grid/GridList'
-import {
-  GridListItem,
-  GridListItemWithButton,
-} from '@/components/grid/GridListItem'
+const Container = dynamic(() =>
+  import('@/components/Container').then((mod) => mod.Container),
+)
+const GridList = dynamic(() =>
+  import('@/components/grid/GridList').then((mod) => mod.GridList),
+)
+const GridListWithButtons = dynamic(() =>
+  import('@/components/grid/GridList').then((mod) => mod.GridListWithButtons),
+)
+const GridListItem = dynamic(() =>
+  import('@/components/grid/GridListItem').then((mod) => mod.GridListItem),
+)
+const GridListItemWithButton = dynamic(() =>
+  import('@/components/grid/GridListItem').then(
+    (mod) => mod.GridListItemWithButton,
+  ),
+)
 
 interface Feature {
   title: string

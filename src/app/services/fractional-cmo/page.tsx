@@ -1,8 +1,7 @@
-'use cache'
 import { type Metadata } from 'next'
 import { ContactSection } from '@/components/ContactSection'
 import { PageIntro } from '@/components/PageIntro'
-import { RootLayout } from '@/components/RootLayout'
+import AppLayout from '@/components/AppLayout'
 import FeatureGrid from '@/components/grid/FeatureGrid'
 import ServiceSection from '@/components/ServiceSection'
 import { Blockquote } from '@/components/Blockquote'
@@ -227,7 +226,7 @@ const idealSituations = [
 
 export default async function FractionalCMO() {
   return (
-    <RootLayout>
+    <AppLayout>
       <PageIntro
         eyebrow="Fractional CMO for SaaS"
         title="Get the marketing leadership you need to scale, without the full-time commitment."
@@ -367,7 +366,7 @@ export default async function FractionalCMO() {
         cta="Stop waiting for the perfect marketing hire. Get experienced CMO leadership that drives results from day one."
         btn="Schedule your fractional CMO consultation"
       />
-    </RootLayout>
+    </AppLayout>
   )
 }
 

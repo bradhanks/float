@@ -1,9 +1,7 @@
-'use cache'
-
 import { type Metadata } from 'next'
 import { ContactSection } from '@/components/ContactSection'
 import { PageIntro } from '@/components/PageIntro'
-import { RootLayout } from '@/components/RootLayout'
+import AppLayout from '@/components/AppLayout'
 import FeatureGrid from '@/components/grid/FeatureGrid'
 import ServiceSection from '@/components/ServiceSection'
 import { Blockquote } from '@/components/Blockquote'
@@ -139,7 +137,7 @@ const features = [
 
 export default async function UserGrowth() {
   return (
-    <RootLayout>
+    <AppLayout>
       <PageIntro
         eyebrow="User Growth Services"
         title="Transform growth from theory into measurable outcomes."
@@ -167,7 +165,7 @@ export default async function UserGrowth() {
         cta="Ready to unlock exponential growth potential?"
         btn="Start growth audit"
       />
-    </RootLayout>
+    </AppLayout>
   )
 }
 

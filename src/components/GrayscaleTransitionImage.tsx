@@ -3,8 +3,9 @@
 import { useRef } from 'react'
 import Image, { type ImageProps } from 'next/image'
 import { useMotionTemplate, useScroll, useTransform } from 'motion/react'
-import { MotionImage } from '@/components/MotionWrapper'
 import clsx from 'clsx'
+import dynamic from 'next/dynamic'
+import { MotionImage } from '@/components/MotionWrapper'
 
 export function GrayscaleTransitionImage({
   src,
@@ -27,15 +28,14 @@ export function GrayscaleTransitionImage({
   return (
     <div ref={ref} className="group relative">
       <MotionImage
-        src={src}
-        quality={quality}
-        sizes={sizes}
+        src={typeof src === 'string' ? src : (src as any).src}
         alt={alt}
-        className={clsx(className)}
+        className={clsx(
+          className,
+          'pointer-events-none absolute left-0 top-0 w-full opacity-0 transition duration-300 group-hover:opacity-100',
+        )}
         style={{ filter }}
-      />
-      <div
-        className="pointer-events-none absolute left-0 top-0 w-full opacity-0 transition duration-300 group-hover:opacity-100"
+        sizes={sizes}
         aria-hidden="true"
       >
         <Image
@@ -45,7 +45,7 @@ export function GrayscaleTransitionImage({
           alt={alt}
           className={className}
         />
-      </div>
+      </MotionImage>
     </div>
   )
 }

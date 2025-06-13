@@ -1,8 +1,7 @@
-'use cache'
 import { type Metadata } from 'next'
 import { ContactSection } from '@/components/ContactSection'
 import { PageIntro } from '@/components/PageIntro'
-import { RootLayout } from '@/components/RootLayout'
+import AppLayout from '@/components/AppLayout'
 import FeatureGrid from '@/components/grid/FeatureGrid'
 import ServiceSection from '@/components/ServiceSection'
 import { Blockquote } from '@/components/Blockquote'
@@ -148,7 +147,7 @@ const features = [
 
 export default async function MartechSolutions() {
   return (
-    <RootLayout>
+    <AppLayout>
       <PageIntro
         eyebrow="Martech Services"
         title="Transform marketing complexity into competitive advantage."
@@ -175,7 +174,7 @@ export default async function MartechSolutions() {
         cta="Ready to future-proof your marketing technology?"
         btn="Start free assessment"
       />
-    </RootLayout>
+    </AppLayout>
   )
 }
 

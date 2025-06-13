@@ -5,7 +5,7 @@ import { GrayscaleTransitionImage } from '@/components/GrayscaleTransitionImage'
 import { MDXComponents } from '@/components/MDXComponents'
 import { PageIntro } from '@/components/PageIntro'
 import { PageLinks } from '@/components/PageLinks'
-import { RootLayout } from '@/components/RootLayout'
+import AppLayout from '@/components/AppLayout'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 
 export default async function CaseStudyLayout({
@@ -21,7 +21,7 @@ export default async function CaseStudyLayout({
     .slice(0, 2)
 
   return (
-    <RootLayout>
+    <AppLayout>
       <article className="mt-24 sm:mt-32 lg:mt-40">
         <header>
           <PageIntro eyebrow="Case Study" title={caseStudy.title} centered>
@@ -83,6 +83,6 @@ export default async function CaseStudyLayout({
       )}
 
       <ContactSection />
-    </RootLayout>
+    </AppLayout>
   )
 }
