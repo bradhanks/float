@@ -150,7 +150,7 @@ export function CalendlyButton({
 
   return (
     <PopupButton
-      url="https://calendly.com/float-consulting/meet"
+      url="https://calendly.com/series-lab/meet"
       rootElement={document.querySelector('header') || document.body}
       text="Schedule call"
       className={clsx(
