@@ -138,7 +138,5 @@ export const caseStudyQuery = groq`*[_type == "caseStudy" && slug.current == $sl
     name,
     "slug": slug.current,
     image
-
-
   }
-  };`
+}`;

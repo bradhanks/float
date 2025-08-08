@@ -1,4 +1,3 @@
-// src/components/SanityCaseStudy.tsx
 'use client';
 
 import { SanityDocument } from '@sanity/client';
@@ -13,7 +12,13 @@ import { Button } from './Button';
 
 // --- Main Component ---
 export const SanityCaseStudy = ({ caseStudy }: { caseStudy: SanityDocument }) => {
+  const featuredImageProps = useNextSanityImage(
+    client,
+    caseStudy?.featuredImage
+  ) as { src: string;[key: string]: any } | null;
+
   // --- Not Found State ---
+  // This conditional check can now happen *after* the hook has been called.
   if (!caseStudy) {
     return (
       <PageIntro eyebrow="Error" title="Case Study not found">
@@ -24,11 +29,6 @@ export const SanityCaseStudy = ({ caseStudy }: { caseStudy: SanityDocument }) =>
       </PageIntro>
     );
   }
-
-  const featuredImageProps = useNextSanityImage(
-    client,
-    caseStudy.featuredImage
-  ) as { src: string;[key: string]: any } | null;
 
   return (
     <article className="mt-24 sm:mt-32 lg:mt-40">
@@ -63,6 +63,7 @@ export const SanityCaseStudy = ({ caseStudy }: { caseStudy: SanityDocument }) =>
             </Container>
           </div>
 
+          {/* Now we conditionally render the image based on the result of the hook */}
           {featuredImageProps?.src && (
             <div className="border-y border-neutral-200 bg-neutral-100">
               <div className="mx-auto -my-px max-w-304 bg-neutral-200">
