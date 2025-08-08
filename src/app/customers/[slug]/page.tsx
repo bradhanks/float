@@ -9,13 +9,18 @@ import { Metadata } from 'next';
 
 export const revalidate = 60;
 
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
 export async function generateStaticParams() {
   const caseStudies = await client.fetch(caseStudyPathsQuery);
   return caseStudies;
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const caseStudy = await sanityFetch({ query: caseStudyQuery, params });
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const resolvedParams = await params;
+  const caseStudy = await sanityFetch({ query: caseStudyQuery, params: resolvedParams });
 
   if (!caseStudy) {
     return { title: 'Case Study not found' };
@@ -32,8 +37,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-const CaseStudyPage = async ({ params }: { params: { slug: string } }) => {
-  const caseStudy = await sanityFetch({ query: caseStudyQuery, params });
+const CaseStudyPage = async ({ params }: PageProps) => {
+  const resolvedParams = await params;
+  const caseStudy = await sanityFetch({ query: caseStudyQuery, params: resolvedParams });
   // You'll also need a query to fetch other case studies for the "More case studies" section
   // const moreCaseStudies = await sanityFetch({...});
 
