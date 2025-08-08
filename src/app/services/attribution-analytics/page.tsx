@@ -236,7 +236,7 @@ export default async function AttributionAnalytics() {
           <div className="space-y-3">
             {painPoints.map((point, index) => (
               <div key={index} className="flex items-start gap-3">
-                <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-red-500"></div>
+                <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-red-500"></div>
                 <div>
                   <p className="text-sm font-medium text-neutral-600">
                     {point.problem}
@@ -277,7 +277,7 @@ export default async function AttributionAnalytics() {
       <FeatureGrid features={features} columns={3} />
 
       <div className="mx-auto mt-24 max-w-7xl px-6 sm:mt-32 lg:px-8">
-        <div className="rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-700 px-8 py-16 text-center">
+        <div className="rounded-2xl bg-linear-to-r from-emerald-600 to-emerald-700 px-8 py-16 text-center">
           <h2 className="mb-4 text-3xl font-bold text-white">
             Ready to see which marketing channels actually drive your growth?
           </h2>

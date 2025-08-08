@@ -200,7 +200,7 @@ function Team() {
                             ease: [0.19, 1, 0.22, 1],
                           }}
                         >
-                          <div className="absolute inset-0 z-10 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                          <div className="absolute inset-0 z-10 bg-linear-to-t from-black via-black/30 to-transparent" />
                         </MotionDiv>
                         <MotionDiv
                           className="absolute inset-0 z-0"
@@ -209,7 +209,7 @@ function Team() {
                             hover: { opacity: 1 },
                           }}
                         >
-                          <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-emerald-800/20" />
+                          <div className="absolute inset-0 bg-linear-to-br from-emerald-500/10 to-emerald-800/20" />
                           <div className="absolute inset-0 bg-[radial-gradient(at_center_center,rgba(16,185,129,0.1),transparent_70%)]" />
                         </MotionDiv>
 

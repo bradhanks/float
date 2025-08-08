@@ -1,7 +1,21 @@
+"use cache"
 import { type Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
+import lucidLogoLight from '@/images/customers/lucid-software/logo-light.svg'
+import lucidLogoDark from '@/images/customers/lucid-software/logo-dark.svg'
+import lucidLogoColor from '@/images/customers/lucid-software/logo-color.svg'
+import lucidLogomarkLight from '@/images/customers/lucid-software/logomark-light.svg'
+import lucidLogomarkDark from '@/images/customers/lucid-software/logomark-dark.svg'
+import lucidLogomarkColor from '@/images/customers/lucid-software/logomark-color.svg'
+import zipbooksLogoLight from '@/images/customers/zipbooks/logo-light.svg'
+import einblickLogoLight from '@/images/customers/einblick-ai/logo-light.svg'
+import cobrowseLogoLight from '@/images/customers/cobrowse/logo-light.svg'
+import zightLogoLight from '@/images/customers/zight/logo-light.svg'
+import zightLogomarkLight from '@/images/customers/zight/logomark-light.svg'
+
+
 // import { customers } from '@/lib/customers'
 import { type CaseStudy, type MDXEntry, loadCaseStudies } from '@/lib/mdx'
 
@@ -48,39 +62,102 @@ function Customers() {
             role="list"
             className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4"
           >
-
             <li>
               <FadeIn>
                 <Image
-                  src="/lucidchart.jpg"
+                  src={lucidLogoLight}
                   alt="Lucichart logo"
-                  width={200}
-                  height={50}
+                  unoptimized
                 />
               </FadeIn>
             </li>
             <li>
               <FadeIn>
                 <Image
-                  src="/einblick.jpg"
-                  alt="Einblick logo"
-                  width={200}
-                  height={50}
+                  src={lucidLogoDark}
+                  alt="Lucichart logo"
+                  unoptimized
                 />
               </FadeIn>
             </li>
             <li>
               <FadeIn>
-                <Image src="/zight.png" alt="Zight logo" width={200} height={50} />
+                <Image
+                  src={lucidLogoColor}
+                  alt="Lucichart logo"
+                  unoptimized
+                />
               </FadeIn>
             </li>
             <li>
               <FadeIn>
                 <Image
-                  src="/cobrowse.jpg"
-                  alt="Cobrowse logo"
-                  width={200}
-                  height={50}
+                  src={lucidLogomarkLight}
+                  alt="Lucichart logo"
+                  unoptimized
+                />
+              </FadeIn>
+            </li>
+            <li>
+              <FadeIn>
+                <Image
+                  src={lucidLogomarkDark}
+                  alt="Lucichart logo"
+                  unoptimized
+                />
+              </FadeIn>
+            </li>
+            <li>
+              <FadeIn>
+                <Image
+                  src={lucidLogomarkColor}
+                  alt="Lucichart logo"
+                  unoptimized
+                />
+              </FadeIn>
+            </li>
+            <li>
+              <FadeIn>
+                <Image
+                  src={einblickLogoLight}
+                  alt="Lucichart logo"
+                  unoptimized
+                />
+              </FadeIn>
+            </li>
+            <li>
+              <FadeIn>
+                <Image
+                  src={zipbooksLogoLight}
+                  alt="Lucichart logo"
+                  unoptimized
+                />
+              </FadeIn>
+            </li>
+            <li>
+              <FadeIn>
+                <Image
+                  src={cobrowseLogoLight}
+                  alt="Lucichart logo"
+                  unoptimized
+                />
+              </FadeIn>
+            </li>
+            <li>
+              <FadeIn>
+                <Image
+                  src={zightLogoLight}
+                  alt="Lucichart logo"
+                  unoptimized
+                />
+              </FadeIn>
+            </li>
+            <li>
+              <FadeIn>
+                <Image
+                  src={zightLogomarkLight}
+                  alt="Lucichart logo"
+                  unoptimized
                 />
               </FadeIn>
             </li>
@@ -99,7 +176,7 @@ function CaseStudies({
   return (
     <>
       <SectionIntro
-        title="Getting down to brass tacks with B2B SaaS startups."
+        title="B2B SaaS startup case studies"
         eyebrow="Case Studies"
         className="mt-24 sm:mt-32 lg:mt-40"
       >

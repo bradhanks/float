@@ -30,7 +30,7 @@ export function StatListItem({
   return (
     <Border as={FadeIn} position="left" className="flex flex-col-reverse pl-8">
       <MotionDiv
-        className="absolute left-0 top-0 h-full w-1 origin-top scale-y-0 bg-gradient-to-b from-emerald-400 to-emerald-600 transition-transform duration-700"
+        className="absolute left-0 top-0 h-full w-1 origin-top scale-y-0 bg-linear-to-b from-emerald-400 to-emerald-600 transition-transform duration-700"
         whileHover={{
           scaleY: 1,
           transition: {

@@ -113,7 +113,7 @@
     margin-left: calc(-1 * (--spacing(6)));
     margin-right: calc(-1 * (--spacing(6)));
 
-    @media (width >= theme(--breakpoint-sm)) {
+    @media (width >=theme(--breakpoint-sm)) {
       margin-left: auto;
       margin-right: auto;
     }
@@ -126,7 +126,7 @@
     line-height: theme(lineHeight.8);
     color: var(--color-white);
 
-    @media (width >= theme(--breakpoint-sm)) {
+    @media (width >=theme(--breakpoint-sm)) {
       padding: --spacing(10);
     }
   }

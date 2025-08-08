@@ -1,18 +1,30 @@
 import { type Metadata } from 'next'
 import '@/styles/tailwind.css'
-import '@/styles/base.css'
-import { headers } from 'next/headers'
 import ClientProvider from '@/components/ClientProvider'
+import { headers, draftMode } from 'next/headers'
+import { SanityLive } from "@/sanity/lib/live";
 
-import { Mona_Sans } from 'next/font/google'
+import { VisualEditing } from "next-sanity";
+import { DisableDraftMode } from "@/components/DisableDraftMode";
+import localFont from 'next/font/local'
 
-const monaSans = Mona_Sans({
-  subsets: ['latin'],
+const monaSans = localFont({
+  src: [{
+    path: './../fonts/Mona-Sans.var.woff2',
+    weight: '200 900',
+    style: 'normal',
+  }],
   display: 'swap',
   preload: true,
+  declarations: [
+    { prop: 'font-stretch', value: '75% 125%' },
+  ],
 })
 
-export const metadata: Metadata = {
+
+
+
+const metadata: Metadata = {
   title: {
     template: '%s | B2B SaaS Startup Consulting | SeriesLab.',
     default: 'B2B SaaS Martech Consulting',
@@ -36,13 +48,16 @@ export default async function Layout({
 }: {
   children: React.ReactNode
 }) {
-  const nonce = await headers().then((mod) => mod.get('x-nonce') || '')
+
+  const nonceHeader = await headers().then((mod) => { return mod.get('x-nonce') })
+  const nonce = nonceHeader ? nonceHeader : ''
   return (
     <html
       lang="en"
       className={`h-full bg-neutral-950 text-base antialiased ${monaSans.className}`}
     >
       <meta property="csp-nonce" content={nonce} />
+      <meta name="p:domain_verify" content="58e46bf29d58c54526fd01832779f521"/>
       <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
       <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
       <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
@@ -102,7 +117,17 @@ export default async function Layout({
       <meta name="theme-color" content="#ffffff" />
 
       <body className="flex min-h-full flex-col">
-        <ClientProvider>{children}</ClientProvider>
+        <ClientProvider>
+          {children}
+        </ClientProvider>
+        <SanityLive />
+        {(await draftMode()).isEnabled && (
+          <>
+            <VisualEditing />
+            <DisableDraftMode />
+          </>
+        )}
+
       </body>
     </html>
   )

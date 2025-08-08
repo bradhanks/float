@@ -28,7 +28,7 @@ function Icon({
 
   return (
     <IconComponent
-      className={clsx(sizeClasses, 'flex-shrink-0', className)}
+      className={clsx(sizeClasses, 'shrink-0', className)}
       aria-hidden={ariaHidden}
     />
   )

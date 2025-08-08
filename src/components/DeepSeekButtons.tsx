@@ -194,7 +194,7 @@ export function PostHogButton({
       size={size}
       invert={invert}
       className={clsx(
-        'top-[1px] rounded-[6px] border-[1.5px]',
+        'top-px rounded-[6px] border-[1.5px]',
         'group disabled:cursor-not-allowed disabled:opacity-50',
         className,
       )}

@@ -23,12 +23,7 @@ export function PostHogProvider({
         persistence: 'memory',
         debug: process.env.NODE_ENV === 'development',
         bootstrap: {
-          // optional
           distinctID: distinctID,
-          // featureFlags: {
-          //   'feature-flag-1': true,
-          //   'feature-flag-2': false,
-          // },
         },
       })
     }

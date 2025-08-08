@@ -104,7 +104,7 @@ export function GridListItemWithButton({
       <div className="flex flex-1 flex-col">
         <Border
           position="left"
-          className="relative h-full pl-8"
+          className="relative h-full p-8"
           invert={invert}
         >
           <div
@@ -147,14 +147,14 @@ export function GridListItemWithButton({
           </div>
           <a
             href={href}
-            className="group absolute bottom-0 right-0 z-10 flex gap-x-3 text-base font-semibold text-neutral-950 transition-all duration-200 hover:opacity-80 group-hover:text-emerald-700"
+            className="group sm:absolute  sm:-bottom-3 lg:bottom-0 right-0 z-10 sm:flex sm:gap-x-3 text-base font-semibold text-neutral-950 transition-all duration-200 hover:opacity-80 group-hover:text-emerald-700"
             aria-label={`Read more: ${title}`}
           >
             Learn More
             <DynamicIcon
               name="ArrowLongRightIcon"
               className={clsx(
-                'duration-50 flex-none self-center fill-current transition-transform group-hover:translate-x-0.5',
+                'duration-50 hidden lg:block sm:flex-none self-center fill-current transition-transform group-hover:translate-x-0.5',
               )}
               ariaHidden
             />

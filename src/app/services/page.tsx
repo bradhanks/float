@@ -1,7 +1,8 @@
+"use cache"
 import { Metadata } from 'next'
 import { GridIntroWithButtons } from '@/components/grid/GridIntro'
 import { ContactSection } from '@/components/ContactSection'
-import AppLayout  from '@/components/AppLayout'
+import AppLayout from '@/components/AppLayout'
 
 const services_as_features = [
   {

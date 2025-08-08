@@ -1,42 +1,52 @@
-import { type Metadata } from 'next'
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
+// src/app/posts/page.tsx
 
-const Border = dynamic(() => import('@/components/Border'))
-const ContactSection = dynamic(() =>
-  import('@/components/ContactSection').then((mod) => mod.ContactSection),
-)
-const Container = dynamic(() =>
-  import('@/components/Container').then((mod) => mod.Container),
-)
-const FadeIn = dynamic(() =>
-  import('@/components/FadeIn').then((mod) => mod.FadeIn),
-)
-const PageIntro = dynamic(() =>
-  import('@/components/PageIntro').then((mod) => mod.PageIntro),
-)
-const AppLayout = dynamic(() =>
-  import('@/components/AppLayout')
-)
-const Button = dynamic(() =>
-  import('@/components/Button').then((mod) => mod.Button),
-)
+// --- Imports ---
+// Standard imports for Next.js components and functions.
+import { type Metadata } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
 
-import { formatDate } from '@/lib/formatDate'
-import { sanityFetch } from '@/sanity/lib/live'
-import { POSTS_QUERY } from '@/sanity/lib/queries'
+// Your project-specific components.
+import Border from '@/components/Border';
+import { Button } from '@/components/Button';
+import { ContactSection } from '@/components/ContactSection';
+import { Container } from '@/components/Container';
+import { FadeIn } from '@/components/FadeIn';
+import { PageIntro } from '@/components/PageIntro';
+import AppLayout from '@/components/AppLayout';
 
+// Utility functions and data fetching.
+import { formatDate } from '@/lib/formatDate';
+import { sanityFetch } from '@/sanity/lib/live';
+import { POSTS_QUERY } from '@/sanity/lib/queries';
+import { SanityDocument } from '@sanity/client';
+import imageUrlBuilder from '@sanity/image-url';
+import { client } from '@/sanity/lib/client';
+
+const builder = imageUrlBuilder(client);
+
+// --- Metadata ---
+// Sets the title and description for the blog page for SEO purposes.
 export const metadata: Metadata = {
-  title: 'B2B SaaS Startup Blog',
+  title: {
+    default: "fallback title for child segments.",
+    template: `"%s | My Website"`,
+    absolute: "A title that overrides parent templates."
+  },
   description:
     'Stay up-to-date with the latest industry news as our marketing teams finds new ways to re-purpose old CSS tricks articles.',
-}
+  publisher: 'SeriesLab',
 
-export default async function Posts(): Promise<React.ReactElement> {
-  const { data: posts } = await sanityFetch({ query: POSTS_QUERY })
+};
+
+// --- Main Blog Page Component ---
+export default async function Blog() {
+  // Fetches the list of all blog posts from Sanity.
+  const { data: posts }: { data: SanityDocument[] } = await sanityFetch({ query: POSTS_QUERY });
 
   return (
     <AppLayout>
+      {/* Renders the page intro section. */}
       <PageIntro eyebrow="Blog" title="The latest articles and news">
         <p>
           Stay up-to-date with the latest industry news as our marketing teams
@@ -46,65 +56,67 @@ export default async function Posts(): Promise<React.ReactElement> {
 
       <Container className="mt-24 sm:mt-32 lg:mt-40">
         <div className="space-y-24 lg:space-y-32">
+          {/* Maps over the fetched posts and renders each one. */}
           {posts.map((post) => (
             <FadeIn key={post._id}>
               <article>
                 <Border className="pt-16">
-                  <div className="relative lg:-mx-4 lg:flex lg:justify-end">
-                    <div className="pt-10 lg:w-2/3 lg:flex-none lg:px-4 lg:pt-0">
+                  {/* --- LAYOUT CHANGE --- */}
+                  {/* The layout is now a two-column grid on large screens to accommodate the image. */}
+                  <div className="relative grid grid-cols-1 gap-x-8 lg:grid-cols-3">
+                    {/* --- NEW: Post Image --- */}
+                    {/* The main image for the post is now displayed. */}
+                    <div className="flex flex-col items-start lg:col-span-1">
+                      {post.mainImage ? (
+                        <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden mb-8 lg:mb-0">
+                          <Image
+                            src={builder
+                              .image(post.mainImage)
+                              .width(600)
+                              .height(338)
+                              .fit('crop')
+                              .auto('format')
+                              .url()}
+                            alt={post.mainImage.alt || ''}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      ) : (
+                        // Optional: A placeholder if no image is available.
+                        <div className="w-full aspect-[16/9] rounded-2xl bg-neutral-100" />
+                      )}
+                    </div>
+
+                    {/* --- Text Content --- */}
+                    {/* This column contains the post title, metadata, and preview text. */}
+                    <div className="lg:col-span-2">
                       <h2 className="font-display text-2xl font-semibold text-neutral-950">
-                        <Link
-                          href={
-                            post.slug?.current
-                              ? '/posts/${post.slug.current}'
-                              : '#'
-                          }
-                          className="hover:text-emerald-600"
-                        >
-                          {post.title}
-                        </Link>
+                        <Link href={`/posts/${post.slug.current}`}>{post.title}</Link>
                       </h2>
-                      <dl className="lg:absolute lg:left-0 lg:top-0 lg:w-1/3 lg:px-4">
-                        <dt className="sr-only">Published</dt>
-                        <dd className="absolute left-0 top-0 text-sm text-neutral-950 lg:static">
-                          <time dateTime={post.publishedAt || undefined}>
-                            {formatDate(
-                              post.publishedAt || new Date().toISOString(),
-                            )}
-                          </time>
-                        </dd>
-                        <dt className="sr-only">Author</dt>
-                        <dd className="mt-6 flex gap-x-4">
-                          <div className="flex-none overflow-hidden rounded-xl bg-neutral-100">
-                            {/* {post.author?.image != null &&
-                              <Image
-                                src={post.author.image.asset ? post.author.image.asset.url : ''}
-                                alt={
-                                  post.author.image.alt ||
-                                  post.author.name ||
-                                  'Author image'
-                                }
-                                width={48}
-                                height={48}
-                                className="h-12 w-12 object-cover grayscale"
-                              />
-                            } */}
-                          </div>
-                          <div className="text-sm text-neutral-950">
-                            <div className="font-semibold">
-                              {post.author?.name || 'Unknown Author'}
-                            </div>
-                            {/* Remove role since it doesn't exist in schema */}
-                          </div>
-                        </dd>
+                      <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-neutral-600">
+                        <div className="flex items-center gap-x-2">
+                          <dt className="sr-only">Author</dt>
+                          <dd className="font-semibold text-neutral-950">{post.author?.name}</dd>
+                        </div>
+                        <div className="flex items-center gap-x-2">
+                          <dt className="sr-only">Published</dt>
+                          <dd>
+                            <time dateTime={post.publishedAt}>
+                              {formatDate(post.publishedAt)}
+                            </time>
+                          </dd>
+                        </div>
                       </dl>
-                      <p className="mt-6 max-w-2xl text-base text-neutral-600">
-                        {post.description}
+                      {/* --- Preview Text --- */}
+                      {/* The 'excerpt' field is used here as the preview text. */}
+                      <p className="mt-4 max-w-2xl text-base text-neutral-600">
+                        {post.excerpt}
                       </p>
                       <Button
-                        href={`/posts/${post.slug?.current}`}
+                        href={`/posts/${post.slug.current}`}
                         aria-label={`Read more: ${post.title}`}
-                        className="mt-8"
+                        className="mt-6"
                       >
                         Read more
                       </Button>
@@ -116,8 +128,7 @@ export default async function Posts(): Promise<React.ReactElement> {
           ))}
         </div>
       </Container>
-
       <ContactSection />
     </AppLayout>
-  )
+  );
 }

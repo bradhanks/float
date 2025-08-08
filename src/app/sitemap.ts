@@ -1,7 +1,27 @@
-import type { MetadataRoute } from 'next'
+// src/app/sitemap.ts
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://yoursite.com'
+import { MetadataRoute } from 'next';
+import { client } from '@/sanity/lib/client';
+import { postPathsQuery } from '@/sanity/lib/queries';
+import groq from 'groq';
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = 'https://www.seedtoseries.com';
+
+  // Fetch all post slugs and their updated dates.
+  const posts = await client.fetch(
+    groq`*[_type == "post" && defined(slug.current)]{
+      "slug": slug.current,
+      "lastModified": coalesce(updatedAt, _updatedAt)
+    }`
+  );
+
+  const postUrls = posts.map((post: any) => ({
+    url: `${baseUrl}/posts/${post.slug}`,
+    lastModified: new Date(post.lastModified),
+    changeFrequency: 'weekly',
+    priority: 0.7,
+  }));
 
   return [
     {
@@ -22,11 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.5,
     },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-  ]
+    // Add other static pages here
+    ...postUrls,
+  ];
 }

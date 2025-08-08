@@ -1,7 +1,7 @@
 'use client'
 import { MotionDiv } from '@/components/MotionWrapper'
 
-import { createContext, useContext } from 'react'
+import { createContext, useContext, RefObject } from 'react'
 import { useReducedMotion } from 'motion/react'
 
 const FadeInStaggerContext = createContext(false)
@@ -24,10 +24,10 @@ export function FadeIn(
       {...(isInStaggerGroup
         ? {}
         : {
-            initial: 'hidden',
-            whileInView: 'visible',
-            viewport,
-          })}
+          initial: 'hidden',
+          whileInView: 'visible',
+          viewport,
+        })}
       {...props}
     />
   )

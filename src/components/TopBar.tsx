@@ -4,11 +4,17 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import { useContext } from 'react'
 import { AppLayoutContext } from '@/components/AppLayout'
-import { MenuIcon } from '@/components/Icon'
+import DynamicIcon from '@/components/Icon'
 import { Logo, Logomark } from '@/components/Logo'
 import { MotionDiv } from '@/components/MotionWrapper'
 import dynamic from 'next/dynamic'
 
+
+export const CalendlyButtonPlaceholder = () => (
+  <button className="bg-inherit font-sans text-sm font-semibold text-neutral-900 hover:text-emerald-700 active:text-emerald-500 dark:bg-inherit dark:text-white
+">Schedule call
+  </button>
+)
 const Container = dynamic(() =>
   import('@/components/Container').then((mod) => mod.Container),
 )
@@ -17,6 +23,11 @@ const Button = dynamic(() =>
 )
 const CalendlyButton = dynamic(() =>
   import('@/components/Button').then((mod) => mod.CalendlyButton),
+  {
+    loading: () => <CalendlyButtonPlaceholder />,
+    ssr: false
+
+  }
 )
 const ContactButton = dynamic(() =>
   import('@/components/Button').then((mod) => mod.PostHogButton),
@@ -67,12 +78,12 @@ export default function TopBar({
         <div className="flex items-center gap-x-8">
           {/* Desktop navigation items */}
           <div className="hidden md:flex items-center gap-x-6">
-            <Button mode="secondary" invert={inverted}>
+            <Button invert={inverted}>
               <Link href="/services">Services</Link>
             </Button>
-            <CalendlyButton invert={inverted} />
+            <CalendlyButton invert={inverted} size="sm" />
             <ContactButton invert={inverted} href="/contact" size="sm">
-              Let&apos;s talk
+              Contact us
             </ContactButton>
           </div>
 
@@ -129,7 +140,8 @@ export function MobileMenuButton({
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2 }}
         >
-          <MenuIcon
+          <DynamicIcon
+            name={inverted ? 'XMarkIcon' : 'Bars3Icon'}
             className={clsx(
               'h-6 w-6 transition-colors duration-200',
               inverted
@@ -137,6 +149,7 @@ export function MobileMenuButton({
                 : 'fill-neutral-950 group-hover:fill-neutral-700',
             )}
           />
+
         </MotionDiv>
       </button>
     </MotionDiv>

@@ -72,7 +72,7 @@ export const metadata: Metadata = {
   description: 'Let&apos;s work together. We can&apos;t wait to hear from you.',
 }
 
-export default function Contact() {
+export default async function Contact() {
   return (
     <AppLayout>
       <PageIntro eyebrow="Let's talk." title="Contact us">

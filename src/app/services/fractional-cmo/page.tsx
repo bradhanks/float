@@ -245,7 +245,7 @@ export default async function FractionalCMO() {
           <div className="space-y-3">
             {idealSituations.map((situation, index) => (
               <div key={index} className="flex items-start gap-3">
-                <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-emerald-500"></div>
+                <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-emerald-500"></div>
                 <div>
                   <p className="text-sm font-medium text-neutral-600">
                     {situation.scenario}
@@ -343,7 +343,7 @@ export default async function FractionalCMO() {
       </div>
 
       <div className="mx-auto mt-24 max-w-7xl px-6 sm:mt-32 lg:px-8">
-        <div className="rounded-2xl bg-gradient-to-r from-emerald-600 to-emerald-700 px-8 py-16 text-center">
+        <div className="rounded-2xl bg-linear-to-r from-emerald-600 to-emerald-700 px-8 py-16 text-center">
           <h2 className="mb-4 text-3xl font-bold text-white">
             Ready to accelerate your SaaS growth with proven marketing
             leadership?

@@ -107,7 +107,7 @@
 //   }
 
 //   const primaryClasses = clsx(
-//     'bg-gradient-to-r text-white border border-transparent',
+//     'bg-linear-to-r text-white border border-transparent',
 //     'hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0',
 //     'dark:shadow-lg dark:shadow-emerald-500/20',
 //     gradientVariants[variant],
@@ -115,10 +115,10 @@
 
 //   const primaryInvertClasses = clsx(
 //     'bg-white text-neutral-900 border border-neutral-200',
-//     'hover:bg-gradient-to-r hover:text-white hover:border-transparent hover:shadow-lg hover:-translate-y-0.5',
+//     'hover:bg-linear-to-r hover:text-white hover:border-transparent hover:shadow-lg hover:-translate-y-0.5',
 //     'active:translate-y-0',
 //     'dark:bg-neutral-900 dark:text-white dark:border-neutral-700',
-//     'dark:hover:bg-gradient-to-r dark:hover:text-white dark:hover:border-transparent',
+//     'dark:hover:bg-linear-to-r dark:hover:text-white dark:hover:border-transparent',
 //     `dark:hover:${gradientVariants[variant]}`,
 //     `hover:${gradientVariants[variant]}`,
 //   )
@@ -875,7 +875,7 @@
 // }: PostHogButtonProps) {
 //   const baseClasses = clsx(
 //     'relative inline-block  text-center group disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200',
-//     'border-[1.5px] rounded-[6px] top-[1px]',
+//     'border-[1.5px] rounded-[6px] top-px',
 //     {
 //       'text-[13px]': size === 'sm',
 //       'text-sm': size === 'md',
@@ -897,8 +897,8 @@
 //   // Inner span classes (the actual button appearance)
 //   const innerBaseClasses = clsx(
 //     'relative block w-auto text-center font-bold border-[1.5px] rounded-[6px] mx-[-1.5px]',
-//     'translate-y-[-2px] hover:translate-y-[-3px] active:translate-y-[-1px]',
-//     'group-disabled:hover:!translate-y-[-2px] active:transition-all active:duration-100',
+//     'translate-y-[-2px] hover:translate-y-[-3px] active:-translate-y-px',
+//     'group-disabled:hover:translate-y-[-2px]! active:transition-all active:duration-100',
 //     'select-none transition-all duration-200',
 //     {
 //       'px-3 py-1': size === 'sm',

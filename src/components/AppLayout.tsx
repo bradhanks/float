@@ -15,9 +15,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   const [logoHovered, setLogoHovered] = useState(false)
 
+
+
   return (
     <AppLayoutContext.Provider value={{ logoHovered, setLogoHovered }}>
-      <PageShell key={pathname}>{children}</PageShell>
+      <PageShell key={pathname}>
+        {children}</PageShell>
     </AppLayoutContext.Provider>
   )
 }

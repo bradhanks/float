@@ -1,30 +1,31 @@
 import clsx from 'clsx'
 import dynamic from 'next/dynamic'
+import type { RefObject } from 'react'
 
-const Container = dynamic(() =>
-  import('@/components/Container').then((mod) => mod.Container),
-)
-const FadeIn = dynamic(() =>
-  import('@/components/FadeIn').then((mod) => mod.FadeIn),
-)
+import { Container } from '@/components/Container'
+import { FadeIn } from '@/components/FadeIn'
+
 
 export function PageIntro({
   eyebrow,
   title,
   children,
   centered = false,
+  ref
 }: {
   eyebrow: string
   title: string
   children: React.ReactNode
   centered?: boolean
+  ref?: RefObject<HTMLInputElement>
 }) {
   return (
     <Container
       className={clsx(
-        'mt-16 sm:mt-24 md:mt-32 lg:mt-40',
+        'mt-8 sm:mt-12 md:mt-16 lg:mt-20',
         centered && 'text-center',
       )}
+      {...(ref ? { ref } : {})}
     >
       <FadeIn>
         <h1>

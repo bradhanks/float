@@ -1,9 +1,8 @@
 @import 'tailwindcss';
-@import './base.css';
 @import './typography.css' layer(components);
 
-@theme {
-  --text-*: initial;
+
+:root {
   --text-xs: 0.75rem;
   --text-xs--line-height: 1rem;
   --text-sm: 0.875rem;
@@ -29,13 +28,11 @@
 
   --radius-4xl: 2.5rem;
 
-  --font-sans:
-    Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: Mona Sans, ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
-  --font-display:
-    Mona Sans, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-display: Mona Sans, ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   --font-display--font-variation-settings: 'wdth' 125;
 
@@ -47,6 +44,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -57,16 +55,18 @@
   animation: fade-in 0.6s ease-out forwards;
 }
 
-.animate-fade-in-stagger > * {
+.animate-fade-in-stagger>* {
   animation: fade-in 0.6s ease-out forwards;
 }
 
-.animate-fade-in-stagger > *:nth-child(1) {
+.animate-fade-in-stagger>*:nth-child(1) {
   animation-delay: 0.1s;
 }
-.animate-fade-in-stagger > *:nth-child(2) {
+
+.animate-fade-in-stagger>*:nth-child(2) {
   animation-delay: 0.2s;
 }
-.animate-fade-in-stagger > *:nth-child(3) {
+
+.animate-fade-in-stagger>*:nth-child(3) {
   animation-delay: 0.3s;
 }

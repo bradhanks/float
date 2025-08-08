@@ -1,6 +1,6 @@
 import { createClient, type QueryParams } from 'next-sanity'
 
-import { apiVersion, dataset, projectId } from '../env'
+import { apiVersion, dataset, projectId, studioURL } from '../env'
 
 export const dynamic = 'force-static'
 
@@ -10,7 +10,10 @@ export const client = createClient({
   projectId: projectId,
   dataset: dataset,
   apiVersion: apiVersion, // https://www.sanity.io/docs/api-versioning
-  useCdn: false,
+  useCdn: true,
+  stega: { studioUrl: '/studio' },
+
+
 })
 
 export async function sanityFetch<const QueryString extends string>({

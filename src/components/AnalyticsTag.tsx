@@ -1,6 +1,4 @@
 'use client'
-
-import { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import { useDistinctId } from '@/hooks/useDistinctId'
 
@@ -19,11 +17,14 @@ function ClientGTM() {
 
   const dataLayer = distinctId
     ? {
-        distinct_id: distinctId,
-      }
+      distinct_id: distinctId,
+    }
     : undefined
 
-  return <GoogleTagManager gtmId="GTM-PP2P57S" dataLayer={dataLayer} />
+  return <GoogleTagManager
+    gtmId="GTM-W63GMCMM"
+    gtmScriptUrl={'https://seedtoseries.com/data/jsc?containerId=GTM-W63GMCMM'}
+    dataLayer={dataLayer} />
 }
 
 export default function AnalyticsTag() {

@@ -19,9 +19,9 @@ type ButtonProps = {
   icon?: ComponentType<SVGAttributes<SVGElement>>
   iconPosition?: 'left' | 'right'
 } & (
-  | React.ComponentPropsWithoutRef<typeof Link>
-  | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined })
-)
+    | React.ComponentPropsWithoutRef<typeof Link>
+    | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined })
+  )
 
 export function Button({
   invert = false,
@@ -136,35 +136,75 @@ interface CalendlyButtonProps {
   className?: string
 }
 
+export const CalendlyButtonPlaceholder = () => (
+  <div className="h-[72px] w-full"> {/* Adjust height to match your TopBar's height */}
+    {/* Optional: Add a subtle loading indicator */}
+    <div className="animate-pulse h-full w-full bg-gray-100 dark:bg-gray-800 rounded-lg"></div>
+  </div>
+)
 export function CalendlyButton({
   invert = false,
+  size = 'sm',
   className,
-}: CalendlyButtonProps) {
-  const [mounted, setMounted] = useState(false)
+}: {
+  invert?: boolean
+  size?: 'sm' | 'md' | 'lg'
+  className?: string
+}) {
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
-  if (!mounted) return null
+
+  const baseClasses = clsx(
+    'relative inline-block text-center group disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200',
+    'border-[1.5px] rounded-[6px] top-px',
+    {
+      'text-[13px]': size === 'sm',
+      'text-sm': size === 'md',
+      'text-base': size === 'lg',
+    },
+  )
+
+  // Outer container classes
+  const outerClasses = clsx(
+    className,
+    baseClasses,
+    invert
+      ? 'bg-emerald-800 border-white dark:bg-emerald-900/20 dark:border-transparent'
+      : 'bg-emerald-100 border-gray-300 dark:bg-gray-800 dark:border-gray-600'
+  )
+
+  // Inner span classes (the actual button appearance)
+  const innerClasses = clsx(
+    'relative block w-auto text-center font-bold border-[1.5px] rounded-[6px] mx-[-1.5px]',
+    'translate-y-[-2px] hover:translate-y-[-3px] active:-translate-y-px',
+    'group-disabled:hover:translate-y-[-2px]! active:transition-all active:duration-100',
+    'select-none transition-all duration-200',
+    {
+      'px-3 py-1': size === 'sm',
+      'px-3.5 py-1.5': size === 'md',
+      'px-4 py-2': size === 'lg',
+    },
+    invert
+      ? 'bg-emerald-800 border-white border-emerald-400 bg-emerald-400 text-white bg-emerald-50 active:border-emerald-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 dark:hover:text-emerald-400 dark:hover:border-emerald-400 dark:active:text-emerald-300 dark:active:border-emerald-500'
+      : 'border-emerald-500 bg-white text-gray-900 hover:border-emerald-600 dark:bg-gray-900 dark:text-gray-100 dark:border-emerald-400 dark:hover:text-emerald-300 dark:hover:border-emerald-300 dark:active:text-emerald-200'
+  )
 
   return (
-    <PopupButton
-      url="https://calendly.com/float-consulting/meet"
-      rootElement={document.querySelector('header') || document.body}
-      text="Schedule call"
-      className={clsx(
-        'bg-inherit font-sans text-sm font-semibold text-neutral-900 hover:text-emerald-700 active:text-emerald-500',
-        'dark:bg-inherit dark:text-white',
-        invert && 'text-white hover:text-emerald-500 active:text-emerald-400',
-        className,
-      )}
-      pageSettings={{
-        backgroundColor: 'ffffff',
-        primaryColor: '00a2ff',
-        textColor: '4d5055',
-      }}
-    />
+    <div className={outerClasses}>
+
+      <PopupButton
+        url="https://calendly.com/series-lab/meet"
+        rootElement={document.querySelector('header') || document.body}
+        text="Schedule call"
+        className={innerClasses}
+        pageSettings={{
+          backgroundColor: 'ffffff',
+          primaryColor: '00a2ff',
+          textColor: '4d5055',
+        }}
+      />
+
+    </div>
   )
 }
 
@@ -173,9 +213,9 @@ type PostHogButtonProps = {
   mode?: 'primary' | 'secondary'
   size?: 'sm' | 'md' | 'lg'
 } & (
-  | React.ComponentPropsWithoutRef<typeof Link>
-  | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined })
-)
+    | React.ComponentPropsWithoutRef<typeof Link>
+    | (React.ComponentPropsWithoutRef<'button'> & { href?: undefined })
+  )
 
 export function PostHogButton({
   invert = false,

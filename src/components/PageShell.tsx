@@ -11,7 +11,8 @@ const Footer = dynamic(() => import('@/components/Footer')
 )
 const BackgroundPattern = dynamic(() => import('@/components/BackgroundPattern'))
 
-import { MotionDiv } from '@/components/MotionWrapper'
+const MotionDiv = dynamic(() => import('@/components/MotionWrapper').then((mod) => (mod.MotionDiv
+)))
 
 export default function PageShell({ children }: { children: React.ReactNode }) {
   const mobileMenuId = useId()
@@ -80,7 +81,10 @@ export default function PageShell({ children }: { children: React.ReactNode }) {
             delay: isAnimating ? 0.1 : 0
           }}
         >
-          <BackgroundPattern />
+          <BackgroundPattern className="absolute inset-x-0 -top-14 -z-10 h-[1000px] w-full mask-[linear-gradient(to_bottom_left,white_40%,transparent_50%)] fill-neutral-50 stroke-emerald-950/5"
+            yOffset={-96}
+            interactive
+          />
 
           <main className="w-full flex-auto">{children}</main>
 

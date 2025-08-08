@@ -13,6 +13,30 @@
  */
 
 // Source: schema.json
+export type Review = {
+  _type: 'review'
+  author?: string
+  rating?: number
+  reviewBody?: string
+  datePublished?: string
+}
+
+export type FaqGroup = {
+  _type: 'faqGroup'
+  title?: string
+  faqs?: Array<
+    {
+      _key: string
+    } & Faq
+  >
+}
+
+export type Faq = {
+  _type: 'faq'
+  question?: string
+  answer?: string
+}
+
 export type Tag = {
   _id: string
   _type: 'tag'
@@ -197,6 +221,16 @@ export type Post = {
     [internalGroqTypeReferenceTo]?: 'post'
   }>
   seo?: Seo
+  faqSection?: Array<
+    {
+      _key: string
+    } & FaqGroup
+  >
+  reviews?: Array<
+    {
+      _key: string
+    } & Review
+  >
 }
 
 export type Page = {
@@ -443,6 +477,17 @@ export type Category = {
     alt?: string
     _type: 'image'
   }
+  seo?: Seo
+}
+
+export type CaseStudy = {
+  _id: string
+  _type: 'caseStudy'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+  slug?: Slug
   seo?: Seo
 }
 
@@ -708,6 +753,9 @@ export type SanityAssetSourceData = {
 }
 
 export type AllSanitySchemaTypes =
+  | Review
+  | FaqGroup
+  | Faq
   | Tag
   | Subscriber
   | Menu
@@ -716,6 +764,7 @@ export type AllSanitySchemaTypes =
   | Media
   | Event
   | Category
+  | CaseStudy
   | Seo
   | BlockContent
   | Author
@@ -738,13 +787,13 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol
 // Source: ./src/sanity/lib/queries.ts
 // Variable: POSTS_QUERY
-// Query: *[_type == "post" && defined(slug.current)][0...12]{  _id,  title,  slug,  publishedAt,  description,  mainImage{    asset->{      _id,      url    },    alt,    hotspot,    crop  },  author->{    _id,    name,    slug,    image->{      asset->{        _id,        url      },      alt,      hotspot,      crop    },    bio  },  categories[]->{    _id,    title,    slug  },  body[0...2]{    ...,    _type == "block" => {      children[0]{        text      }    }  }}
+// Query: *[_type == "post" && defined(slug.current)][0...12]{  _id,  title,  slug,  publishedAt,  excerpt,  mainImage{    asset->{      _id,      url    },    alt,    hotspot,    crop  },  author->{    _id,    name,    slug,    image->{      asset->{        _id,        url      },      alt,      hotspot,      crop    },    bio  },  categories[]->{    _id,    title,    slug  },  body[0...2]{    ...,    _type == "block" => {      children[0]{        text      }    }  }}
 export type POSTS_QUERYResult = Array<{
   _id: string
   title: string | null
   slug: Slug | null
   publishedAt: string | null
-  description: null
+  excerpt: string | null
   mainImage: {
     asset: {
       _id: string
@@ -816,10 +865,12 @@ export type POSTS_QUERYResult = Array<{
   > | null
 }>
 // Variable: postQuery
-// Query: *[_type == "post" && slug.current == $slug][0]{    title, description, mainImage, body  }
+// Query: *[_type == "post" && slug.current == $slug][0]{  _id,  title,  excerpt,  "slug": slug.current,  mainImage,  body,  publishedAt,  updatedAt,  status,  featured,  sticky,  readingTime,  author->{    name,    "slug": slug.current,    image,    bio  },  coAuthors[]->{    name,    "slug": slug.current,    image  },  categories[]->{    title,    "slug": slug.current  },  tags[]->{    title,    "slug": slug.current  },  relatedPosts[]->{    title,    "slug": slug.current,    excerpt  },  seo,  "imageUrl": mainImage.asset->url}
 export type PostQueryResult = {
+  _id: string
   title: string | null
-  description: null
+  excerpt: string | null
+  slug: string | null
   mainImage: {
     asset?: {
       _ref: string
@@ -880,10 +931,87 @@ export type PostQueryResult = {
         _key: string
       }
   > | null
+  publishedAt: string | null
+  updatedAt: string | null
+  status: 'draft' | 'private' | 'published' | 'scheduled' | null
+  featured: boolean | null
+  sticky: boolean | null
+  readingTime: number | null
+  author: {
+    name: string | null
+    slug: string | null
+    image: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      alt?: string
+      _type: 'image'
+    } | null
+    bio: BlockContent | null
+  } | null
+  coAuthors: Array<{
+    name: string | null
+    slug: string | null
+    image: {
+      asset?: {
+        _ref: string
+        _type: 'reference'
+        _weak?: boolean
+        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset'
+      }
+      media?: unknown
+      hotspot?: SanityImageHotspot
+      crop?: SanityImageCrop
+      alt?: string
+      _type: 'image'
+    } | null
+  }> | null
+  categories: Array<{
+    title: string | null
+    slug: string | null
+  }> | null
+  tags: Array<{
+    title: string | null
+    slug: string | null
+  }> | null
+  relatedPosts: Array<{
+    title: string | null
+    slug: string | null
+    excerpt: string | null
+  }> | null
+  seo: Seo | null
+  imageUrl: string | null
 } | null
 // Variable: postPathsQuery
-// Query: *[_type == "post" && defined(slug.current)][]{    "params": { "slug": slug.current }  }
+// Query: *[_type == "post" && defined(slug.current)][]{"params": { "slug": slug.current }}
 export type PostPathsQueryResult = Array<{
+  params: {
+    slug: string | null
+  }
+}>
+// Variable: categoryPathsQuery
+// Query: *[_type == "post" && defined(slug.current) && references(*[_type == "category" && slug.current == $categorySlug]._id)]{  "params": { "slug": slug.current }}
+export type CategoryPathsQueryResult = Array<{
+  params: {
+    slug: string | null
+  }
+}>
+// Variable: tagPathsQuery
+// Query: *[_type == "post" && defined(slug.current) && references(*[_type == "tag" && slug.current == $tagSlug]._id)]{  "params": { "slug": slug.current }}
+export type TagPathsQueryResult = Array<{
+  params: {
+    slug: string | null
+  }
+}>
+// Variable: caseStudyPathsQuery
+// Query: *[_type == "caseStudy" && defined(slug.current)][]{  "params": { "slug": slug.current }}
+export type CaseStudyPathsQueryResult = Array<{
   params: {
     slug: string | null
   }
@@ -893,8 +1021,11 @@ export type PostPathsQueryResult = Array<{
 import '@sanity/client'
 declare module '@sanity/client' {
   interface SanityQueries {
-    '*[_type == "post" && defined(slug.current)][0...12]{\n  _id,\n  title,\n  slug,\n  publishedAt,\n  description,\n  mainImage{\n    asset->{\n      _id,\n      url\n    },\n    alt,\n    hotspot,\n    crop\n  },\n  author->{\n    _id,\n    name,\n    slug,\n    image->{\n      asset->{\n        _id,\n        url\n      },\n      alt,\n      hotspot,\n      crop\n    },\n    bio\n  },\n  categories[]->{\n    _id,\n    title,\n    slug\n  },\n  body[0...2]{\n    ...,\n    _type == "block" => {\n      children[0]{\n        text\n      }\n    }\n  }\n}': POSTS_QUERYResult
-    '*[_type == "post" && slug.current == $slug][0]{\n    title, description, mainImage, body\n  }': PostQueryResult
-    '*[_type == "post" && defined(slug.current)][]{\n    "params": { "slug": slug.current }\n  }': PostPathsQueryResult
+    '*[_type == "post" && defined(slug.current)][0...12]{\n  _id,\n  title,\n  slug,\n  publishedAt,\n  excerpt,\n  mainImage{\n    asset->{\n      _id,\n      url\n    },\n    alt,\n    hotspot,\n    crop\n  },\n  author->{\n    _id,\n    name,\n    slug,\n    image->{\n      asset->{\n        _id,\n        url\n      },\n      alt,\n      hotspot,\n      crop\n    },\n    bio\n  },\n  categories[]->{\n    _id,\n    title,\n    slug\n  },\n  body[0...2]{\n    ...,\n    _type == "block" => {\n      children[0]{\n        text\n      }\n    }\n  }\n}': POSTS_QUERYResult
+    '*[_type == "post" && slug.current == $slug][0]{\n  _id,\n  title,\n  excerpt,\n  "slug": slug.current,\n  mainImage,\n  body,\n  publishedAt,\n  updatedAt,\n  status,\n  featured,\n  sticky,\n  readingTime,\n  author->{\n    name,\n    "slug": slug.current,\n    image,\n    bio\n  },\n  coAuthors[]->{\n    name,\n    "slug": slug.current,\n    image\n  },\n  categories[]->{\n    title,\n    "slug": slug.current\n  },\n  tags[]->{\n    title,\n    "slug": slug.current\n  },\n  relatedPosts[]->{\n    title,\n    "slug": slug.current,\n    excerpt\n  },\n  seo,\n  "imageUrl": mainImage.asset->url\n}': PostQueryResult
+    '*[_type == "post" && defined(slug.current)][]{\n"params": { "slug": slug.current }\n}': PostPathsQueryResult
+    '*[_type == "post" && defined(slug.current) && references(*[_type == "category" && slug.current == $categorySlug]._id)]{\n  "params": { "slug": slug.current }\n}': CategoryPathsQueryResult
+    '*[_type == "post" && defined(slug.current) && references(*[_type == "tag" && slug.current == $tagSlug]._id)]{\n  "params": { "slug": slug.current }\n}': TagPathsQueryResult
+    '*[_type == "caseStudy" && defined(slug.current)][]{\n  "params": { "slug": slug.current }\n}': CaseStudyPathsQueryResult
   }
 }
