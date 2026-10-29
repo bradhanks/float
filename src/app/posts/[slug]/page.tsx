@@ -28,8 +28,9 @@ export async function generateStaticParams() {
 
 // --- NEW: generateMetadata Function ---
 // This function dynamically generates metadata for each post page.
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const result = await sanityFetch({ query: postQuery, params });
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const result = await sanityFetch({ query: postQuery, params: { slug } });
 
   const post = result?.data;
   if (!post) {
@@ -71,10 +72,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 // This is the main component for the blog post page. It receives the `slug`
 // from the URL as a parameter.
 // --- Page Component ---
-const PostPage = async ({ params }: { params: { slug: string } }) => {
+const PostPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
   const { data: post } = await sanityFetch({
     query: postQuery,
-    params: { slug: params.slug },
+    params: { slug },
   });
 
   return (
