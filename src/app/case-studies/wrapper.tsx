@@ -106,10 +106,14 @@ export default async function CaseStudyLayout({
                     <dt className="font-semibold text-neutral-950">Years</dt>
                     <dd className="mt-1 text-neutral-600">{caseStudy.years}</dd>
                   </div>
-                  <div>
-                    <dt className="font-semibold text-neutral-950">Role</dt>
-                    <dd className="mt-1 text-neutral-600">{caseStudy.role}</dd>
-                  </div>
+                  {caseStudy.role && (
+                    <div>
+                      <dt className="font-semibold text-neutral-950">Role</dt>
+                      <dd className="mt-1 text-neutral-600">
+                        {caseStudy.role}
+                      </dd>
+                    </div>
+                  )}
                   <div>
                     <dt className="font-semibold text-neutral-950">
                       What we did

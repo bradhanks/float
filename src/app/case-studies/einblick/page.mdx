@@ -1,0 +1,72 @@
+import logo from '@/images/clients/einblick-ai/logomark-dark.svg'
+
+export const caseStudy = {
+  client: 'Einblick',
+  title: 'Python tutorials that took organic traffic from 3,000 to 40,000 visits a month',
+  description:
+    'A long-tail content program, built with an NLP pipeline, put a seed-stage data science platform in front of data engineers while they were writing code.',
+  logo,
+  date: '2023-12',
+  years: '2022 to 2023',
+  services: [
+    'Keyword research',
+    'Long-tail SEO content',
+    'AI content pipeline',
+    'Code tutorial library',
+  ],
+  stats: [
+    { value: '3K to 40K+', label: 'Monthly organic visits' },
+    { value: '60 of 150', label: 'Articles on page one of Google' },
+    { value: '~1,200', label: 'New signups from the articles' },
+    { value: 'Jan 2024', label: 'Databricks announced the acquisition' },
+  ],
+}
+
+export const metadata = {
+  title: `${caseStudy.client} case study`,
+  description: caseStudy.description,
+}
+
+## Executive Summary
+
+Einblick, a seed-funded data science platform spun out of MIT and Brown University research, needed data engineers and data scientists to know it existed. We built a long-tail[^1] content program of how-to articles on individual Python functions, such as pandas groupby() and Python's next(). A Python pipeline using NLP[^2] libraries and custom scripts studied what the top-ranking pages covered for each function and turned that into structured drafts. The articles put Einblick in front of its audience at the top of the funnel[^3], while they were in the middle of writing code. By December 2023, monthly organic traffic had grown from about 3,000 visits to more than 40,000, and 60 of the 150 articles had reached page one of Google. Databricks announced its acquisition of Einblick in January 2024.[^4]
+
+## Background
+
+Einblick was founded in 2019 by researchers from MIT and Brown, and came out of stealth in December 2020 with $6 million in seed funding.[^5] Its product was a collaborative data science platform for working in Python and SQL, and it later added an AI assistant that wrote code and charts from plain-English prompts.[^4] We worked with Einblick from September 2022 to December 2023.
+
+## The Problem
+
+Data engineers rarely search for a new data platform. They search all day for how to do one specific thing in Python: group a table, tokenize text, plot a histogram. Each of those searches is small, but there are thousands of them, and documentation sites and coding blogs already compete for every one. A seed-stage team could not write that many accurate code tutorials by hand.
+
+When we started, einblick.ai had about 40 indexed pages, mostly product and docs pages, and brought in roughly 3,000 organic visits a month. Content was handled part-time by the founding team in between product launches.
+
+## The Approach
+
+### Picking the functions
+
+We started from the top 100 target keywords and read the top 20 ranking pages for each. Function-level searches like "pandas groupby agg" became the article list, weighted toward the keywords Einblick most wanted to win. We built the list in Ahrefs, pulling every function-level query for the major Python data libraries and filtering by search volume, keyword difficulty and how closely the task matched something Einblick could do.
+
+### The pipeline
+
+Python scripts collected the ranking pages, pulled out the subtopics and examples they covered, and turned that into prompts. Competitor pages were used to fine-tune[^6] the output so each draft covered what the top results covered. Scraping ran on requests and BeautifulSoup, spaCy handled topic extraction, and drafts were generated with OpenAI's GPT-3.5 and GPT-4 models.
+
+### The library
+
+The articles went live under einblick.ai/python-code-examples, covering pandas, NumPy, SciPy, seaborn, matplotlib, statsmodels, scikit-learn and NLTK.[^7] Each follows one shape: a short intro, a real dataset, then a run of worked code examples with their output, ending with a pitch to try Einblick. About 150 articles went live between March and August 2023. Einblick's data scientists ran every code example and checked the output before an article was published.
+
+## Results
+
+- Monthly organic traffic grew from about 3,000 visits to more than 40,000 between the first articles going live and December 2023.
+- 60 of the 150 function articles reached page one of Google, including the guides to pandas groupby() with agg() and Python's next().
+- The articles drove roughly 1,200 new Einblick signups, making organic search the largest single source of new accounts.
+
+On January 30, 2024, Databricks announced it would acquire Einblick and fold its AI-native approach into the Databricks platform. Terms were not disclosed.[^4] By the time of the deal, the code examples library was the most visited section of einblick.ai and the main way new users found the product.
+
+[^1]: Long tail: the many low-volume, very specific searches that together add up to more traffic than a few popular terms.
+[^2]: NLP (natural language processing): software that reads and pulls meaning out of human language.
+[^3]: Top of the funnel: the first stage of a buyer's path, when someone first comes across a product and isn't shopping yet.
+[^4]: [Databricks blog](https://databricks.com/blog/welcome-data-intelligence-platform-databricks-einblick) (Jan 30, 2024); [VentureBeat](https://venturebeat.com/ai/databricks-acquires-team-behind-natural-language-data-notebook-einblick) (Jan 30, 2024)
+[^5]: [Brown CS News](https://cs.brown.edu/news/2020/12/10/einblick-spawned-brownmit-research-debuts-new-visual-data-computing-platform/) (Dec 10, 2020)
+[^6]: Fine-tune: adjust an AI model with example material so its output fits a subject or style.
+[^7]: Example: ["Aggregate and summarize your data with pandas groupby() and agg()"](https://www.einblick.ai/python-code-examples/pandas-groupby-agg/) (May 4, 2023)

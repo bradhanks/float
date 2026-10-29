@@ -63,7 +63,7 @@ export interface ClientStory {
   description: string
   logo: ImageProps['src']
   years: string
-  role: string
+  role?: string
   services: Array<string>
   stats: Array<{ value: string; label: string }>
   draft?: boolean
