@@ -56,6 +56,26 @@ export interface CaseStudy {
   }
 }
 
+export interface ClientStory {
+  date: string
+  client: string
+  title: string
+  description: string
+  logo: ImageProps['src']
+  years: string
+  role: string
+  services: Array<string>
+  stats: Array<{ value: string; label: string }>
+  draft?: boolean
+  testimonial?: {
+    author: {
+      name: string
+      role: string
+    }
+    content: string
+  }
+}
+
 export interface Service {
   date: string
   title: string
@@ -75,6 +95,10 @@ export function loadArticles() {
 
 export function loadCaseStudies() {
   return loadEntries<CaseStudy>('customers', 'caseStudy')
+}
+
+export function loadClientStories() {
+  return loadEntries<ClientStory>('case-studies', 'caseStudy')
 }
 
 export function loadServices() {

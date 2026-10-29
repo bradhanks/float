@@ -102,6 +102,12 @@ export default async function config() {
             ),
             [[remarkMDXLayout, '@/app/customers/wrapper', 'caseStudy']],
           ],
+          [
+            new RegExp(
+              `^${escapeStringRegexp(path.resolve('src/app/case-studies'))}`,
+            ),
+            [[remarkMDXLayout, '@/app/case-studies/wrapper', 'caseStudy']],
+          ],
         ],
       ],
     },

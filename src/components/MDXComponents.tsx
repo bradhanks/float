@@ -8,7 +8,21 @@ import { StatList, StatListItem } from '@/components/StatList'
 import { TagList, TagListItem } from '@/components/TagList'
 import { CodeBlock, InlineCode } from '@/components/mdx/CodeBlock'
 import { Example } from '@/components/mdx/Example'
+import { OpenQuestion } from '@/components/OpenQuestion'
+
+function slugify(node: React.ReactNode): string | undefined {
+  if (typeof node !== 'string') return undefined
+  return node
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+}
+
 export const MDXComponents = {
+  h2: function H2(props: React.ComponentPropsWithoutRef<'h2'>) {
+    return <h2 {...props} id={props.id ?? slugify(props.children)} />
+  },
+  OpenQuestion,
   Blockquote({
     className,
     ...props

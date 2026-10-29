@@ -1,0 +1,79 @@
+import logo from '@/images/clients/lucid-software/logomark-dark.svg'
+
+export const caseStudy = {
+  client: 'Lucid Software',
+  title: 'A homepage built around how people actually used the product',
+  description:
+    'We grouped Lucidchart users by what they did inside the product, gave each group its own path from the homepage, and lifted sign-ups 7%.',
+  logo,
+  date: '2015-08',
+  years: '2012 to 2015',
+  role: 'First marketing hire, later growth lead',
+  services: [
+    'Customer segmentation',
+    'Homepage and landing pages',
+    'A/B testing',
+    'Funnel analytics',
+  ],
+  stats: [
+    { value: '7%', label: 'More sign-ups from the persona homepage' },
+    { value: '$1M to $8M', label: 'ARR while Brad led marketing' },
+    { value: '60%', label: 'New users from inbound' },
+    { value: '2 to 10', label: 'Marketing team size' },
+  ],
+  draft: true,
+  testimonial: {
+    author: { name: 'Dave Grow', role: 'CEO of Lucid' },
+    content:
+      'Brad was our first marketing hire at Lucid and we made the right decision! Brad is exactly the type of person you want in a startup — result-oriented, creative, and simply gets things done. We miss Brad at Lucid but are very excited for him with his new venture. No doubt he will find a way to crush it!',
+  },
+}
+
+export const metadata = {
+  title: `${caseStudy.client} case study`,
+  description: caseStudy.description,
+  robots: { index: false },
+}
+
+## Executive Summary
+
+Lucid Software, the Utah company behind the online diagramming tool Lucidchart, grew from $1M to $8M in annual recurring revenue while Brad Hanks led its early marketing. One of the biggest single wins came from the homepage. We grouped users by what they actually did inside the product using k-means clustering[^1], found three distinct personas, and rebuilt the homepage so each visitor could get to a page written for their kind of work. In an A/B test[^2] the persona homepage lifted sign-ups 7% over the original.
+
+## Background
+
+Lucidchart was first released in 2008 by founders Ben Dilts and Karl Sun.[^3] It sold as a freemium, self-serve product to individuals and teams, with an enterprise tier on top. Brad joined in 2012 as Lucid's first marketing hire and was later promoted to lead growth, building the team from two people to ten (creative, developers, content and marketing ops). <OpenQuestion>start and end months at Lucid.</OpenQuestion>
+
+## The Problem
+
+The homepage did more selling than any other page. In late 2014 it was the first page visitors saw for about half of all payments that came through non-paid channels.[^4] <OpenQuestion>are you comfortable publishing internal Lucid figures like this one?</OpenQuestion>
+
+That one page had to work for very different people: a developer drawing a database diagram, a manager building an org chart, a designer wireframing an app. A single generic message had to cover all of them. Search added to the mix, because Lucid's strongest organic pages were "Visio for Mac" and "Visio alternative," so many visitors arrived knowing only that they wanted something like Visio.
+
+## The Approach
+
+### Personas from product data
+
+We built the personas from behavior inside Lucidchart. Running k-means clustering on in-app usage <OpenQuestion>which signals you clustered on, such as shape libraries, templates or document types</OpenQuestion> split users into three groups: Developer, Business and UX. <OpenQuestion>the November 2014 test plan names the persona pages Business, IT and PMD. Which labels should the case study use, and what did PMD stand for?</OpenQuestion>
+
+### The persona homepage test
+
+The test homepage sent visitors to a page for their persona, each with its own top banner, feature tour, examples and a demo set up for that use. Every sign-up and demo button was tagged in Kissmetrics[^5] by test version and position (menu, top banner, below the fold), so we could see where each version moved people down the funnel and whether persona demos beat the blank demo. <OpenQuestion>test dates, how long it ran, and whether the persona version became the permanent homepage.</OpenQuestion> <OpenQuestion>do you want to credit the designers you worked with by name?</OpenQuestion>
+
+### Visio for Mac
+
+The same idea, matching the page to the exact need, drove the "Visio for Mac" landing page. Microsoft never made Visio for the Mac, so Mac users searching for it found a page built for them, with a matching AdWords campaign behind it. <OpenQuestion>confirm the AdWords campaign and the year the page launched.</OpenQuestion>
+
+## Results
+
+- The persona homepage lifted sign-ups 7% over the original. <OpenQuestion>confidence level or sample size, if you have it.</OpenQuestion>
+- "Visio for Mac" became Lucid's top-earning landing page outside the homepage. <OpenQuestion>your resume says 6% of new revenue; a June 2015 planning deck shows Visio for Mac pages at 14% of new subscriptions for January to March 2015. Which number should we use?</OpenQuestion>
+- Revenue doubled year over year, and ARR grew from $1M to $8M, with inbound traffic bringing in 60% of new users. <OpenQuestion>the years for the $1M and $8M figures.</OpenQuestion>
+- Marketing grew from a team of two to a department of ten.
+
+Lucid kept compounding after Brad's time there. In October 2018 it raised $72 million from Meritech Capital, Spectrum Equity and ICONIQ Capital.[^3]
+
+[^1]: k-means clustering: a method that sorts records into a set number of groups so the items in each group are as alike as possible.
+[^2]: A/B test: showing two versions of a page to random sets of visitors and comparing how each performs.
+[^3]: Wikipedia, "Lucidchart," https://en.wikipedia.org/wiki/Lucidchart
+[^4]: Lucid marketing update, November 2014 (internal deck).
+[^5]: Kissmetrics: an analytics tool that tracks what individual visitors do on a website.
