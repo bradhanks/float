@@ -20,6 +20,12 @@ const nextConfig: NextConfig = {
   },
   turbopack: {},
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
+  // Case study lists are read from disk at request time, so ship the MDX
+  // sources with those routes.
+  outputFileTracingIncludes: {
+    '/case-studies': ['./src/app/case-studies/**/page.mdx'],
+    '/case-studies/*': ['./src/app/case-studies/**/page.mdx'],
+  },
   async rewrites() {
     return [
       {
