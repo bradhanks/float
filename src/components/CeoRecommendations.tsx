@@ -34,7 +34,7 @@ const recommendations = [
   {
     name: 'Mary Hagen',
     title: 'CEO',
-    company: null,
+    company: 'Colossal',
     quote: [
       "Brad is one of the most multi-talented businessmen I've had the pleasure of working with. He is efficient and trustworthy, and has an excellent sense of direction when pushing a project across the goal line. Brad and I have worked together on multiple occasions, and I have been extremely pleased with his performance each and every time. I consider him my go-to developer and project manager.",
     ],
