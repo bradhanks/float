@@ -25,6 +25,9 @@ const Container = dynamic(() =>
 const SectionIntro = dynamic(() =>
   import('@/components/SectionIntro').then((mod) => mod.SectionIntro),
 )
+const CeoRecommendations = dynamic(() =>
+  import('@/components/CeoRecommendations').then((mod) => mod.CeoRecommendations),
+)
 const AppLayout = dynamic(() =>
   import('@/components/AppLayout'),
 )
@@ -172,6 +175,7 @@ export default async function Home() {
 
       <Customers />
       <Services />
+      <CeoRecommendations />
       <CaseStudies caseStudies={caseStudies} />
 
       <ContactSection />
